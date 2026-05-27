@@ -1,0 +1,836 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@wasrusgen1 | РАДАР — Брендбук 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sidebar-w: 220px;
+    --brand-primary: #0E7490;
+    --brand-dark: #164E63;
+    --brand-mid: #06B6D4;
+    --brand-light: #ECFEFF;
+    --s-success: #10B981; --s-success-bg: #ECFDF5;
+    --s-warning: #F59E0B; --s-warning-bg: #FFFBEB;
+    --s-danger: #EF4444; --s-danger-bg: #FEF2F2;
+    --s-info: #06B6D4; --s-info-bg: #ECFEFF;
+    --sidebar-bg: #0F0F1A;
+    --sidebar-text: #9CA3AF;
+    --sidebar-active: #F9FAFB;
+    --sidebar-accent: #0E7490;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #F5F6F8; color: #1A1A2E; display: flex; min-height: 100vh; }
+
+  .sidebar { width: var(--sidebar-w); background: var(--sidebar-bg); position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; padding: 0 0 24px; }
+  .sidebar-logo { padding: 24px 20px 20px; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 8px; }
+  .sidebar-logo .logo-mark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: #fff; letter-spacing: -.5px; display: flex; align-items: center; gap: 6px; }
+  .sidebar-logo .at-sign { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: linear-gradient(135deg, #0E7490, #06B6D4); border-radius: 8px; font-size: 15px; color: #fff; }
+  .sidebar-logo .sub { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--sidebar-text); margin-top: 6px; font-weight: 400; letter-spacing: .03em; }
+  .sidebar nav { flex: 1; }
+  .nav-section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(156,163,175,.5); padding: 16px 20px 6px; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; color: var(--sidebar-text); text-decoration: none; font-size: 13px; font-weight: 500; border-left: 2px solid transparent; transition: all .15s; cursor: pointer; }
+  .nav-item:hover { color: var(--sidebar-active); background: rgba(255,255,255,.04); }
+  .nav-item.active { color: var(--sidebar-active); border-left-color: var(--sidebar-accent); background: rgba(14,116,144,.1); }
+  .nav-item .nav-num { font-size: 10px; font-weight: 700; color: rgba(156,163,175,.4); min-width: 18px; }
+
+  .main { margin-left: var(--sidebar-w); flex: 1; min-width: 0; }
+  section { padding: 64px 56px; border-bottom: 1px solid #E5E7EB; }
+  section:last-child { border-bottom: none; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #8A94A6; margin-bottom: 8px; }
+  .section-title { font-size: 32px; font-weight: 800; color: #0F0F1A; margin-bottom: 8px; letter-spacing: -.02em; }
+  .section-desc { font-size: 15px; color: #6B7280; max-width: 640px; line-height: 1.6; margin-bottom: 40px; }
+
+  /* COVER */
+  #cover { background: linear-gradient(145deg, #042F2E 0%, #134E4A 40%, #0F766E 100%); min-height: 100vh; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 80px; border-bottom: none; position: relative; overflow: hidden; }
+  #cover::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(6,182,212,.25) 0%, transparent 70%); pointer-events: none; }
+  #cover::after { content: ''; position: absolute; bottom: -100px; left: 200px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(14,116,144,.3) 0%, transparent 70%); pointer-events: none; }
+  .cover-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.8); letter-spacing: .04em; margin-bottom: 40px; backdrop-filter: blur(8px); }
+  .cover-logo { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .cover-logo .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+  .cover-logo .logo-text .brand { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .05em; line-height: 1; display: block; margin-bottom: 10px; }
+  .cover-logo .logo-text .sep { display: none; }
+  .cover-logo .logo-text .crm { font-size: 72px; font-weight: 900; color: #fff; letter-spacing: -3px; line-height: .9; display: block; }
+  .cover-h1 { font-size: 52px; font-weight: 800; color: #fff; letter-spacing: -2px; line-height: 1.1; margin-bottom: 16px; max-width: 640px; }
+  .cover-sub { font-size: 18px; color: rgba(255,255,255,.6); font-weight: 400; margin-bottom: 48px; }
+  .cover-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  .cover-meta-item { font-size: 13px; color: rgba(255,255,255,.5); }
+  .cover-meta-item strong { color: rgba(255,255,255,.85); font-weight: 600; display: block; font-size: 14px; margin-bottom: 2px; }
+
+  /* LOGO */
+  .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+  .logo-card { border-radius: 16px; padding: 36px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; border: 1.5px solid #E5E7EB; position: relative; overflow: hidden; }
+  .logo-card.light { background: #FFFFFF; }
+  .logo-card.dark { background: #111827; border-color: #374151; }
+  .logo-card.gradient { background: linear-gradient(135deg, #042F2E, #0E7490); border: none; }
+  .logo-card .card-label { position: absolute; top: 12px; left: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 6px; background: rgba(0,0,0,.06); color: #8A94A6; }
+  .logo-card.dark .card-label, .logo-card.gradient .card-label { background: rgba(255,255,255,.1); color: rgba(255,255,255,.5); }
+  .logo-display { display: flex; align-items: center; gap: 12px; }
+  .logo-display .at-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .logo-display .at-icon.teal-dark { background: #155E75; }
+  .logo-display .at-icon.teal { background: #0E7490; }
+  .logo-display .at-icon.white-bg { background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.2); }
+  .logo-display .at-icon svg { width: 28px; height: 28px; }
+  .sep-line { display: none; }
+  
+  .logo-stack { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+  .logo-handle { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .04em; color: rgba(0,0,0,.38); margin-bottom: 3px; }
+  .dark-ver .logo-handle, .gradient-ver .logo-handle { color: rgba(255,255,255,.45); }
+  .brand-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 26px; color: #1A1A2E; letter-spacing: -1px; }
+  .dark-ver .brand-text { color: #fff; }
+  .gradient-ver .brand-text { color: #fff; }
+  .subbrands { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .subbrand-pill { display: flex; align-items: center; gap: 8px; background: #F9FAFB; border: 1.5px solid #E5E7EB; border-radius: 100px; padding: 8px 16px; }
+  .subbrand-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .subbrand-pill .name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #1A1A2E; }
+  .subbrand-pill.active { background: #ECFEFF; border-color: #06B6D4; }
+  .subbrand-pill.active .name { color: #0E7490; }
+  .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rule-card { border-radius: 12px; padding: 20px; border: 1.5px solid #E5E7EB; background: #fff; }
+  .rule-card .rule-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 10px; }
+  .rule-card.ok .rule-icon { background: #ECFDF5; color: #10B981; }
+  .rule-card.no .rule-icon { background: #FEF2F2; color: #EF4444; }
+  .rule-card .rule-title { font-size: 13px; font-weight: 700; color: #1A1A2E; margin-bottom: 4px; }
+  .rule-card .rule-desc { font-size: 12px; color: #8A94A6; line-height: 1.5; }
+
+  /* COLORS */
+  .themes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+  .theme-card { border-radius: 20px; overflow: hidden; border: 1.5px solid #E5E7EB; background: #fff; }
+  .theme-header { padding: 20px 20px 16px; border-bottom: 1px solid #F3F4F6; }
+  .theme-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #8A94A6; margin-bottom: 4px; }
+  .theme-title { font-size: 18px; font-weight: 700; color: #0F0F1A; }
+  .theme-swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #F3F4F6; }
+  .swatch { padding: 16px; background: #fff; display: flex; flex-direction: column; gap: 4px; }
+  .swatch .color-dot { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 6px; border: 1px solid rgba(0,0,0,.06); }
+  .swatch .token { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #8A94A6; }
+  .swatch .hex { font-size: 13px; font-weight: 600; color: #1A1A2E; }
+  .swatch .role { font-size: 11px; color: #9CA3AF; }
+  .semantic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .semantic-card { border-radius: 12px; padding: 16px; background: #fff; border: 1.5px solid #E5E7EB; }
+  .semantic-card .s-swatch { height: 48px; border-radius: 10px; margin-bottom: 12px; }
+  .semantic-card .s-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #8A94A6; margin-bottom: 4px; }
+  .semantic-card .s-hex { font-size: 14px; font-weight: 700; color: #1A1A2E; margin-bottom: 2px; }
+  .semantic-card .s-bg { font-size: 11px; color: #9CA3AF; }
+
+  /* TYPOGRAPHY */
+  .type-scale { display: flex; flex-direction: column; gap: 0; border-radius: 16px; overflow: hidden; border: 1.5px solid #E5E7EB; margin-bottom: 40px; background: #fff; }
+  .type-row { display: grid; grid-template-columns: 140px 1fr 160px; align-items: center; padding: 16px 24px; border-bottom: 1px solid #F3F4F6; gap: 20px; }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { display: flex; flex-direction: column; gap: 2px; }
+  .type-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #8A94A6; }
+  .type-spec { font-size: 11px; color: #CBD5E1; font-family: 'Courier New', monospace; }
+  .type-example { min-height: 40px; display: flex; align-items: center; }
+  .type-usage { font-size: 12px; color: #9CA3AF; }
+  .font-card { background: #fff; border: 1.5px solid #E5E7EB; border-radius: 16px; padding: 28px; margin-bottom: 20px; }
+  .font-card .font-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #8A94A6; margin-bottom: 8px; }
+  .font-card .font-display { font-size: 40px; font-weight: 700; color: #0F0F1A; letter-spacing: -1px; line-height: 1.1; }
+  .font-card .font-weights { display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+  .weight-item { display: flex; flex-direction: column; gap: 2px; }
+  .weight-item .w-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #CBD5E1; }
+  .weight-item .w-sample { font-size: 15px; color: #1A1A2E; }
+
+  /* COMPONENTS */
+  .component-group { margin-bottom: 48px; }
+  .component-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #0E7490; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .component-title::after { content: ''; flex: 1; height: 1px; background: #E5E7EB; }
+  .comp-surface { background: #F5F6F8; border-radius: 16px; padding: 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; border: 1.5px solid #E5E7EB; }
+  .comp-surface.dark-surface { background: #111827; border-color: #374151; }
+  .btn { font-family: 'Inter', sans-serif; font-weight: 600; border: none; cursor: pointer; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all .15s; text-decoration: none; }
+  .btn-primary { background: #0E7490; color: #fff; padding: 14px 24px; font-size: 15px; }
+  .btn-secondary { background: transparent; color: #0E7490; border: 1.5px solid #0E7490; padding: 13px 24px; font-size: 15px; }
+  .btn-destructive { background: #EF4444; color: #fff; padding: 14px 24px; font-size: 15px; }
+  .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 10px; }
+  .btn-lg { padding: 16px 28px; font-size: 17px; border-radius: 14px; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+  .badge::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .badge-positive { background: #DCFCE7; color: #15803D; }
+  .badge-negative { background: #FEE2E2; color: #DC2626; }
+  .badge-neutral  { background: #F1F5F9; color: #64748B; }
+  .badge-pending  { background: #FEF3C7; color: #D97706; }
+  .badge-answered { background: #CFFAFE; color: #0E7490; }
+  .badges-surface { background: #F5F6F8; border-radius: 16px; padding: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; border: 1.5px solid #E5E7EB; }
+
+  /* Review card */
+  .review-card { background: #fff; border-radius: 14px; padding: 18px; border: 1.5px solid #E5E7EB; box-shadow: 0 2px 12px rgba(0,0,0,.06); margin-bottom: 12px; }
+  .review-card .rc-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+  .review-card .rc-source { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #8A94A6; }
+  .review-card .rc-stars { color: #F59E0B; font-size: 14px; letter-spacing: 1px; }
+  .review-card .rc-text { font-size: 13px; color: #374151; line-height: 1.5; margin-bottom: 10px; }
+  .review-card .rc-footer { display: flex; align-items: center; gap: 8px; }
+  .review-card .rc-date { font-size: 11px; color: #9CA3AF; }
+
+  /* Timeline */
+  .timeline-demo { background: #F5F6F8; border-radius: 16px; padding: 28px 32px; border: 1.5px solid #E5E7EB; max-width: 480px; }
+  .timeline-item { display: flex; gap: 16px; position: relative; padding-bottom: 24px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: 14px; top: 28px; width: 1.5px; height: calc(100% - 14px); background: #E5E7EB; }
+  .timeline-item:last-child::before { display: none; }
+  .tl-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1; }
+  .tl-dot svg { width: 14px; height: 14px; }
+  .tl-dot.done { background: #DCFCE7; } .tl-dot.done svg { stroke: #15803D; }
+  .tl-dot.active { background: #CFFAFE; } .tl-dot.active svg { stroke: #0E7490; }
+  .tl-dot.pending { background: #F1F5F9; } .tl-dot.pending svg { stroke: #94A3B8; }
+  .tl-content { flex: 1; }
+  .tl-title { font-size: 14px; font-weight: 600; color: #1A1A2E; margin-bottom: 2px; }
+  .tl-time { font-size: 11px; color: #9CA3AF; }
+  .tl-sub { font-size: 12px; color: #6B7280; margin-top: 4px; }
+
+  /* Rating widget */
+  .rating-widget { background: #fff; border-radius: 16px; padding: 24px; border: 1.5px solid #E5E7EB; max-width: 360px; }
+  .rating-widget .rw-score { font-size: 48px; font-weight: 800; color: #0E7490; line-height: 1; margin-bottom: 4px; }
+  .rating-widget .rw-stars { color: #F59E0B; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px; }
+  .rating-widget .rw-count { font-size: 13px; color: #8A94A6; margin-bottom: 16px; }
+  .rating-widget .rw-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .rating-widget .rw-bar-label { font-size: 12px; color: #6B7280; width: 12px; text-align: right; }
+  .rating-widget .rw-bar-track { flex: 1; height: 6px; background: #F3F4F6; border-radius: 100px; overflow: hidden; }
+  .rating-widget .rw-bar-fill { height: 100%; background: #06B6D4; border-radius: 100px; }
+  .rating-widget .rw-bar-count { font-size: 11px; color: #9CA3AF; width: 24px; }
+
+  /* Tokens */
+  .token-table-wrap { overflow-x: auto; border-radius: 16px; border: 1.5px solid #E5E7EB; margin-bottom: 40px; background: #fff; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: #F9FAFB; }
+  th { padding: 14px 20px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #8A94A6; border-bottom: 1px solid #E5E7EB; white-space: nowrap; }
+  td { padding: 12px 20px; border-bottom: 1px solid #F3F4F6; vertical-align: middle; color: #374151; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAFA; }
+  td:first-child { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; color: #0E7490; }
+  .color-chip { display: inline-flex; align-items: center; gap: 8px; }
+  .color-chip .chip { width: 20px; height: 20px; border-radius: 5px; border: 1px solid rgba(0,0,0,.06); flex-shrink: 0; }
+
+  /* Icons */
+  .icon-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; margin-bottom: 40px; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 8px; background: #fff; border-radius: 12px; border: 1.5px solid #E5E7EB; }
+  .icon-item svg { width: 24px; height: 24px; stroke: #374151; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-item .icon-name { font-size: 10px; color: #9CA3AF; font-weight: 500; text-align: center; }
+  .touch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+  .touch-card { background: #fff; border-radius: 12px; padding: 20px; border: 1.5px solid #E5E7EB; }
+  .touch-card .tc-title { font-size: 14px; font-weight: 700; color: #1A1A2E; margin-bottom: 6px; }
+  .touch-card .tc-val { font-size: 28px; font-weight: 800; color: #0E7490; margin-bottom: 4px; }
+  .touch-card .tc-desc { font-size: 12px; color: #8A94A6; line-height: 1.5; }
+
+  /* Code */
+  .code-block { background: #0F0F1A; border-radius: 16px; padding: 28px 32px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; border: 1px solid rgba(255,255,255,.07); }
+  .code-block .c-comment { color: #4B5563; }
+  .code-block .c-selector { color: #60A5FA; }
+  .code-block .c-prop { color: #A78BFA; }
+  .code-block .c-val { color: #34D399; }
+  .code-block .c-punc { color: #E5E7EB; }
+
+  /* Outro */
+  #outro { background: linear-gradient(145deg, #042F2E 0%, #0F766E 60%, #06B6D4 100%); padding: 80px; border-bottom: none; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+  #outro h2 { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -1.5px; line-height: 1; margin-bottom: 16px; }
+  #outro p { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,.6); max-width: 520px; line-height: 1.65; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 10px; }
+  @media (max-width: 900px) { .main { margin-left: 0; } .sidebar { display: none; } section { padding: 40px 24px; } .logo-grid, .themes-grid, .rules-grid { grid-template-columns: 1fr; } .semantic-grid { grid-template-columns: repeat(2, 1fr); } .icon-grid { grid-template-columns: repeat(4, 1fr); } .touch-grid { grid-template-columns: 1fr; } }
+  /* --- КНОПКИ --- */
+  @keyframes _btn_glow { 0%,100%{box-shadow:0 0 0 0 rgba(14,116,144,.45),0 4px 20px rgba(14,116,144,.2);}50%{box-shadow:0 0 0 12px rgba(14,116,144,0),0 4px 20px rgba(14,116,144,.2);} }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-.2px;transition:all .18s ease;text-decoration:none;white-space:nowrap;position:relative;overflow:hidden;vertical-align:middle;}
+  .btn.sm{padding:8px 16px;font-size:12px;border-radius:8px;}
+  .btn.md{padding:14px 28px;font-size:14px;border-radius:12px;}
+  .btn.lg{padding:18px 36px;font-size:16px;border-radius:14px;}
+  .btn.xl{padding:22px 48px;font-size:18px;border-radius:16px;}
+  .btn-v1{background:linear-gradient(135deg,#042F2E 0%,#0E7490 55%,#06B6D4 100%);color:#fff;box-shadow:0 4px 24px rgba(14,116,144,.3);}
+  .btn-v1::after{content:"";position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:left .44s ease;}
+  .btn-v1:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(14,116,144,.5);}
+  .btn-v1:hover::after{left:150%;}
+  .btn-v1:active{transform:translateY(0);}
+  .btn-v2{background:#0E7490;color:#fff;animation:_btn_glow 2.4s ease-in-out infinite;}
+  .btn-v2:hover{transform:scale(1.05);animation-play-state:paused;box-shadow:0 8px 32px rgba(14,116,144,.55);}
+  .btn-v3{background:rgba(255,255,255,.11);border:1.5px solid rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+  .btn-v3:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);transform:translateY(-1px);}
+  .btn-v4{background:transparent;border:2px solid #0E7490;color:#0E7490;}
+  .btn-v4::before{content:"";position:absolute;inset:0;background:#0E7490;transform:scaleX(0);transform-origin:left;transition:transform .24s ease;z-index:0;}
+  .btn-v4>span{position:relative;z-index:1;}
+  .btn-v4:hover{color:#fff;}
+  .btn-v4:hover::before{transform:scaleX(1);}
+  .btn-v5{background:#fff;border:1.5px solid #E5E7EB;color:#1A1A2E;box-shadow:0 1px 4px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);}
+  .btn-v5:hover{box-shadow:0 4px 20px rgba(0,0,0,.12);transform:translateY(-1px);}
+  .btn-v6{background:transparent;border:none;color:#0E7490;}
+  .btn-v6:hover{background:rgba(14,116,144,.08);}
+  .btn-loading{opacity:.65;cursor:wait;pointer-events:none;}
+  .btn-disabled,.btn[disabled]{opacity:.32;cursor:not-allowed;pointer-events:none;}
+  .bvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .bvc{border-radius:16px;overflow:hidden;border:1.5px solid #E5E7EB;}
+  .bvc.dk{background:#0F0F1A;border-color:#1A1A2E;}
+  .bvc.lt{background:#fff;}
+  .bvc.nt{background:#F9FAFB;}
+  .bvc-t{padding:32px 28px 24px;}
+  .bvc-n{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9CA3AF;margin-bottom:4px;}
+  .bvc.dk .bvc-n{color:#3A3A5A;}
+  .bvc-h{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:#0F0F1A;margin-bottom:16px;}
+  .bvc.dk .bvc-h{color:#fff;}
+  .bvc-b{padding:16px 28px;border-top:1px solid #E5E7EB;}
+  .bvc.dk .bvc-b{background:#111122;border-top-color:#1A1A2E;}
+  .bvc.nt .bvc-b{background:#ECEEF1;border-top-color:#E0E2E7;}
+  .bvc-ef{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#0E7490;margin-bottom:6px;}
+  .bvc.dk .bvc-ef{color:#06B6D4;}
+  .bvc-d{font-size:12px;color:#6B7280;line-height:1.55;}
+  .bvc.dk .bvc-d{color:#555;}
+  .bvc-w{font-weight:700;color:#374151;}
+  .bvc.dk .bvc-w{color:#9CA3AF;}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div style="margin-bottom:6px">
+      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.05em;color:rgba(255,255,255,.45);line-height:1;margin-bottom:4px">@wasrusgen1</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;letter-spacing:-1px;color:#fff;line-height:1">РАДАР</div>
+    </div>
+    <div class="sub">Брендбук · 2026</div>
+  </div>
+  <nav>
+    <div class="nav-section-label">Навигация</div>
+    <a class="nav-item active" href="#cover"><span class="nav-num">00</span> Обложка</a>
+    <a class="nav-item" href="#logo"><span class="nav-num">01</span> Логотип</a>
+    <a class="nav-item" href="#colors"><span class="nav-num">02</span> Цветовые темы</a>
+    <a class="nav-item" href="#typography"><span class="nav-num">03</span> Типографика</a>
+    <a class="nav-item" href="#components"><span class="nav-num">04</span> Компоненты</a>
+    <a class="nav-item" href="#tokens"><span class="nav-num">05</span> Токены</a>
+    <a class="nav-item" href="#icons"><span class="nav-num">06</span> Иконки</a>
+    <a class="nav-item" href="#spacing"><span class="nav-num">07</span> Отступы</a>
+    <a class="nav-item" href="#application"><span class="nav-num">08</span> Применение</a>
+    <a class="nav-item" href="#buttons"><span class="nav-num">09</span> Кнопки</a>
+  </nav>
+</aside>
+
+<main class="main">
+
+<!-- 00 COVER -->
+<section id="cover">
+  <div class="cover-tag">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+    Зонтичный бренд @wasrusgen1 · Торговая марка
+  </div>
+  <div class="cover-logo">
+    
+    <div class="logo-text">
+      <div><span class="brand">@wasrusgen1</span><span class="sep"></span><span class="crm">РАДАР</span></div>
+    </div>
+  </div>
+  <h1 class="cover-h1">Репутация<br>под контролем</h1>
+  <p class="cover-sub">Мониторинг отзывов и анализ репутации бренда в интернете</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>Направление</strong>Анализ отзывов</div>
+    <div class="cover-meta-item"><strong>Версия</strong>2026.1</div>
+    <div class="cover-meta-item"><strong>Бренд</strong>@wasrusgen1</div>
+    <div class="cover-meta-item"><strong>Статус</strong>Утверждён</div>
+  </div>
+</section>
+
+<!-- 01 LOGO -->
+<section id="logo">
+  <div class="section-label">01 — Логотип</div>
+  <h2 class="section-title">Логотип и вариации</h2>
+  <p class="section-desc">Логотип РАДАР строится на базе зонтичного знака @wasrusgen1. Тональность — циановая, ассоциирующаяся со сканированием, ясностью и аналитической точностью.</p>
+
+  <div class="logo-grid">
+    <div class="logo-card light">
+      <span class="card-label">Светлый фон</span>
+      <div class="logo-display">
+        <div class="at-icon teal-dark">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="brand-text">РАДАР</span></div>
+      </div>
+      <div style="font-size:11px;color:#9CA3AF">Основное применение</div>
+    </div>
+    <div class="logo-card dark">
+      <span class="card-label">Тёмный фон</span>
+      <div class="logo-display dark-ver">
+        <div class="at-icon teal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="brand-text">РАДАР</span></div>
+      </div>
+      <div style="font-size:11px;color:#6B7280">Тёмные поверхности</div>
+    </div>
+    <div class="logo-card gradient">
+      <span class="card-label">Градиент</span>
+      <div class="logo-display gradient-ver">
+        <div class="at-icon white-bg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="brand-text">РАДАР</span></div>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5)">Промо-материалы</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:16px">Семейство торговых марок</div>
+  <div class="subbrands">
+    <div class="subbrand-pill"><div class="dot" style="background:#4338CA"></div><span class="name">CRM</span></div>
+    <div class="subbrand-pill active"><div class="dot" style="background:#0E7490"></div><span class="name">РАДАР</span></div>
+    <div class="subbrand-pill"><div class="dot" style="background:#B45309"></div><span class="name">ЭКСПЕРТ</span></div>
+    <div class="subbrand-pill"><div class="dot" style="background:#B91C1C"></div><span class="name">ЗАЩИТА</span></div>
+    <div class="subbrand-pill"><div class="dot" style="background:#047857"></div><span class="name">КОНСАЛТИНГ</span></div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:16px">Правила использования</div>
+  <div class="rules-grid">
+    <div class="rule-card ok"><div class="rule-icon">✓</div><div class="rule-title">Используй только утверждённые цвета</div><div class="rule-desc">Только #0E7490 и #06B6D4 как основные акцентные цвета бренда</div></div>
+    <div class="rule-card ok"><div class="rule-icon">✓</div><div class="rule-title">Сохраняй пропорции логотипа</div><div class="rule-desc">Минимальная ширина логотипа — 120px, не сжимай и не растягивай</div></div>
+    <div class="rule-card no"><div class="rule-icon">✗</div><div class="rule-title">Не меняй цвет знака @</div><div class="rule-desc">Знак @ всегда в фирменном циановом, без произвольного перекрашивания</div></div>
+  </div>
+</section>
+
+<!-- 02 COLORS -->
+
+<!-- Два варианта -->
+<div style="margin:56px 0 0">
+<h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 8px;letter-spacing:-.01em">Два варианта логотипа</h3>
+<p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B7280;margin-bottom:32px">Используются оба — выбор зависит от контекста носителя. Не смешивать в одном носителе.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px">
+<div style="background:#0F0F1A;border-radius:14px;overflow:hidden">
+<div style="padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px"><span style="display:inline-flex;align-items:center;line-height:1"><span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.3px;color:rgba(255,255,255,.7)">@wasrusgen1</span><span style="display:inline-block;width:1.5px;height:18px;background:rgba(255,255,255,.25);margin:0 12px;flex-shrink:0"></span><span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;color:#fff">РАДАР</span></span></div>
+<div style="background:#111122;padding:20px 24px"><div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#0E7490;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Горизонталь 1:1</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.8">✓ Хедер и навигация<br>✓ Email-подпись<br>✓ Документы, КП, договоры<br>✓ Sidebar, колонтитулы</div></div>
+</div>
+<div style="background:#0F0F1A;border-radius:14px;overflow:hidden">
+<div style="padding:40px;display:flex;align-items:flex-start;justify-content:center;min-height:120px"><span style="display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1"><span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.45);margin-bottom:4px">@wasrusgen1</span><span style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-1.5px;color:#fff">РАДАР</span></span></div>
+<div style="background:#111122;padding:20px 24px"><div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#0E7490;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Вертикальный стэк</div><div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.8">✓ Обложки презентаций<br>✓ Визитная карточка (лицо)<br>✓ Аватар Telegram-канала<br>✓ Обложки постов</div></div>
+</div>
+</div>
+<p style="font-family:'Inter',sans-serif;font-size:12px;color:#9CA3AF;margin-top:8px">⚠ Правило: если в носителе использован стэк — горизонталь не дублируется, и наоборот.</p>
+</div>
+<section id="colors">
+  <div class="section-label">02 — Цвет</div>
+  <h2 class="section-title">Цветовые темы</h2>
+  <p class="section-desc">Палитра РАДАР построена на Циане — цвете ясности, скорости и аналитики. Основные оттенки дополнены нейтральными фонами и семантическими цветами.</p>
+
+  <div class="themes-grid">
+    <div class="theme-card">
+      <div class="theme-header"><div class="theme-name">Тема 01</div><div class="theme-title">Циан · Основная</div></div>
+      <div class="theme-swatches">
+        <div class="swatch"><div class="color-dot" style="background:#164E63"></div><div class="token">RADAR-900</div><div class="hex">#164E63</div><div class="role">Глубокий фон</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#0E7490"></div><div class="token">RADAR-700</div><div class="hex">#0E7490</div><div class="role">Основной</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#06B6D4"></div><div class="token">RADAR-500</div><div class="hex">#06B6D4</div><div class="role">Акцент</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#CFFAFE"></div><div class="token">RADAR-100</div><div class="hex">#CFFAFE</div><div class="role">Светлый фон</div></div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header"><div class="theme-name">Тема 02</div><div class="theme-title">Нейтральная · Интерфейс</div></div>
+      <div class="theme-swatches">
+        <div class="swatch"><div class="color-dot" style="background:#0F0F1A"></div><div class="token">DARK-MAX</div><div class="hex">#0F0F1A</div><div class="role">Sidebar / Header</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#1A1A2E"></div><div class="token">DARK-BASE</div><div class="hex">#1A1A2E</div><div class="role">Основной текст</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#F5F6F8"></div><div class="token">SURFACE</div><div class="hex">#F5F6F8</div><div class="role">Фон страницы</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#FFFFFF"></div><div class="token">WHITE</div><div class="hex">#FFFFFF</div><div class="role">Карточки</div></div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header"><div class="theme-name">Тема 03</div><div class="theme-title">Семантика · Статусы</div></div>
+      <div class="theme-swatches">
+        <div class="swatch"><div class="color-dot" style="background:#10B981"></div><div class="token">SUCCESS</div><div class="hex">#10B981</div><div class="role">Позитивный</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#EF4444"></div><div class="token">DANGER</div><div class="hex">#EF4444</div><div class="role">Негативный</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#F59E0B"></div><div class="token">WARNING</div><div class="hex">#F59E0B</div><div class="role">На модерации</div></div>
+        <div class="swatch"><div class="color-dot" style="background:#94A3B8"></div><div class="token">NEUTRAL</div><div class="hex">#94A3B8</div><div class="role">Нейтральный</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:20px">Семантические цвета</div>
+  <div class="semantic-grid">
+    <div class="semantic-card"><div class="s-swatch" style="background:#DCFCE7"></div><div class="s-name">Позитивный</div><div class="s-hex">#10B981</div><div class="s-bg">bg #DCFCE7</div></div>
+    <div class="semantic-card"><div class="s-swatch" style="background:#FEE2E2"></div><div class="s-name">Негативный</div><div class="s-hex">#EF4444</div><div class="s-bg">bg #FEE2E2</div></div>
+    <div class="semantic-card"><div class="s-swatch" style="background:#FEF3C7"></div><div class="s-name">На модерации</div><div class="s-hex">#F59E0B</div><div class="s-bg">bg #FEF3C7</div></div>
+    <div class="semantic-card"><div class="s-swatch" style="background:#CFFAFE"></div><div class="s-name">Отвечено</div><div class="s-hex">#0E7490</div><div class="s-bg">bg #CFFAFE</div></div>
+  </div>
+</section>
+
+<!-- 03 TYPOGRAPHY -->
+<section id="typography">
+  <div class="section-label">03 — Типографика</div>
+  <h2 class="section-title">Шрифтовая система</h2>
+  <p class="section-desc">Два шрифта: Montserrat для логотипа и заголовков, Inter — для всего интерфейса. Оба загружаются с Google Fonts.</p>
+
+  <div class="font-card">
+    <div class="font-name">Montserrat — Логотип / Акцентные заголовки</div>
+    <div class="font-display" style="font-family:'Montserrat',sans-serif">Мониторинг отзывов</div>
+    <div class="font-weights">
+      <div class="weight-item"><div class="w-label">Bold 700</div><div class="w-sample" style="font-family:'Montserrat',sans-serif;font-weight:700">РАДАР</div></div>
+      <div class="weight-item"><div class="w-label">ExtraBold 800</div><div class="w-sample" style="font-family:'Montserrat',sans-serif;font-weight:800">@wasrusgen1</div></div>
+    </div>
+  </div>
+
+  <div class="font-card">
+    <div class="font-name">Inter — Интерфейс / Текст</div>
+    <div class="font-display">Аналитика репутации</div>
+    <div class="font-weights">
+      <div class="weight-item"><div class="w-label">Regular 400</div><div class="w-sample" style="font-weight:400">Описание</div></div>
+      <div class="weight-item"><div class="w-label">Medium 500</div><div class="w-sample" style="font-weight:500">Навигация</div></div>
+      <div class="weight-item"><div class="w-label">SemiBold 600</div><div class="w-sample" style="font-weight:600">Кнопки</div></div>
+      <div class="weight-item"><div class="w-label">Bold 700</div><div class="w-sample" style="font-weight:700">Заголовки</div></div>
+      <div class="weight-item"><div class="w-label">ExtraBold 800</div><div class="w-sample" style="font-weight:800">Hero</div></div>
+    </div>
+  </div>
+
+  <div class="type-scale">
+    <div class="type-row"><div class="type-meta"><div class="type-name">Display</div><div class="type-spec">52px / -2px / 800</div></div><div class="type-example"><span style="font-size:36px;font-weight:800;letter-spacing:-1.5px;color:#0F0F1A">Репутация</span></div><div class="type-usage">Обложка брендбука</div></div>
+    <div class="type-row"><div class="type-meta"><div class="type-name">H1</div><div class="type-spec">32px / -1px / 800</div></div><div class="type-example"><span style="font-size:26px;font-weight:800;letter-spacing:-.5px;color:#0F0F1A">Раздел брендбука</span></div><div class="type-usage">Заголовки разделов</div></div>
+    <div class="type-row"><div class="type-meta"><div class="type-name">H2</div><div class="type-spec">22px / -0.5px / 700</div></div><div class="type-example"><span style="font-size:20px;font-weight:700;color:#0F0F1A">Подраздел</span></div><div class="type-usage">Заголовки карточек</div></div>
+    <div class="type-row"><div class="type-meta"><div class="type-name">Body</div><div class="type-spec">15px / 1.6 / 400</div></div><div class="type-example"><span style="font-size:15px;color:#6B7280">Текст описания раздела интерфейса</span></div><div class="type-usage">Описания</div></div>
+    <div class="type-row"><div class="type-meta"><div class="type-name">Label</div><div class="type-spec">11px / .08em / 700</div></div><div class="type-example"><span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8A94A6">Метка раздела</span></div><div class="type-usage">Метки, таблицы</div></div>
+    <div class="type-row"><div class="type-meta"><div class="type-name">Caption</div><div class="type-spec">12px / 1.5 / 400</div></div><div class="type-example"><span style="font-size:12px;color:#9CA3AF">Вспомогательный текст, подсказки</span></div><div class="type-usage">Hint / Sub</div></div>
+  </div>
+</section>
+
+<!-- 04 COMPONENTS -->
+<section id="components">
+  <div class="section-label">04 — Компоненты</div>
+  <h2 class="section-title">UI-компоненты</h2>
+  <p class="section-desc">Библиотека компонентов РАДАР — кнопки, бейджи, карточки отзывов, рейтинговые виджеты и таймлайн обработки отзыва.</p>
+
+  <div class="component-group">
+    <div class="component-title">Кнопки</div>
+    <div class="comp-surface">
+      <button class="btn btn-primary">Мониторить</button>
+      <button class="btn btn-secondary">Просмотр</button>
+      <button class="btn btn-primary btn-sm">Ответить</button>
+      <button class="btn btn-secondary btn-sm">Игнорировать</button>
+      <button class="btn btn-destructive btn-sm">Удалить</button>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-title">Статусы отзывов</div>
+    <div class="badges-surface">
+      <span class="badge badge-positive">Позитивный</span>
+      <span class="badge badge-negative">Негативный</span>
+      <span class="badge badge-neutral">Нейтральный</span>
+      <span class="badge badge-pending">На модерации</span>
+      <span class="badge badge-answered">Отвечено</span>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-title">Карточки отзывов</div>
+    <div style="max-width:560px">
+      <div class="review-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-source">Яндекс.Карты</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A2E;margin-top:2px">Отличный сервис!</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+            <div class="rc-stars">★★★★★</div>
+            <span class="badge badge-positive" style="font-size:10px">Позитивный</span>
+          </div>
+        </div>
+        <div class="rc-text">Очень доволен работой команды. Всё объяснили понятно, помогли разобраться. Рекомендую всем!</div>
+        <div class="rc-footer">
+          <span class="rc-date">2 часа назад</span>
+          <button class="btn btn-primary btn-sm" style="margin-left:auto">Ответить</button>
+        </div>
+      </div>
+      <div class="review-card" style="border-left:3px solid #EF4444">
+        <div class="rc-header">
+          <div>
+            <div class="rc-source">2GIS</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A2E;margin-top:2px">Долго ждал ответа</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+            <div class="rc-stars" style="color:#EF4444">★★☆☆☆</div>
+            <span class="badge badge-negative" style="font-size:10px">Негативный</span>
+          </div>
+        </div>
+        <div class="rc-text">Обратился с вопросом — ответили только через 3 дня. Хотелось бы быстрее.</div>
+        <div class="rc-footer">
+          <span class="rc-date">Вчера, 14:30</span>
+          <span class="badge badge-pending" style="margin-left:auto;font-size:10px">Требует ответа</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-title">Рейтинговый виджет</div>
+    <div class="rating-widget">
+      <div class="rw-score">4.7</div>
+      <div class="rw-stars">★★★★★</div>
+      <div class="rw-count">из 248 отзывов</div>
+      <div class="rw-bar"><span class="rw-bar-label">5</span><div class="rw-bar-track"><div class="rw-bar-fill" style="width:78%"></div></div><span class="rw-bar-count">193</span></div>
+      <div class="rw-bar"><span class="rw-bar-label">4</span><div class="rw-bar-track"><div class="rw-bar-fill" style="width:14%;background:#34D399"></div></div><span class="rw-bar-count">35</span></div>
+      <div class="rw-bar"><span class="rw-bar-label">3</span><div class="rw-bar-track"><div class="rw-bar-fill" style="width:4%;background:#F59E0B"></div></div><span class="rw-bar-count">10</span></div>
+      <div class="rw-bar"><span class="rw-bar-label">2</span><div class="rw-bar-track"><div class="rw-bar-fill" style="width:2%;background:#F97316"></div></div><span class="rw-bar-count">6</span></div>
+      <div class="rw-bar"><span class="rw-bar-label">1</span><div class="rw-bar-track"><div class="rw-bar-fill" style="width:2%;background:#EF4444"></div></div><span class="rw-bar-count">4</span></div>
+    </div>
+  </div>
+
+  <div class="component-group">
+    <div class="component-title">Таймлайн обработки отзыва</div>
+    <div class="timeline-demo">
+      <div class="timeline-item">
+        <div class="tl-dot done"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="tl-content"><div class="tl-title">Отзыв получен</div><div class="tl-time">10:45 · Яндекс.Карты</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot done"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="tl-content"><div class="tl-title">Классификация</div><div class="tl-time">10:45 · Авто</div><div class="tl-sub">Тональность: Негативный · ★★☆☆☆</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot active"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="tl-content"><div class="tl-title">Ожидает ответа</div><div class="tl-time">Назначено: Менеджер Иванов</div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot pending"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="tl-content"><div class="tl-title">Ответ опубликован</div><div class="tl-time">Ожидание</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TOKENS -->
+<section id="tokens">
+  <div class="section-label">05 — Токены</div>
+  <h2 class="section-title">Дизайн-токены</h2>
+  <p class="section-desc">CSS-переменные для интеграции в кодовую базу продукта. Используй токены вместо жёстко заданных значений.</p>
+  <div class="token-table-wrap">
+    <table>
+      <thead><tr><th>Токен</th><th>Значение</th><th>Цвет</th><th>Роль</th></tr></thead>
+      <tbody>
+        <tr><td>--radar-900</td><td>#164E63</td><td><span class="color-chip"><span class="chip" style="background:#164E63"></span>#164E63</span></td><td>Глубокий фон, cover</td></tr>
+        <tr><td>--radar-700</td><td>#0E7490</td><td><span class="color-chip"><span class="chip" style="background:#0E7490"></span>#0E7490</span></td><td>Основной бренд-цвет</td></tr>
+        <tr><td>--radar-500</td><td>#06B6D4</td><td><span class="color-chip"><span class="chip" style="background:#06B6D4"></span>#06B6D4</span></td><td>Акцент, иконки</td></tr>
+        <tr><td>--radar-100</td><td>#CFFAFE</td><td><span class="color-chip"><span class="chip" style="background:#CFFAFE"></span>#CFFAFE</span></td><td>Светлый фон</td></tr>
+        <tr><td>--surface</td><td>#F5F6F8</td><td><span class="color-chip"><span class="chip" style="background:#F5F6F8;border:1px solid #eee"></span>#F5F6F8</span></td><td>Страничный фон</td></tr>
+        <tr><td>--text-primary</td><td>#1A1A2E</td><td><span class="color-chip"><span class="chip" style="background:#1A1A2E"></span>#1A1A2E</span></td><td>Основной текст</td></tr>
+        <tr><td>--text-muted</td><td>#8A94A6</td><td><span class="color-chip"><span class="chip" style="background:#8A94A6"></span>#8A94A6</span></td><td>Вспомогательный</td></tr>
+        <tr><td>--s-positive</td><td>#10B981</td><td><span class="color-chip"><span class="chip" style="background:#10B981"></span>#10B981</span></td><td>Позитивный отзыв</td></tr>
+        <tr><td>--s-negative</td><td>#EF4444</td><td><span class="color-chip"><span class="chip" style="background:#EF4444"></span>#EF4444</span></td><td>Негативный отзыв</td></tr>
+        <tr><td>--s-pending</td><td>#F59E0B</td><td><span class="color-chip"><span class="chip" style="background:#F59E0B"></span>#F59E0B</span></td><td>На модерации</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="code-block"><span class="c-comment">/* РАДАР · Design Tokens */</span><br><span class="c-selector">:root</span> <span class="c-punc">{</span><br>&nbsp;&nbsp;<span class="c-prop">--radar-900</span><span class="c-punc">:</span> <span class="c-val">#164E63</span><span class="c-punc">;</span><br>&nbsp;&nbsp;<span class="c-prop">--radar-700</span><span class="c-punc">:</span> <span class="c-val">#0E7490</span><span class="c-punc">;</span><br>&nbsp;&nbsp;<span class="c-prop">--radar-500</span><span class="c-punc">:</span> <span class="c-val">#06B6D4</span><span class="c-punc">;</span><br>&nbsp;&nbsp;<span class="c-prop">--radar-100</span><span class="c-punc">:</span> <span class="c-val">#CFFAFE</span><span class="c-punc">;</span><br><span class="c-punc">}</span></div>
+</section>
+
+<!-- 06 ICONS -->
+<section id="icons">
+  <div class="section-label">06 — Иконки</div>
+  <h2 class="section-title">Иконографика</h2>
+  <p class="section-desc">Линейный стиль Lucide Icons, stroke-width 1.75, stroke-linecap round. Все иконки — 24×24px базовый размер.</p>
+  <div class="icon-grid">
+    <div class="icon-item"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><div class="icon-name">search</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><div class="icon-name">bell</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><div class="icon-name">star</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><div class="icon-name">bar-chart</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg><div class="icon-name">thumbs-up</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg><div class="icon-name">thumbs-dn</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><div class="icon-name">radar</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div class="icon-name">message</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div class="icon-name">check-ok</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><div class="icon-name">alert</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="icon-name">activity</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><div class="icon-name">layout</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div class="icon-name">users</div></div>
+    <div class="icon-item"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><div class="icon-name">edit</div></div>
+  </div>
+</section>
+
+<!-- 07 SPACING -->
+<section id="spacing">
+  <div class="section-label">07 — Отступы и размеры</div>
+  <h2 class="section-title">Сетка и зоны касания</h2>
+  <p class="section-desc">Базовая единица — 4px. Все отступы кратны 4. Минимальная зона касания — 44px (iOS HIG / WCAG 2.5.5).</p>
+  <div class="touch-grid">
+    <div class="touch-card"><div class="tc-title">Базовая единица</div><div class="tc-val">4px</div><div class="tc-desc">Все отступы и размеры — кратные 4px. Шаги: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64.</div></div>
+    <div class="touch-card"><div class="tc-title">Минимальная зона касания</div><div class="tc-val">44px</div><div class="tc-desc">Кнопки, иконки-действия и элементы навигации — не менее 44×44px. Требование iOS HIG / WCAG.</div></div>
+    <div class="touch-card"><div class="tc-title">Радиус скруглений</div><div class="tc-val">12px</div><div class="tc-desc">Карточки — 16px, кнопки — 12px, бейджи — 100px (pill). Мелкие элементы — 8px.</div></div>
+    <div class="touch-card"><div class="tc-title">Ширина контента</div><div class="tc-val">640px</div><div class="tc-desc">Максимальная ширина читаемого блока текста. Таблицы и компоненты — full-width.</div></div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<!-- ========== ПРИМЕНЕНИЕ ========== -->
+<section id="application" style="padding:60px 64px;background:#F5F6F8">
+  <h2 class="section-title">08 · Применение <span style="font-size:.55em;font-weight:400;opacity:.45">Brand in Use</span></h2>
+  <p style="font-family:'Inter',sans-serif;font-size:15px;color:#6B7280;margin:0 0 48px;line-height:1.6">Фирменный стиль в реальных носителях — от визитки до публикации в Telegram.</p>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Визитная карточка · 90 × 50 мм</h3>
+  <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:56px">
+    <div style="width:340px;height:190px;background:linear-gradient(135deg,#164E63 0%,#0E7490 100%);border-radius:14px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 32px rgba(14,116,144,.35)">
+      <div>
+        <div style="display:flex;align-items:center;line-height:1">
+            <span style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.7)">@wasrusgen1</span>
+            <span style="display:inline-block;width:1.5px;height:11px;background:rgba(255,255,255,.3);margin:0 8px;flex-shrink:0"></span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#fff">РАДАР</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;margin-top:6px">МОНИТОРИНГ РЕПУТАЦИИ</div>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#fff">Руслан Васильев</div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.65);margin-top:3px">Основатель · Директор</div>
+      </div>
+    </div>
+    <div style="width:340px;height:190px;background:#fff;border-radius:14px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,.1);position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,#164E63,#0E7490)"></div>
+      <div style="padding-left:16px">
+        <div style="font-family:'Inter',sans-serif;font-size:10px;color:#9CA3AF;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Контакты</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#374151;line-height:2">📧 i@wasrusgen.ru<br>📱 @wasrusgen1<br>🌐 wasrusgen1.ru</div>
+      </div>
+      <div style="padding-left:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#0E7490;letter-spacing:.04em">Слышь каждый отзыв — отвечай первым</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Email-подпись</h3>
+  <div style="max-width:600px;background:#F9FAFB;border-radius:14px;overflow:hidden;border:1px solid #E5E7EB;margin-bottom:56px;box-shadow:0 4px 16px rgba(0,0,0,.06)">
+    <div style="background:#fff;padding:10px 16px;border-bottom:1px solid #E5E7EB;font-family:'Inter',sans-serif;font-size:11px;color:#6B7280">От: <strong style="color:#374151">Руслан Васильев &lt;i@wasrusgen.ru&gt;</strong> · Тема: Мониторинг репутации</div>
+    <div style="padding:24px;background:#fff">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;color:#374151;line-height:1.7;margin-bottom:24px">Добрый день!<br><br>Направляю вам отчёт по мониторингу отзывов за последний месяц. Готов обсудить детали.</div>
+      <div style="border-top:1px solid #E5E7EB;padding-top:16px;display:flex;gap:16px">
+        <div style="width:4px;flex-shrink:0;background:linear-gradient(to bottom,#164E63,#0E7490);border-radius:2px"></div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#0F0F1A">Руслан Васильев</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#0E7490;font-weight:500;margin-top:2px">@wasrusgen1 | РАДАР · Основатель</div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:#6B7280;margin-top:8px;line-height:1.9">📧 i@wasrusgen.ru · 📱 @wasrusgen1 · 🌐 wasrusgen1.ru</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Обложка презентации · 16:9</h3>
+  <div style="max-width:640px;aspect-ratio:16/9;background:linear-gradient(145deg,#042F2E 0%,#134E4A 45%,#0F766E 100%);border-radius:16px;padding:44px;position:relative;overflow:hidden;margin-bottom:56px;box-shadow:0 12px 40px rgba(14,116,144,.4)">
+    <div style="position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,.07)"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(255,255,255,.11)"></div>
+    <div style="position:absolute;right:30px;top:30px;width:110px;height:110px;border-radius:50%;border:1px solid rgba(255,255,255,.15)"></div>
+    <div style="position:relative;display:flex;flex-direction:column;height:100%;justify-content:space-between">
+      <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.14em">@wasrusgen1 | РАДАР</div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px">Мониторинг репутации<br>24/7</div>
+        <div style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.6)">Анализ отзывов · Реакция · Рост доверия</div>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.35)">2026 · Конфиденциально</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Telegram · Социальные сети</h3>
+  <div style="display:flex;gap:24px;flex-wrap:wrap">
+    <div style="width:280px;height:280px;background:linear-gradient(145deg,#164E63 0%,#0E7490 100%);border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 32px rgba(14,116,144,.3)">
+      <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase">Анонс</div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px">Радар репутации</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">Мониторинг отзывов в реальном времени — 500+ площадок</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">@wasrusgen1</span>
+      </div>
+    </div>
+    <div style="width:280px;height:280px;background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 24px rgba(0,0,0,.1)">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0E7490;letter-spacing:.03em">РАДАР · Охват</div>
+        <div style="width:32px;height:32px;border-radius:8px;background:#ECFEFF;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <div style="flex:1;background:#ECFEFF;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:#0E7490">500+</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;color:#6B7280;margin-top:3px">площадок</div>
+        </div>
+        <div style="flex:1;background:#ECFEFF;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:#0E7490">−8ч</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;color:#6B7280;margin-top:3px">реакция</div>
+        </div>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#9CA3AF">@wasrusgen1 · wasrusgen1.ru</div>
+    </div>
+  </div>
+</section>
+
+<section id="buttons">
+  <div class="section-label">09 -- Кнопки</div>
+  <h2 class="section-title">Кнопки и CTA-элементы</h2>
+  <p class="section-desc">6 вариантов с WOW-эффектами. Наведи курсор -- каждая кнопка интерактивна.</p>
+  <div style="background:#0F0F1A;border-radius:20px;padding:48px 48px 36px;margin-bottom:32px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#2A2A4A;margin-bottom:28px">Все варианты -- интерактивный демо</div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:20px">
+      <button class="btn md btn-v1">Оставить заявку</button>
+      <button class="btn md btn-v2">Начать сейчас</button>
+      <button class="btn md btn-v3">Подробнее</button>
+      <button class="btn md btn-v4"><span>Сравнить</span></button>
+      <button class="btn md btn-v5">Открыть отчёт</button>
+      <button class="btn md btn-v6">Отмена</button>
+    </div>
+    <div style="font-size:11px;color:#2A2A4A">v1 Primary Shine · v2 Glow Pulse · v3 Glass · v4 Outline Fill · v5 Surface · v6 Ghost</div>
+  </div>
+  <div class="bvc-grid">
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 01</div><div class="bvc-h">Primary</div><button class="btn md btn-v1">Оставить заявку</button></div><div class="bvc-b"><div class="bvc-ef">Gradient + Shine Sweep + Glow</div><div class="bvc-d">Shine-эффект скользит при hover, тень усиливается. Градиент от тёмного к акценту.<br><span class="bvc-w">Когда:</span> главный CTA страницы, заявка, покупка, старт воронки.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 02</div><div class="bvc-h">Glow Pulse</div><button class="btn md btn-v2">Начать сейчас</button></div><div class="bvc-b"><div class="bvc-ef">Pulsating Ring -- Always-On</div><div class="bvc-d">Живёт постоянно -- кольцевая пульсация без hover. Привлекает без взаимодействия.<br><span class="bvc-w">Когда:</span> hero, промо-баннер, ограниченное предложение, таймер акции.</div></div></div>
+    <div class="bvc dk"><div class="bvc-t"><div class="bvc-n">Вариант 03</div><div class="bvc-h">Glass</div><button class="btn md btn-v3">Подробнее</button></div><div class="bvc-b"><div class="bvc-ef">Glassmorphism -- Backdrop Blur</div><div class="bvc-d">Frosted-стекло -- только тёмные и фирменные фоны. Вторичное действие рядом с Primary.<br><span class="bvc-w">Когда:</span> поверх gradient-cover, modal на тёмном, hero -- вторая кнопка.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 04</div><div class="bvc-h">Outline Fill</div><button class="btn md btn-v4"><span>Сравнить варианты</span></button></div><div class="bvc-b"><div class="bvc-ef">Border -- Fill Reveal Left to Right</div><div class="bvc-d">Граница превращается в заливку при hover слева направо. Нейтральный вид до взаимодействия.<br><span class="bvc-w">Когда:</span> вторичное действие рядом с Primary, Скачать, Сравнить, Узнать больше.</div></div></div>
+    <div class="bvc nt"><div class="bvc-t" style="background:#F9FAFB"><div class="bvc-n">Вариант 05</div><div class="bvc-h">Surface</div><button class="btn md btn-v5">Открыть отчёт</button></div><div class="bvc-b"><div class="bvc-ef" style="color:#374151">Elevated -- Neutral -- Shadow Lift</div><div class="bvc-d">Нейтральный вес. Тень поднимается при hover.<br><span class="bvc-w">Когда:</span> инлайн-действия в списках, таблицах, карточках -- Открыть, Редактировать.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 06</div><div class="bvc-h">Ghost</div><button class="btn md btn-v6">Отмена</button></div><div class="bvc-b"><div class="bvc-ef" style="color:#374151">Текстовый -- минимальный</div><div class="bvc-d">Минимальный визуальный вес, фон появляется при hover.<br><span class="bvc-w">Когда:</span> Отмена, Назад, Пропустить, навигационные ссылки.</div></div></div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 8px">Размеры</h3>
+  <p class="section-desc" style="margin-bottom:20px">Размер выбирается по иерархии и контексту. MD -- базовый.</p>
+  <div style="background:#fff;border-radius:16px;border:1.5px solid #E5E7EB;padding:32px;margin-bottom:40px">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:28px">
+      <button class="btn sm btn-v1">Малый SM</button>
+      <button class="btn md btn-v1">Средний MD</button>
+      <button class="btn lg btn-v1">Большой LG</button>
+      <button class="btn xl btn-v1">Hero XL</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #F3F4F6;padding-top:20px">
+      <div style="padding:0 16px 0 0;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">SM</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">8x16px - 12px - r8<br>Таблицы, chip, badge</div></div>
+      <div style="padding:0 16px;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#0E7490;margin-bottom:4px">MD -- default</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">14x28px - 14px - r12<br>Карточки, формы, секции</div></div>
+      <div style="padding:0 16px;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">LG</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">18x36px - 16px - r14<br>Hero-секции, popup, modal</div></div>
+      <div style="padding:0 0 0 16px"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">XL -- Hero</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">22x48px - 18px - r16<br>Landing cover, главный экран</div></div>
+    </div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 8px">Матрица применения</h3>
+  <p class="section-desc" style="margin-bottom:20px">Один экран -- не более одной Primary/Glow. Не смешивать v1 и v2 в одной секции.</p>
+  <div style="background:#fff;border-radius:16px;border:1.5px solid #E5E7EB;overflow:hidden;margin-bottom:40px">
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;background:#F9FAFB;border-bottom:1px solid #E5E7EB">
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF">Контекст</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB">Описание</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB;text-align:center">Основной</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB;text-align:center">Второстеп.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Landing Hero</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Главный экран. Один фокус внимания.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#0E7490">v2 XL</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v3 LG</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Форма / Заявка</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Submit + отмена. Чёткая иерархия.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#0E7490">v1 MD</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v6 MD</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Карточка / Список</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Инлайн-действие.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#0E7490">v5 SM</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v6 SM</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Тёмный / Gradient</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Поверх фирменного градиента.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#0E7490">v1 LG</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v3 MD</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Email / Документ</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Ограниченная поддержка CSS.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#0E7490">v4 MD</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v5 MD</div></div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 20px">Правила</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:#F0FDF4;border:1.5px solid #A7F3D0;border-radius:16px;padding:24px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#059669;margin-bottom:16px">Делай</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Не более одной Primary/Glow на экран.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">v3 Glass -- только тёмные и фирменные фоны.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Иерархия: Primary -- Outline -- Ghost.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Disabled: opacity 32%, cursor not-allowed.</div></div></div>
+    <div style="background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:16px;padding:24px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#DC2626;margin-bottom:16px">Не делай</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">v1 и v2 в одной секции -- конфликт dominant.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">v3 Glass на белом фоне -- эффект невидим.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">Кнопка шире 320px без причины.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">Переопределять цвета вне токенов бренда.</div></div></div>
+  </div>
+</section>
+
+<section id="outro">
+  <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;color:rgba(255,255,255,.5);margin-bottom:10px">@wasrusgen1</div>
+  <div style="font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;letter-spacing:-3px;color:#fff;line-height:.9;margin-bottom:20px">РАДАР</div>
+  <p>Знай что говорят — реагируй первым. Мониторинг репутации нового поколения.</p>
+</section>
+
+</main>
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navItems.forEach(n => n.classList.remove('active'));
+        const active = document.querySelector(`.nav-item[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

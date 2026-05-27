@@ -1,0 +1,2718 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@wasrusgen1 | CRM — Брендбук 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sidebar-w: 220px;
+    --s-success: #10B981;
+    --s-success-bg: #ECFDF5;
+    --s-warning: #F59E0B;
+    --s-warning-bg: #FFFBEB;
+    --s-danger: #EF4444;
+    --s-danger-bg: #FEF2F2;
+    --s-info: #3B82F6;
+    --s-info-bg: #EFF6FF;
+    --sidebar-bg: #0F0F1A;
+    --sidebar-text: #9CA3AF;
+    --sidebar-active: #F9FAFB;
+    --sidebar-accent: #4338CA;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F5F6F8;
+    color: #1A1A2E;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 24px;
+  }
+
+  .sidebar-logo {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-logo .logo-mark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: -.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sidebar-logo .logo-mark .at-sign {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #4338CA, #6366F1);
+    border-radius: 8px;
+    font-size: 15px;
+    color: #fff;
+  }
+
+  .sidebar-logo .logo-divider {
+    width: 1.5px;
+    height: 18px;
+    background: rgba(255,255,255,.3);
+    display: inline-block;
+  }
+
+  .sidebar-logo .logo-crm {
+    color: rgba(255,255,255,.75);
+    font-size: 16px;
+  }
+
+  .sidebar-logo .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--sidebar-text);
+    margin-top: 6px;
+    font-weight: 400;
+    letter-spacing: .03em;
+  }
+
+  .sidebar nav { flex: 1; }
+
+  .nav-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: rgba(156,163,175,.5);
+    padding: 16px 20px 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-left: 2px solid transparent;
+    transition: all .15s;
+    cursor: pointer;
+  }
+
+  .nav-item:hover {
+    color: var(--sidebar-active);
+    background: rgba(255,255,255,.04);
+  }
+
+  .nav-item.active {
+    color: var(--sidebar-active);
+    border-left-color: var(--sidebar-accent);
+    background: rgba(99,102,241,.1);
+  }
+
+  .nav-item .nav-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(156,163,175,.4);
+    min-width: 18px;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  section {
+    padding: 64px 56px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #8A94A6;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0F0F1A;
+    margin-bottom: 8px;
+    letter-spacing: -.02em;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: #6B7280;
+    max-width: 640px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* ─── COVER ─── */
+  #cover {
+    background: linear-gradient(145deg, #1E1B4B 0%, #312E81 40%, #4338CA 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 80px;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 200px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(67,56,202,.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .04em;
+    margin-bottom: 40px;
+    backdrop-filter: blur(8px);
+  }
+
+
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+
+  .cover-logo .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  .cover-logo .logo-text .brand {
+    font-size: 36px;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .cover-logo .logo-text .sep {
+    display: inline-block;
+    width: 2px;
+    height: 28px;
+    background: rgba(255,255,255,.3);
+    margin: 0 14px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+  }
+
+  .cover-logo .logo-text .crm {
+    font-size: 36px;
+    color: rgba(255,255,255,.65);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .cover-h1 {
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    max-width: 640px;
+  }
+
+  .cover-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,.6);
+    font-weight: 400;
+    margin-bottom: 48px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cover-meta-item {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+  }
+
+  .cover-meta-item strong {
+    color: rgba(255,255,255,.85);
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  /* ─── LOGO SECTION ─── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .logo-card {
+    border-radius: 16px;
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border: 1.5px solid #E5E7EB;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-card.light { background: #FFFFFF; }
+  .logo-card.dark { background: #111827; border-color: #374151; }
+  .logo-card.gradient { background: linear-gradient(135deg, #1E1B4B, #4338CA); border: none; }
+
+  .logo-card .card-label {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(0,0,0,.06);
+    color: #8A94A6;
+  }
+
+  .logo-card.dark .card-label,
+  .logo-card.gradient .card-label {
+    background: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.5);
+  }
+
+  .logo-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-display .at-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-display .at-icon.blue { background: #003E7E; }
+  .logo-display .at-icon.indigo { background: #4338CA; }
+  .logo-display .at-icon.white-bg { background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.2); }
+
+  .logo-display .at-icon svg { width: 28px; height: 28px; }
+
+  .logo-display .sep-line { display: none; }
+  .logo-stack { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+  .logo-handle { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .04em; color: rgba(0,0,0,.38); margin-bottom: 3px; }
+  .dark-ver .logo-handle, .gradient-ver .logo-handle { color: rgba(255,255,255,.45); }
+  .logo-display .crm-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 26px; color: #1A1A2E; letter-spacing: -1px; }
+  .logo-display.dark-ver .crm-text { color: #fff; }
+  .logo-display.gradient-ver .crm-text { color: #fff; }
+
+  .subbrands {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .subbrand-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 100px;
+    padding: 8px 16px;
+  }
+
+  .subbrand-pill .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  .subbrand-pill .name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1A1A2E;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .rule-card {
+    border-radius: 12px;
+    padding: 20px;
+    border: 1.5px solid #E5E7EB;
+    background: #fff;
+  }
+
+  .rule-card .rule-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .rule-card.ok .rule-icon { background: #ECFDF5; color: #10B981; }
+  .rule-card.no .rule-icon { background: #FEF2F2; color: #EF4444; }
+
+  .rule-card .rule-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 4px;
+  }
+
+  .rule-card .rule-desc {
+    font-size: 12px;
+    color: #8A94A6;
+    line-height: 1.5;
+  }
+
+  /* ─── COLOR SECTION ─── */
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .theme-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid #E5E7EB;
+    background: #fff;
+  }
+
+  .theme-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid #F3F4F6;
+  }
+
+  .theme-name {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #8A94A6;
+    margin-bottom: 4px;
+  }
+
+  .theme-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F0F1A;
+  }
+
+  .theme-swatches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #F3F4F6;
+  }
+
+  .swatch {
+    padding: 16px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .swatch .color-dot {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+
+  .swatch .token {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #8A94A6;
+  }
+
+  .swatch .hex {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A2E;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .swatch .role {
+    font-size: 11px;
+    color: #9CA3AF;
+  }
+
+  /* Mobile preview */
+  .phone-preview {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .phone-shell {
+    width: 180px;
+    height: 320px;
+    border-radius: 24px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 2px solid rgba(0,0,0,.1);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,.12);
+  }
+
+  .phone-screen {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-topbar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+  }
+
+  .phone-topbar .title {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .phone-content {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .mini-card {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mini-card .mini-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .mini-card .mini-text {
+    font-size: 10px;
+    font-weight: 600;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .mini-card .mini-badge {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 100px;
+  }
+
+  .phone-navbar {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+
+  .phone-navbar .nb-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .3;
+  }
+
+  .phone-navbar .nb-dot.active { opacity: 1; }
+
+  .phone-fab {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -12px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .semantic-card {
+    border-radius: 12px;
+    padding: 16px;
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .semantic-card .s-swatch {
+    height: 48px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .semantic-card .s-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #8A94A6;
+    margin-bottom: 4px;
+  }
+
+  .semantic-card .s-hex {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 2px;
+  }
+
+  .semantic-card .s-bg {
+    font-size: 11px;
+    color: #9CA3AF;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid #E5E7EB;
+    margin-bottom: 40px;
+    background: #fff;
+  }
+
+  .type-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 160px;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #F3F4F6;
+    gap: 20px;
+  }
+
+  .type-row:last-child { border-bottom: none; }
+
+  .type-row:hover { background: #FAFAFA; }
+
+  .type-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .type-name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #8A94A6;
+  }
+
+  .type-spec {
+    font-size: 11px;
+    color: #CBD5E1;
+    font-family: 'Courier New', monospace;
+  }
+
+  .type-example { min-height: 40px; display: flex; align-items: center; }
+  .type-usage { font-size: 12px; color: #9CA3AF; }
+
+  .font-card {
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .font-card .font-name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #8A94A6;
+    margin-bottom: 8px;
+  }
+
+  .font-card .font-display {
+    font-size: 40px;
+    font-weight: 700;
+    color: #0F0F1A;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .font-card .font-weights {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .weight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .weight-item .w-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #CBD5E1;
+  }
+
+  .weight-item .w-sample {
+    font-size: 15px;
+    color: #1A1A2E;
+  }
+
+  /* ─── COMPONENTS ─── */
+  .component-group {
+    margin-bottom: 48px;
+  }
+
+  .component-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #4338CA;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .component-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #E5E7EB;
+  }
+
+  .comp-surface {
+    background: #F5F6F8;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .comp-surface.dark-surface {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  /* Buttons */
+  .btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all .15s;
+    text-decoration: none;
+  }
+
+  .btn-primary { background: #003E7E; color: #fff; padding: 14px 24px; font-size: 15px; }
+  .btn-secondary { background: transparent; color: #003E7E; border: 1.5px solid #003E7E; padding: 13px 24px; font-size: 15px; }
+  .btn-destructive { background: #EF4444; color: #fff; padding: 14px 24px; font-size: 15px; }
+
+  .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 10px; }
+  .btn-md { padding: 14px 20px; font-size: 15px; }
+  .btn-lg { padding: 16px 28px; font-size: 17px; border-radius: 14px; }
+
+  /* Cards */
+  .ui-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    padding: 16px;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .ui-card.card-info { border-left: 4px solid #3B82F6; }
+  .ui-card.card-success { border-left: 4px solid #10B981; }
+  .ui-card.card-warn { border-left: 4px solid #F59E0B; }
+  .ui-card.card-danger { border-left: 4px solid #EF4444; }
+
+  .cards-demo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    background: #F5F6F8;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .card-demo-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1.5px solid #E5E7EB;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  }
+
+  .card-demo-item.c-info { border-left: 4px solid #3B82F6; }
+  .card-demo-item.c-success { border-left: 4px solid #10B981; }
+  .card-demo-item.c-warn { border-left: 4px solid #F59E0B; }
+  .card-demo-item.c-danger { border-left: 4px solid #EF4444; }
+
+  .card-demo-item .cd-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+  }
+
+  .card-demo-item .cd-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 4px;
+  }
+
+  .card-demo-item .cd-sub {
+    font-size: 12px;
+    color: #8A94A6;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .badge::before {
+    content: '';
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .badge-active { background: #DBEAFE; color: #1D4ED8; }
+  .badge-wait   { background: #FEF3C7; color: #D97706; }
+  .badge-done   { background: #DCFCE7; color: #15803D; }
+  .badge-cancel { background: #FEE2E2; color: #DC2626; }
+  .badge-draft  { background: #F1F5F9; color: #64748B; }
+
+  .badges-surface {
+    background: #F5F6F8;
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  /* Inputs */
+  .input-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #F5F6F8;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1.5px solid #E5E7EB;
+    max-width: 480px;
+  }
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .input-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    letter-spacing: .02em;
+  }
+
+  .input-field input {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #1A1A2E;
+    outline: none;
+    transition: border-color .15s;
+  }
+
+  .input-field input:focus { border-color: #003E7E; }
+  .input-field input.inp-error { border-color: #EF4444; }
+
+  .input-field .input-hint {
+    font-size: 11px;
+    color: #9CA3AF;
+  }
+  .input-field .input-hint.error { color: #EF4444; }
+
+  /* Navbar demo */
+  .navbar-demo {
+    width: 390px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .navbar-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 60px;
+  }
+
+  .nb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .nb-item svg { width: 22px; height: 22px; }
+
+  .nb-item .nb-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .03em;
+  }
+
+  .nb-item.nb-active svg { stroke: #003E7E; }
+  .nb-item.nb-active .nb-label { color: #003E7E; }
+  .nb-item:not(.nb-active) svg { stroke: #9CA3AF; }
+  .nb-item:not(.nb-active) .nb-label { color: #9CA3AF; }
+
+  .nb-fab-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -10px;
+  }
+
+  .nb-fab {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #003E7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,62,126,.4);
+    cursor: pointer;
+  }
+
+  .nb-fab svg { width: 24px; height: 24px; stroke: #fff; }
+
+  /* Timeline */
+  .timeline-demo {
+    background: #F5F6F8;
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1.5px solid #E5E7EB;
+    max-width: 480px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 28px;
+    width: 1.5px;
+    height: calc(100% - 14px);
+    background: #E5E7EB;
+  }
+
+  .timeline-item:last-child::before { display: none; }
+
+  .tl-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .tl-dot svg { width: 14px; height: 14px; }
+  .tl-dot.done { background: #DCFCE7; }
+  .tl-dot.done svg { stroke: #15803D; }
+  .tl-dot.active { background: #DBEAFE; }
+  .tl-dot.active svg { stroke: #1D4ED8; }
+  .tl-dot.pending { background: #F1F5F9; }
+  .tl-dot.pending svg { stroke: #94A3B8; }
+
+  .tl-content { flex: 1; }
+  .tl-title { font-size: 14px; font-weight: 600; color: #1A1A2E; margin-bottom: 2px; }
+  .tl-time { font-size: 11px; color: #9CA3AF; }
+  .tl-sub { font-size: 12px; color: #6B7280; margin-top: 4px; }
+
+  /* ─── TOKENS TABLE ─── */
+  .token-table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1.5px solid #E5E7EB;
+    margin-bottom: 40px;
+    background: #fff;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  thead { background: #F9FAFB; }
+
+  th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #8A94A6;
+    border-bottom: 1px solid #E5E7EB;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+    color: #374151;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAFA; }
+
+  td:first-child {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #4338CA;
+  }
+
+  .color-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .color-chip .chip {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.06);
+    flex-shrink: 0;
+  }
+
+  /* Code block */
+  .code-block {
+    background: #0F0F1A;
+    border-radius: 16px;
+    padding: 28px 32px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    border: 1px solid rgba(255,255,255,.07);
+  }
+
+  .code-block .c-comment { color: #4B5563; }
+  .code-block .c-selector { color: #60A5FA; }
+  .code-block .c-prop { color: #A78BFA; }
+  .code-block .c-val { color: #34D399; }
+  .code-block .c-punc { color: #E5E7EB; }
+
+  /* ─── ICONS ─── */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 8px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .icon-item svg {
+    width: 24px; height: 24px;
+    stroke: #374151;
+    stroke-width: 1.75;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon-item .icon-name {
+    font-size: 10px;
+    color: #9CA3AF;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .touch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .touch-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1.5px solid #E5E7EB;
+  }
+
+  .touch-card .tc-title { font-size: 14px; font-weight: 700; color: #1A1A2E; margin-bottom: 6px; }
+  .touch-card .tc-val { font-size: 28px; font-weight: 800; color: #4338CA; margin-bottom: 4px; }
+  .touch-card .tc-desc { font-size: 12px; color: #8A94A6; line-height: 1.5; }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 10px; }
+
+  @media (max-width: 900px) {
+    .main { margin-left: 0; }
+    .sidebar { display: none; }
+    section { padding: 40px 24px; }
+    .logo-grid, .themes-grid, .rules-grid { grid-template-columns: 1fr; }
+    .semantic-grid { grid-template-columns: repeat(2, 1fr); }
+    .icon-grid { grid-template-columns: repeat(4, 1fr); }
+    .touch-grid { grid-template-columns: 1fr; }
+    .cards-demo { grid-template-columns: 1fr; }
+  }
+  /* --- КНОПКИ --- */
+  @keyframes _btn_glow { 0%,100%{box-shadow:0 0 0 0 rgba(67,56,202,.45),0 4px 20px rgba(67,56,202,.2);}50%{box-shadow:0 0 0 12px rgba(67,56,202,0),0 4px 20px rgba(67,56,202,.2);} }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-.2px;transition:all .18s ease;text-decoration:none;white-space:nowrap;position:relative;overflow:hidden;vertical-align:middle;}
+  .btn.sm{padding:8px 16px;font-size:12px;border-radius:8px;}
+  .btn.md{padding:14px 28px;font-size:14px;border-radius:12px;}
+  .btn.lg{padding:18px 36px;font-size:16px;border-radius:14px;}
+  .btn.xl{padding:22px 48px;font-size:18px;border-radius:16px;}
+  .btn-v1{background:linear-gradient(135deg,#1E1B4B 0%,#4338CA 55%,#6366F1 100%);color:#fff;box-shadow:0 4px 24px rgba(67,56,202,.3);}
+  .btn-v1::after{content:"";position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:left .44s ease;}
+  .btn-v1:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(67,56,202,.5);}
+  .btn-v1:hover::after{left:150%;}
+  .btn-v1:active{transform:translateY(0);}
+  .btn-v2{background:#4338CA;color:#fff;animation:_btn_glow 2.4s ease-in-out infinite;}
+  .btn-v2:hover{transform:scale(1.05);animation-play-state:paused;box-shadow:0 8px 32px rgba(67,56,202,.55);}
+  .btn-v3{background:rgba(255,255,255,.11);border:1.5px solid rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+  .btn-v3:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);transform:translateY(-1px);}
+  .btn-v4{background:transparent;border:2px solid #4338CA;color:#4338CA;}
+  .btn-v4::before{content:"";position:absolute;inset:0;background:#4338CA;transform:scaleX(0);transform-origin:left;transition:transform .24s ease;z-index:0;}
+  .btn-v4>span{position:relative;z-index:1;}
+  .btn-v4:hover{color:#fff;}
+  .btn-v4:hover::before{transform:scaleX(1);}
+  .btn-v5{background:#fff;border:1.5px solid #E5E7EB;color:#1A1A2E;box-shadow:0 1px 4px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);}
+  .btn-v5:hover{box-shadow:0 4px 20px rgba(0,0,0,.12);transform:translateY(-1px);}
+  .btn-v6{background:transparent;border:none;color:#4338CA;}
+  .btn-v6:hover{background:rgba(67,56,202,.08);}
+  .btn-loading{opacity:.65;cursor:wait;pointer-events:none;}
+  .btn-disabled,.btn[disabled]{opacity:.32;cursor:not-allowed;pointer-events:none;}
+  .bvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .bvc{border-radius:16px;overflow:hidden;border:1.5px solid #E5E7EB;}
+  .bvc.dk{background:#0F0F1A;border-color:#1A1A2E;}
+  .bvc.lt{background:#fff;}
+  .bvc.nt{background:#F9FAFB;}
+  .bvc-t{padding:32px 28px 24px;}
+  .bvc-n{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9CA3AF;margin-bottom:4px;}
+  .bvc.dk .bvc-n{color:#3A3A5A;}
+  .bvc-h{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:#0F0F1A;margin-bottom:16px;}
+  .bvc.dk .bvc-h{color:#fff;}
+  .bvc-b{padding:16px 28px;border-top:1px solid #E5E7EB;}
+  .bvc.dk .bvc-b{background:#111122;border-top-color:#1A1A2E;}
+  .bvc.nt .bvc-b{background:#ECEEF1;border-top-color:#E0E2E7;}
+  .bvc-ef{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4338CA;margin-bottom:6px;}
+  .bvc.dk .bvc-ef{color:#6366F1;}
+  .bvc-d{font-size:12px;color:#6B7280;line-height:1.55;}
+  .bvc.dk .bvc-d{color:#555;}
+  .bvc-w{font-weight:700;color:#374151;}
+  .bvc.dk .bvc-w{color:#9CA3AF;}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div style="margin-bottom:6px">
+      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.05em;color:rgba(255,255,255,.45);line-height:1;margin-bottom:4px">@wasrusgen1</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;letter-spacing:-1px;color:#fff;line-height:1">CRM</div>
+    </div>
+    <div class="sub">Брендбук · 2026</div>
+  </div>
+  <nav>
+    <div class="nav-section-label">Навигация</div>
+    <a class="nav-item active" href="#cover">
+      <span class="nav-num">00</span> Обложка
+    </a>
+    <a class="nav-item" href="#logo">
+      <span class="nav-num">01</span> Логотип
+    </a>
+    <a class="nav-item" href="#colors">
+      <span class="nav-num">02</span> Цветовые темы
+    </a>
+    <a class="nav-item" href="#typography">
+      <span class="nav-num">03</span> Типографика
+    </a>
+    <a class="nav-item" href="#components">
+      <span class="nav-num">04</span> UI-компоненты
+    </a>
+    <a class="nav-item" href="#tokens">
+      <span class="nav-num">05</span> Дизайн-токены
+    </a>
+    <a class="nav-item" href="#icons">
+      <span class="nav-num">06</span> Иконки
+    </a>
+    <a class="nav-item" href="#application">
+      <span class="nav-num">07</span> Применение
+    </a>
+    <a class="nav-item" href="#buttons">
+      <span class="nav-num">08</span> Кнопки
+    </a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- 00 COVER -->
+  <section id="cover">
+    <div style="margin-bottom:28px">
+      <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;color:rgba(255,255,255,.5);line-height:1;margin-bottom:10px">@wasrusgen1</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;letter-spacing:-3px;color:#fff;line-height:.9">CRM</div>
+    </div>
+    <h1 class="cover-h1">Руководство по фирменному стилю</h1>
+    <p class="cover-sub">Управление бизнес-процессами · Версия 2026</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <strong>Продукт</strong>
+        @wasrusgen1 | CRM
+      </div>
+      <div class="cover-meta-item">
+        <strong>Платформа</strong>
+        Telegram MiniApp
+      </div>
+      <div class="cover-meta-item">
+        <strong>Viewport</strong>
+        390px мобильный
+      </div>
+      <div class="cover-meta-item">
+        <strong>Зонтичный бренд</strong>
+        РАДАР
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 LOGO -->
+  <section id="logo">
+    <div class="section-label">01 · Логотип</div>
+    <h2 class="section-title">Система логотипа</h2>
+    <p class="section-desc">Логотип состоит из трёх элементов: знак @wasrusgen1, вертикальный разделитель и слово CRM на Montserrat 700. Три варианта для разных фонов.</p>
+
+    <div class="logo-grid">
+      <!-- Light -->
+      <div class="logo-card light">
+        <span class="card-label">Светлый фон</span>
+        <div class="logo-display" style="gap:14px">
+          <div class="at-icon blue"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="crm-text" style="color:#1A1A2E">CRM</span></div>
+        </div>
+        <div style="font-size:12px;color:#9CA3AF;text-align:center">Основное применение</div>
+      </div>
+
+      <!-- Dark -->
+      <div class="logo-card dark">
+        <span class="card-label">Тёмный фон</span>
+        <div class="logo-display dark-ver" style="gap:14px">
+          <div class="at-icon indigo"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="crm-text">CRM</span></div>
+        </div>
+        <div style="font-size:12px;color:#6B7280;text-align:center">Тёмные поверхности</div>
+      </div>
+
+      <!-- Gradient -->
+      <div class="logo-card gradient">
+        <span class="card-label">Градиент</span>
+        <div class="logo-display gradient-ver" style="gap:14px">
+          <div class="at-icon white-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="logo-stack"><span class="logo-handle">@wasrusgen1</span><span class="crm-text">CRM</span></div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);text-align:center">Промо-материалы</div>
+      </div>
+    </div>
+
+    <!-- Subbrands -->
+    <div class="section-label" style="margin-bottom:16px">Система суббрендов</div>
+    <div class="subbrands" style="margin-bottom:32px">
+      <div class="subbrand-pill">
+        <div class="dot" style="background:#4338CA"></div>
+        <span class="name" style="color:#4338CA">РАДАР</span>
+        <span style="font-size:11px;color:#9CA3AF;margin-left:4px">Зонтичный бренд</span>
+      </div>
+      <div class="subbrand-pill">
+        <div class="dot" style="background:#003E7E"></div>
+        <span class="name" style="color:#003E7E">CRM</span>
+        <span style="font-size:11px;color:#9CA3AF;margin-left:4px">Мебельная сеть</span>
+      </div>
+      <div class="subbrand-pill">
+        <div class="dot" style="background:#0891B2"></div>
+        <span class="name" style="color:#0891B2">ЭКСПЕРТ</span>
+        <span style="font-size:11px;color:#9CA3AF;margin-left:4px">Консультации</span>
+      </div>
+    </div>
+
+    <!-- Rules -->
+    <div class="section-label" style="margin-bottom:16px">Правила использования</div>
+    <div class="rules-grid">
+      <div class="rule-card ok">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Используй на чистом фоне</div>
+        <div class="rule-desc">Белый, тёмный #111827, или фирменный градиент РАДАР</div>
+      </div>
+      <div class="rule-card ok">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Соблюдай охранную зону</div>
+        <div class="rule-desc">Минимум 16px пространства вокруг логотипа с каждой стороны</div>
+      </div>
+      <div class="rule-card ok">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Минимальный размер</div>
+        <div class="rule-desc">26px высота на экране / 36px при печати</div>
+      </div>
+      <div class="rule-card no">
+        <div class="rule-icon">✕</div>
+        <div class="rule-title">Не меняй пропорции</div>
+        <div class="rule-desc">Не растягивай логотип — только масштабирование с сохранением пропорций</div>
+      </div>
+      <div class="rule-card no">
+        <div class="rule-icon">✕</div>
+        <div class="rule-title">Не меняй цвета знака</div>
+        <div class="rule-desc">Знак @ только в #003E7E (светлый) или #4338CA / белый (тёмный)</div>
+      </div>
+      <div class="rule-card no">
+        <div class="rule-icon">✕</div>
+        <div class="rule-title">Не используй на пёстром фоне</div>
+        <div class="rule-desc">Фотографии, текстуры, паттерны — только в frame с однотонным фоном</div>
+      </div>
+    </div>
+
+    <!-- Usage Scenarios -->
+    <div class="section-label" style="margin-bottom:16px;margin-top:40px">Варианты применения</div>
+    <div class="usage-variants-grid">
+
+      <!-- 1. MiniApp Header -->
+      <div class="usage-card">
+        <div style="background:#003E7E;height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;border-radius:12px 12px 0 0">
+          <div class="logo-wmark-slot" data-color="rgba(255,255,255,0.92)" data-width="118" data-height="18"></div>
+          <div style="width:1.5px;height:26px;background:rgba(255,255,255,0.25);flex-shrink:0"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:rgba(255,255,255,.9);letter-spacing:2px">CRM</span>
+        </div>
+        <div class="usage-label">Шапка Telegram MiniApp</div>
+        <div class="usage-desc">Акцентный фон #003E7E. Вордмарк белый 92% + CRM Montserrat 700. Стандартное расположение — шапка экрана.</div>
+      </div>
+
+      <!-- 2. Login Screen -->
+      <div class="usage-card">
+        <div style="background:linear-gradient(135deg,#1E1B4B,#4338CA);height:60px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:12px 12px 0 0">
+          <div class="logo-wmark-slot" data-color="rgba(255,255,255,0.92)" data-width="118" data-height="18"></div>
+          <div style="width:1.5px;height:26px;background:rgba(255,255,255,0.25);flex-shrink:0"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:rgba(255,255,255,.9);letter-spacing:2px">CRM</span>
+        </div>
+        <div class="usage-label">Экран авторизации</div>
+        <div class="usage-desc">Градиент РАДАР #1E1B4B→#4338CA. Логотип центрирован, белый. Только на экране входа.</div>
+      </div>
+
+      <!-- 3. Documents / PDF -->
+      <div class="usage-card">
+        <div style="background:#fff;height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;border-radius:12px 12px 0 0;border-bottom:2px solid #003E7E">
+          <div class="logo-wmark-slot" data-color="#003E7E" data-width="118" data-height="18"></div>
+          <div style="width:1.5px;height:26px;background:#D1D5DB;flex-shrink:0"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:#1A1A2E;letter-spacing:2px">CRM</span>
+        </div>
+        <div class="usage-label">Документы / Акты / PDF</div>
+        <div class="usage-desc">Белый фон, цвет #003E7E. Печатные документы, шапка договора, акт сборки.</div>
+      </div>
+
+      <!-- 4. Dark mode -->
+      <div class="usage-card" style="border-color:#374151">
+        <div style="background:#1F2937;height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;border-radius:12px 12px 0 0">
+          <div class="logo-wmark-slot" data-color="rgba(255,255,255,0.85)" data-width="118" data-height="18"></div>
+          <div style="width:1.5px;height:26px;background:rgba(255,255,255,0.2);flex-shrink:0"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:rgba(255,255,255,.85);letter-spacing:2px">CRM</span>
+        </div>
+        <div class="usage-label" style="color:#F9FAFB;background:#111827">Тёмная тема (Dark Mode)</div>
+        <div class="usage-desc" style="background:#111827;color:#6B7280">Фон #1F2937. Инвертированный логотип, белый 85%. Ночной режим, AMOLED-экраны.</div>
+      </div>
+
+    </div>
+
+    <!-- Wrong usage -->
+    <div class="section-label" style="margin-bottom:16px;margin-top:8px">Недопустимые варианты</div>
+    <div class="wrong-usage-grid">
+
+      <div class="wrong-card">
+        <div style="background:linear-gradient(135deg,#F59E0B,#EF4444);height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:10px 10px 0 0">
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:#fff;opacity:0.75">@w1 | CRM</span>
+        </div>
+        <div class="wrong-why">✕ Произвольный цветной фон</div>
+      </div>
+
+      <div class="wrong-card">
+        <div style="background:#fff;height:52px;display:flex;align-items:center;justify-content:center;border-radius:10px 10px 0 0;overflow:hidden">
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#003E7E;transform:scaleX(1.7);display:inline-block">CRM</span>
+        </div>
+        <div class="wrong-why">✕ Искажение пропорций</div>
+      </div>
+
+      <div class="wrong-card">
+        <div style="background:repeating-linear-gradient(45deg,#e5e7eb,#e5e7eb 4px,#f9fafb 4px,#f9fafb 12px);height:52px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:10px 10px 0 0">
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:#003E7E">@wasrusgen1 | CRM</span>
+        </div>
+        <div class="wrong-why">✕ Логотип на паттерне/текстуре</div>
+      </div>
+
+      <div class="wrong-card">
+        <div style="background:#EF4444;height:52px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:10px 10px 0 0">
+          <span style="font-family:'Arial',sans-serif;font-weight:700;font-size:15px;color:#fff">@wasrusgen1 | CRM</span>
+        </div>
+        <div class="wrong-why">✕ Другой шрифт + запрещённый фон</div>
+      </div>
+
+    </div>
+
+    <!-- Два варианта -->
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:56px 0 8px;letter-spacing:-.01em">Два варианта логотипа</h3>
+    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B7280;margin-bottom:32px">Используются оба — выбор зависит от контекста носителя. Не смешивать в одном носителе.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px">
+
+      <!-- Горизонталь -->
+      <div style="background:#0F0F1A;border-radius:14px;overflow:hidden">
+        <div style="padding:40px;display:flex;align-items:center;justify-content:center;min-height:120px">
+          <span style="display:inline-flex;align-items:center;line-height:1">
+            <span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.3px;color:rgba(255,255,255,.7)">@wasrusgen1</span>
+            <span style="display:inline-block;width:1.5px;height:18px;background:rgba(255,255,255,.25);margin:0 12px;flex-shrink:0"></span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;color:#fff">CRM</span>
+          </span>
+        </div>
+        <div style="background:#111122;padding:20px 24px">
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#4338CA;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Горизонталь 1:1</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.8">
+            ✓ Хедер и навигация сайта<br>
+            ✓ Email-подпись<br>
+            ✓ Документы, КП, договоры<br>
+            ✓ Sidebar, колонтитулы
+          </div>
+        </div>
+      </div>
+
+      <!-- Стэк -->
+      <div style="background:#0F0F1A;border-radius:14px;overflow:hidden">
+        <div style="padding:40px;display:flex;align-items:flex-start;justify-content:center;min-height:120px">
+          <span style="display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1">
+            <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.45);margin-bottom:4px">@wasrusgen1</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-1.5px;color:#fff">CRM</span>
+          </span>
+        </div>
+        <div style="background:#111122;padding:20px 24px">
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#4338CA;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Вертикальный стэк</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.8">
+            ✓ Обложки презентаций<br>
+            ✓ Визитная карточка (лицо)<br>
+            ✓ Аватар Telegram-канала<br>
+            ✓ Обложки постов в соцсетях
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:12px;color:#9CA3AF;margin-top:8px">⚠ Правило: если в носителе использован стэк — горизонталь в том же носителе не дублируется, и наоборот.</p>
+
+  </section>
+
+  <!-- 02 COLORS -->
+  <section id="colors">
+    <div class="section-label">02 · Цветовые темы</div>
+    <h2 class="section-title">Три цветовые темы CRM</h2>
+    <p class="section-desc">Каждая тема адаптирована для конкретного контекста. По умолчанию используется основная тема. Тема Dark — для ночного режима.</p>
+
+    <div class="themes-grid">
+
+      <!-- Основная -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-name">По умолчанию</div>
+          <div class="theme-title">Тема основная</div>
+        </div>
+        <div class="phone-preview" style="padding:16px;background:#F5F6F8;border-bottom:1px solid #F3F4F6">
+          <div class="phone-shell">
+            <div class="phone-screen" style="background:#F5F6F8">
+              <div class="phone-topbar" style="background:#003E7E">
+                <span style="font-size:13px;font-weight:700;color:#fff">Сборки</span>
+                <span style="font-size:11px;color:rgba(255,255,255,.7)">14</span>
+              </div>
+              <div class="phone-content">
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#003E7E"></div>
+                  <div>
+                    <div class="mini-text" style="color:#1A1A2E">Сборка #1146В</div>
+                    <div style="font-size:9px;color:#8A94A6">Петров А.В.</div>
+                  </div>
+                  <div class="mini-badge" style="background:#DBEAFE;color:#1D4ED8">В работе</div>
+                </div>
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#76BD22"></div>
+                  <div>
+                    <div class="mini-text" style="color:#1A1A2E">Сборка #1144А</div>
+                    <div style="font-size:9px;color:#8A94A6">Иванов С.К.</div>
+                  </div>
+                  <div class="mini-badge" style="background:#DCFCE7;color:#15803D">Готово</div>
+                </div>
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#F59E0B"></div>
+                  <div>
+                    <div class="mini-text" style="color:#1A1A2E">Замер #892</div>
+                    <div style="font-size:9px;color:#8A94A6">Новая Купчинская 5</div>
+                  </div>
+                  <div class="mini-badge" style="background:#FEF3C7;color:#D97706">Ожидание</div>
+                </div>
+              </div>
+              <div class="phone-navbar" style="background:#fff">
+                <div class="nb-dot active" style="color:#003E7E"></div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+                <div class="phone-fab" style="background:#003E7E;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;position:relative;top:-8px;box-shadow:0 3px 10px rgba(0,62,126,.4)">+</div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="theme-swatches">
+          <div class="swatch">
+            <div class="color-dot" style="background:#003E7E"></div>
+            <div class="token">--accent</div>
+            <div class="hex">#003E7E</div>
+            <div class="role">Primary</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#76BD22"></div>
+            <div class="token">--accent2</div>
+            <div class="hex">#76BD22</div>
+            <div class="role">Secondary</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#F5F6F8"></div>
+            <div class="token">--bg</div>
+            <div class="hex">#F5F6F8</div>
+            <div class="role">Page BG</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#1A1A2E"></div>
+            <div class="token">--ink</div>
+            <div class="hex">#1A1A2E</div>
+            <div class="role">Main text</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- РАДАР CRM -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <div class="theme-name">Суббренд РАДАР</div>
+          <div class="theme-title">Тема РАДАР CRM</div>
+        </div>
+        <div class="phone-preview" style="padding:16px;background:#F9FAFB;border-bottom:1px solid #F3F4F6">
+          <div class="phone-shell">
+            <div class="phone-screen" style="background:#F9FAFB">
+              <div class="phone-topbar" style="background:#4338CA">
+                <span style="font-size:13px;font-weight:700;color:#fff">Сборки</span>
+                <span style="font-size:11px;color:rgba(255,255,255,.7)">14</span>
+              </div>
+              <div class="phone-content">
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#4338CA"></div>
+                  <div>
+                    <div class="mini-text" style="color:#111827">Сборка #1146В</div>
+                    <div style="font-size:9px;color:#6B7280">Петров А.В.</div>
+                  </div>
+                  <div class="mini-badge" style="background:#EDE9FE;color:#6D28D9">В работе</div>
+                </div>
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#6366F1"></div>
+                  <div>
+                    <div class="mini-text" style="color:#111827">Сборка #1144А</div>
+                    <div style="font-size:9px;color:#6B7280">Иванов С.К.</div>
+                  </div>
+                  <div class="mini-badge" style="background:#DCFCE7;color:#15803D">Готово</div>
+                </div>
+                <div class="mini-card" style="background:#fff">
+                  <div class="mini-dot" style="background:#F59E0B"></div>
+                  <div>
+                    <div class="mini-text" style="color:#111827">Замер #892</div>
+                    <div style="font-size:9px;color:#6B7280">Новая Купчинская 5</div>
+                  </div>
+                  <div class="mini-badge" style="background:#FEF3C7;color:#D97706">Ожидание</div>
+                </div>
+              </div>
+              <div class="phone-navbar" style="background:#fff">
+                <div class="nb-dot active" style="color:#4338CA"></div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+                <div class="phone-fab" style="background:#4338CA;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;position:relative;top:-8px;box-shadow:0 3px 10px rgba(67,56,202,.4)">+</div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+                <div class="nb-dot" style="color:#9CA3AF"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="theme-swatches">
+          <div class="swatch">
+            <div class="color-dot" style="background:#4338CA"></div>
+            <div class="token">--accent</div>
+            <div class="hex">#4338CA</div>
+            <div class="role">Indigo 700</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#6366F1"></div>
+            <div class="token">--accent2</div>
+            <div class="hex">#6366F1</div>
+            <div class="role">Indigo 500</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#F9FAFB"></div>
+            <div class="token">--bg</div>
+            <div class="hex">#F9FAFB</div>
+            <div class="role">Neutral 50</div>
+          </div>
+          <div class="swatch">
+            <div class="color-dot" style="background:#111827"></div>
+            <div class="token">--ink</div>
+            <div class="hex">#111827</div>
+            <div class="role">Anthracite</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark -->
+      <div class="theme-card" style="border-color:#374151">
+        <div class="theme-header" style="background:#111827;border-bottom-color:#374151">
+          <div class="theme-name" style="color:#6B7280">Ночной режим</div>
+          <div class="theme-title" style="color:#F9FAFB">Тема Dark</div>
+        </div>
+        <div class="phone-preview" style="padding:16px;background:#111827;border-bottom:1px solid #374151">
+          <div class="phone-shell" style="border-color:#374151">
+            <div class="phone-screen" style="background:#111827">
+              <div class="phone-topbar" style="background:#1F2937">
+                <span style="font-size:13px;font-weight:700;color:#F9FAFB">Сборки</span>
+                <span style="font-size:11px;color:#9CA3AF">14</span>
+              </div>
+              <div class="phone-content">
+                <div class="mini-card" style="background:#1F2937">
+                  <div class="mini-dot" style="background:#4338CA"></div>
+                  <div>
+                    <div class="mini-text" style="color:#F9FAFB">Сборка #1146В</div>
+                    <div style="font-size:9px;color:#9CA3AF">Петров А.В.</div>
+                  </div>
+                  <div class="mini-badge" style="background:rgba(99,102,241,.2);color:#A5B4FC">В работе</div>
+                </div>
+                <div class="mini-card" style="background:#1F2937">
+                  <div class="mini-dot" style="background:#10B981"></div>
+                  <div>
+                    <div class="mini-text" style="color:#F9FAFB">Сборка #1144А</div>
+                    <div style="font-size:9px;color:#9CA3AF">Иванов С.К.</div>
+                  </div>
+                  <div class="mini-badge" style="background:rgba(16,185,129,.15);color:#6EE7B7">Готово</div>
+                </div>
+                <div class="mini-card" style="background:#1F2937">
+                  <div class="mini-dot" style="background:#F59E0B"></div>
+                  <div>
+                    <div class="mini-text" style="color:#F9FAFB">Замер #892</div>
+                    <div style="font-size:9px;color:#9CA3AF">Купчинская 5</div>
+                  </div>
+                  <div class="mini-badge" style="background:rgba(245,158,11,.15);color:#FCD34D">Ожидание</div>
+                </div>
+              </div>
+              <div class="phone-navbar" style="background:#1F2937;border-top-color:#374151">
+                <div class="nb-dot active" style="color:#4338CA"></div>
+                <div class="nb-dot" style="color:#6B7280"></div>
+                <div class="phone-fab" style="background:#4338CA;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;position:relative;top:-8px;box-shadow:0 3px 10px rgba(67,56,202,.5)">+</div>
+                <div class="nb-dot" style="color:#6B7280"></div>
+                <div class="nb-dot" style="color:#6B7280"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="theme-swatches" style="background:#374151">
+          <div class="swatch" style="background:#1F2937">
+            <div class="color-dot" style="background:#4338CA;border-color:rgba(255,255,255,.1)"></div>
+            <div class="token" style="color:#6B7280">--accent</div>
+            <div class="hex" style="color:#F9FAFB">#4338CA</div>
+            <div class="role" style="color:#6B7280">Indigo 700</div>
+          </div>
+          <div class="swatch" style="background:#1F2937">
+            <div class="color-dot" style="background:#111827;border-color:rgba(255,255,255,.1)"></div>
+            <div class="token" style="color:#6B7280">--bg</div>
+            <div class="hex" style="color:#F9FAFB">#111827</div>
+            <div class="role" style="color:#6B7280">Anthracite</div>
+          </div>
+          <div class="swatch" style="background:#1F2937">
+            <div class="color-dot" style="background:#1F2937;border-color:rgba(255,255,255,.1)"></div>
+            <div class="token" style="color:#6B7280">--card</div>
+            <div class="hex" style="color:#F9FAFB">#1F2937</div>
+            <div class="role" style="color:#6B7280">Neutral 800</div>
+          </div>
+          <div class="swatch" style="background:#1F2937">
+            <div class="color-dot" style="background:#F9FAFB;border-color:rgba(255,255,255,.1)"></div>
+            <div class="token" style="color:#6B7280">--ink</div>
+            <div class="hex" style="color:#F9FAFB">#F9FAFB</div>
+            <div class="role" style="color:#6B7280">Light text</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Semantic -->
+    <div class="section-label" style="margin-bottom:16px">Семантические цвета · едины для всех тем</div>
+    <div class="semantic-grid">
+      <div class="semantic-card">
+        <div class="s-swatch" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)"></div>
+        <div class="s-name">Success</div>
+        <div class="s-hex" style="color:#10B981">#10B981</div>
+        <div class="s-bg">bg #ECFDF5</div>
+      </div>
+      <div class="semantic-card">
+        <div class="s-swatch" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)"></div>
+        <div class="s-name">Warning</div>
+        <div class="s-hex" style="color:#F59E0B">#F59E0B</div>
+        <div class="s-bg">bg #FFFBEB</div>
+      </div>
+      <div class="semantic-card">
+        <div class="s-swatch" style="background:linear-gradient(135deg,#FEF2F2,#FEE2E2)"></div>
+        <div class="s-name">Danger</div>
+        <div class="s-hex" style="color:#EF4444">#EF4444</div>
+        <div class="s-bg">bg #FEF2F2</div>
+      </div>
+      <div class="semantic-card">
+        <div class="s-swatch" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)"></div>
+        <div class="s-name">Info</div>
+        <div class="s-hex" style="color:#3B82F6">#3B82F6</div>
+        <div class="s-bg">bg #EFF6FF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TYPOGRAPHY -->
+  <section id="typography">
+    <div class="section-label">03 · Типографика</div>
+    <h2 class="section-title">Шрифтовая система</h2>
+    <p class="section-desc">Montserrat 700 — исключительно для логотипа. Inter 300–800 — весь интерфейсный текст. Оба шрифта подключены через Google Fonts.</p>
+
+    <!-- Font cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px">
+      <div class="font-card">
+        <div class="font-name">Montserrat · только логотип</div>
+        <div class="font-display" style="font-family:'Montserrat',sans-serif">РАДАР CRM</div>
+        <div style="font-size:12px;color:#9CA3AF;margin-top:8px">Использование: логотип РАДАР / CRM / ЭКСПЕРТ</div>
+        <div class="font-weights">
+          <div class="weight-item">
+            <span class="w-label">700</span>
+            <span class="w-sample" style="font-family:'Montserrat',sans-serif;font-weight:700">Bold</span>
+          </div>
+          <div class="weight-item">
+            <span class="w-label">800</span>
+            <span class="w-sample" style="font-family:'Montserrat',sans-serif;font-weight:800">ExtraBold</span>
+          </div>
+        </div>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Inter · весь UI текст</div>
+        <div class="font-display" style="font-weight:800">Добрый день</div>
+        <div style="font-size:12px;color:#9CA3AF;margin-top:8px">Использование: весь интерфейс, данные, метки</div>
+        <div class="font-weights">
+          <div class="weight-item"><span class="w-label">300</span><span class="w-sample" style="font-weight:300">Light</span></div>
+          <div class="weight-item"><span class="w-label">400</span><span class="w-sample" style="font-weight:400">Regular</span></div>
+          <div class="weight-item"><span class="w-label">500</span><span class="w-sample" style="font-weight:500">Medium</span></div>
+          <div class="weight-item"><span class="w-label">600</span><span class="w-sample" style="font-weight:600">SemiBold</span></div>
+          <div class="weight-item"><span class="w-label">700</span><span class="w-sample" style="font-weight:700">Bold</span></div>
+          <div class="weight-item"><span class="w-label">800</span><span class="w-sample" style="font-weight:800">ExtraBold</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type scale -->
+    <div class="section-label" style="margin-bottom:16px">Шкала размеров · мобильный 390px</div>
+    <div class="type-scale">
+      <div class="type-row" style="background:#F9FAFB">
+        <div class="type-meta">
+          <div class="type-name">Display</div>
+          <div class="type-spec">28px / 800 / -3%</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:28px;font-weight:800;letter-spacing:-.03em;color:#1A1A2E">Добрый день, Руслан</span>
+        </div>
+        <div class="type-usage">Приветствие, hero</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">H1</div>
+          <div class="type-spec">22px / 700 / -2%</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:22px;font-weight:700;letter-spacing:-.02em;color:#1A1A2E">Список сборок</span>
+        </div>
+        <div class="type-usage">Заголовок страницы</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">H2</div>
+          <div class="type-spec">18px / 700 / -1%</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:18px;font-weight:700;letter-spacing:-.01em;color:#1A1A2E">Клиенты</span>
+        </div>
+        <div class="type-usage">Раздел, секция</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">H3</div>
+          <div class="type-spec">16px / 600</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:16px;font-weight:600;color:#1A1A2E">Сборка #1146В</span>
+        </div>
+        <div class="type-usage">Карточка, модал</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">Body</div>
+          <div class="type-spec">15px / 400</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:15px;font-weight:400;color:#374151">Основной текст интерфейса</span>
+        </div>
+        <div class="type-usage">Параграфы, описания</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">Small</div>
+          <div class="type-spec">13px / 400</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:13px;font-weight:400;color:#6B7280">Вспомогательный текст</span>
+        </div>
+        <div class="type-usage">Подписи, meta</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-name">Caption</div>
+          <div class="type-spec">11px / 600 / +1px</div>
+        </div>
+        <div class="type-example">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8A94A6">МЕТКИ РАЗДЕЛОВ</span>
+        </div>
+        <div class="type-usage">Section labels</div>
+      </div>
+    </div>
+
+    <div style="background:#FEF3C7;border:1.5px solid #FDE68A;border-radius:12px;padding:16px 20px;font-size:13px;color:#92400E">
+      <strong>Правило:</strong> Montserrat используется ТОЛЬКО для логотипов РАДАР / CRM / ЭКСПЕРТ. Весь остальной текст в интерфейсе — Inter.
+    </div>
+  </section>
+
+  <!-- 04 COMPONENTS -->
+  <section id="components">
+    <div class="section-label">04 · UI-компоненты</div>
+    <h2 class="section-title">Мобильные компоненты</h2>
+    <p class="section-desc">Все компоненты построены на основной теме (--accent #003E7E). Border-radius 12–16px, отступы кратны 4px.</p>
+
+    <!-- Buttons -->
+    <div class="component-group">
+      <div class="component-title">Кнопки</div>
+      <div class="comp-surface">
+        <button class="btn btn-primary">Создать сборку</button>
+        <button class="btn btn-secondary">Отмена</button>
+        <button class="btn btn-destructive">Удалить</button>
+      </div>
+      <div style="height:16px"></div>
+      <div class="comp-surface" style="gap:12px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <button class="btn btn-primary btn-sm">Малый SM</button>
+          <span style="font-size:10px;color:#9CA3AF">8px 14px · 13px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <button class="btn btn-primary btn-md">Средний MD</button>
+          <span style="font-size:10px;color:#9CA3AF">14px · 15px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <button class="btn btn-primary btn-lg">Большой LG</button>
+          <span style="font-size:10px;color:#9CA3AF">16px · 17px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="component-group">
+      <div class="component-title">Карточки</div>
+      <div class="cards-demo">
+        <div class="card-demo-item c-info">
+          <div class="cd-label" style="color:#3B82F6">● Info</div>
+          <div class="cd-title">Замер #892</div>
+          <div class="cd-sub">Новая Купчинская, 5 · кв. 47</div>
+        </div>
+        <div class="card-demo-item c-success">
+          <div class="cd-label" style="color:#10B981">● Success</div>
+          <div class="cd-title">Сборка завершена</div>
+          <div class="cd-sub">Подписан акт 21.05.2026</div>
+        </div>
+        <div class="card-demo-item c-warn">
+          <div class="cd-label" style="color:#F59E0B">● Warning</div>
+          <div class="cd-title">Недостаток деталей</div>
+          <div class="cd-sub">Петли 110° — 4 шт. в пути</div>
+        </div>
+        <div class="card-demo-item c-danger">
+          <div class="cd-label" style="color:#EF4444">● Danger</div>
+          <div class="cd-title">Клиент недоволен</div>
+          <div class="cd-sub">Требует повторный выезд</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Badges -->
+    <div class="component-group">
+      <div class="component-title">Статус-бейджи</div>
+      <div class="badges-surface">
+        <span class="badge badge-active">В работе</span>
+        <span class="badge badge-wait">Ожидание</span>
+        <span class="badge badge-done">Завершено</span>
+        <span class="badge badge-cancel">Отменено</span>
+        <span class="badge badge-draft">Черновик</span>
+      </div>
+      <div style="margin-top:12px;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;padding:14px 20px;font-size:12px;color:#6B7280">
+        Padding: 4px 10px · Border-radius: 100px · Font: 12px/600 · Dot: 5×5px circle перед текстом
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="component-group">
+      <div class="component-title">Поля ввода</div>
+      <div class="input-demo">
+        <div class="input-field">
+          <label>Имя клиента</label>
+          <input type="text" placeholder="Иванов Сергей Константинович">
+          <div class="input-hint">Фамилия Имя Отчество полностью</div>
+        </div>
+        <div class="input-field">
+          <label>Адрес объекта</label>
+          <input type="text" value="Новая Купчинская, 5 кв. 47" style="border-color:#003E7E">
+          <div class="input-hint">Focus state: border #003E7E</div>
+        </div>
+        <div class="input-field">
+          <label>Номер договора</label>
+          <input type="text" value="ДГ-2024-1146" class="inp-error">
+          <div class="input-hint error">Договор не найден в системе</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="component-group">
+      <div class="component-title">Нижняя навбара</div>
+      <div style="background:#F5F6F8;border-radius:16px;padding:32px;border:1.5px solid #E5E7EB;display:flex;justify-content:center">
+        <div class="navbar-demo">
+          <div class="navbar-inner">
+            <div class="nb-item nb-active">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+              <span class="nb-label">Главная</span>
+            </div>
+            <div class="nb-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              <span class="nb-label">Сборки</span>
+            </div>
+            <div class="nb-fab-wrap">
+              <div class="nb-fab">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="nb-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span class="nb-label">Клиенты</span>
+            </div>
+            <div class="nb-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 20V10M12 20V4M6 20v-6"/>
+              </svg>
+              <span class="nb-label">Отчёты</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;padding:14px 20px;font-size:12px;color:#6B7280">
+        Height: 60px · Backdrop-filter: blur(12px) · FAB: 52px circle, выступает на 18px · 5 элементов
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="component-group">
+      <div class="component-title">Таймлайн событий</div>
+      <div class="timeline-demo">
+        <div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:20px">Сборка #1146В · История</div>
+
+        <div class="timeline-item">
+          <div class="tl-dot done">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Заявка создана</div>
+            <div class="tl-time">19 мая · 14:32</div>
+            <div class="tl-sub">Диспетчер Мария В.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot done">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Замер проведён</div>
+            <div class="tl-time">20 мая · 10:15</div>
+            <div class="tl-sub">Замерщик Алексей К.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot active">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Сборка начата</div>
+            <div class="tl-time">21 мая · 09:00</div>
+            <div class="tl-sub">Сборщик Иван П. · В работе</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot pending">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Подписание акта</div>
+            <div class="tl-time">Ожидается</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 05 TOKENS -->
+  <section id="tokens">
+    <div class="section-label">05 · Дизайн-токены</div>
+    <h2 class="section-title">CSS-переменные</h2>
+    <p class="section-desc">Полная таблица токенов для трёх тем и семантических цветов. Переключение темы через атрибут <code style="background:#F3F4F6;padding:2px 6px;border-radius:4px;font-size:13px">data-theme</code> на body.</p>
+
+    <div class="token-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Токен</th>
+            <th>@wasrusgen1 CRM</th>
+            <th>РАДАР CRM</th>
+            <th>Dark</th>
+            <th>Назначение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>--accent</td>
+            <td><div class="color-chip"><div class="chip" style="background:#003E7E"></div>#003E7E</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#4338CA"></div>#4338CA</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#4338CA"></div>#4338CA</div></td>
+            <td>Primary action</td>
+          </tr>
+          <tr>
+            <td>--accent2</td>
+            <td><div class="color-chip"><div class="chip" style="background:#76BD22"></div>#76BD22</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#6366F1"></div>#6366F1</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#6366F1"></div>#6366F1</div></td>
+            <td>Secondary accent</td>
+          </tr>
+          <tr>
+            <td>--bg</td>
+            <td><div class="color-chip"><div class="chip" style="background:#F5F6F8"></div>#F5F6F8</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#F9FAFB"></div>#F9FAFB</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#111827"></div>#111827</div></td>
+            <td>Page background</td>
+          </tr>
+          <tr>
+            <td>--card</td>
+            <td><div class="color-chip"><div class="chip" style="background:#FFFFFF"></div>#FFFFFF</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#FFFFFF"></div>#FFFFFF</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#1F2937"></div>#1F2937</div></td>
+            <td>Card surface</td>
+          </tr>
+          <tr>
+            <td>--ink</td>
+            <td><div class="color-chip"><div class="chip" style="background:#1A1A2E"></div>#1A1A2E</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#111827"></div>#111827</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#F9FAFB"></div>#F9FAFB</div></td>
+            <td>Main text</td>
+          </tr>
+          <tr>
+            <td>--muted</td>
+            <td><div class="color-chip"><div class="chip" style="background:#8A94A6"></div>#8A94A6</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#6B7280"></div>#6B7280</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#9CA3AF"></div>#9CA3AF</div></td>
+            <td>Secondary text</td>
+          </tr>
+          <tr style="background:#FEF2F2">
+            <td>--danger</td>
+            <td><div class="color-chip"><div class="chip" style="background:#EF4444"></div>#EF4444</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#EF4444"></div>#EF4444</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#EF4444"></div>#EF4444</div></td>
+            <td>Error / Alert</td>
+          </tr>
+          <tr style="background:#FFFBEB">
+            <td>--warn</td>
+            <td><div class="color-chip"><div class="chip" style="background:#F59E0B"></div>#F59E0B</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#F59E0B"></div>#F59E0B</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#F59E0B"></div>#F59E0B</div></td>
+            <td>Warning</td>
+          </tr>
+          <tr style="background:#ECFDF5">
+            <td>--success</td>
+            <td><div class="color-chip"><div class="chip" style="background:#10B981"></div>#10B981</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#10B981"></div>#10B981</div></td>
+            <td><div class="color-chip"><div class="chip" style="background:#10B981"></div>#10B981</div></td>
+            <td>Positive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Code block -->
+    <div class="section-label" style="margin-bottom:16px">CSS — определения тем</div>
+    <div class="code-block">
+<span class="c-comment">/* Тема: основная (default) */</span><br>
+<span class="c-selector">body[data-theme="zov"]</span> <span class="c-punc">{</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent</span><span class="c-punc">:</span>  <span class="c-val">#003E7E</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent2</span><span class="c-punc">:</span> <span class="c-val">#76BD22</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--bg</span><span class="c-punc">:</span>      <span class="c-val">#F5F6F8</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--card</span><span class="c-punc">:</span>    <span class="c-val">#FFFFFF</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--ink</span><span class="c-punc">:</span>     <span class="c-val">#1A1A2E</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--muted</span><span class="c-punc">:</span>   <span class="c-val">#8A94A6</span><span class="c-punc">;</span><br>
+<span class="c-punc">}</span><br>
+<br>
+<span class="c-comment">/* Тема: РАДАР CRM */</span><br>
+<span class="c-selector">body[data-theme="radar"]</span> <span class="c-punc">{</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent</span><span class="c-punc">:</span>  <span class="c-val">#4338CA</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent2</span><span class="c-punc">:</span> <span class="c-val">#6366F1</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--bg</span><span class="c-punc">:</span>      <span class="c-val">#F9FAFB</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--card</span><span class="c-punc">:</span>    <span class="c-val">#FFFFFF</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--ink</span><span class="c-punc">:</span>     <span class="c-val">#111827</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--muted</span><span class="c-punc">:</span>   <span class="c-val">#6B7280</span><span class="c-punc">;</span><br>
+<span class="c-punc">}</span><br>
+<br>
+<span class="c-comment">/* Тема: Dark */</span><br>
+<span class="c-selector">body[data-theme="dark"]</span> <span class="c-punc">{</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent</span><span class="c-punc">:</span>  <span class="c-val">#4338CA</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--accent2</span><span class="c-punc">:</span> <span class="c-val">#6366F1</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--bg</span><span class="c-punc">:</span>      <span class="c-val">#111827</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--card</span><span class="c-punc">:</span>    <span class="c-val">#1F2937</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--ink</span><span class="c-punc">:</span>     <span class="c-val">#F9FAFB</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--muted</span><span class="c-punc">:</span>   <span class="c-val">#9CA3AF</span><span class="c-punc">;</span><br>
+<span class="c-punc">}</span><br>
+<br>
+<span class="c-comment">/* Семантика — едина для всех тем */</span><br>
+<span class="c-selector">:root</span> <span class="c-punc">{</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-success</span><span class="c-punc">:</span> <span class="c-val">#10B981</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-success-bg</span><span class="c-punc">:</span> <span class="c-val">#ECFDF5</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-warning</span><span class="c-punc">:</span> <span class="c-val">#F59E0B</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-warning-bg</span><span class="c-punc">:</span> <span class="c-val">#FFFBEB</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-danger</span><span class="c-punc">:</span>  <span class="c-val">#EF4444</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-danger-bg</span><span class="c-punc">:</span>  <span class="c-val">#FEF2F2</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-info</span><span class="c-punc">:</span>    <span class="c-val">#3B82F6</span><span class="c-punc">;</span><br>
+&nbsp;&nbsp;<span class="c-prop">--s-info-bg</span><span class="c-punc">:</span>    <span class="c-val">#EFF6FF</span><span class="c-punc">;</span><br>
+<span class="c-punc">}</span>
+    </div>
+  </section>
+
+  <!-- 06 ICONS -->
+  <section id="icons">
+    <div class="section-label">06 · Иконки и размеры</div>
+    <h2 class="section-title">Иконочная система</h2>
+    <p class="section-desc">Stroke-based SVG иконки, 20–24px, stroke-width 1.5–2. Стиль Lucide / Heroicons. Минимальная зона прикосновения — 44×44px.</p>
+
+    <div class="icon-grid">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+        </svg>
+        <span class="icon-name">home</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span class="icon-name">user</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/>
+        </svg>
+        <span class="icon-name">clipboard</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+        </svg>
+        <span class="icon-name">package</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/>
+        </svg>
+        <span class="icon-name">ruler</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+        </svg>
+        <span class="icon-name">wrench</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+        </svg>
+        <span class="icon-name">folder</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        <span class="icon-name">wallet</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+        </svg>
+        <span class="icon-name">star</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+        <span class="icon-name">chat</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        <span class="icon-name">plus</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/>
+        </svg>
+        <span class="icon-name">arrow-left</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20,6 9,17 4,12"/>
+        </svg>
+        <span class="icon-name">check</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/>
+        </svg>
+        <span class="icon-name">bell</span>
+      </div>
+    </div>
+
+    <!-- Touch targets and safe zone -->
+    <div class="section-label" style="margin-bottom:16px">Размеры прикосновений и зоны</div>
+    <div class="touch-grid">
+      <div class="touch-card">
+        <div class="tc-title">Зона прикосновения</div>
+        <div class="tc-val">44×44</div>
+        <div class="tc-desc">Минимальный размер любого интерактивного элемента в пикселях. Иконка может быть меньше, но tap-зона — не менее 44px.</div>
+      </div>
+      <div class="touch-card">
+        <div class="tc-title">Безопасная зона снизу</div>
+        <div class="tc-val">34px</div>
+        <div class="tc-desc">Home indicator iOS. Навбар должен учитывать safe-area-inset-bottom: env(safe-area-inset-bottom, 34px).</div>
+      </div>
+      <div class="touch-card">
+        <div class="tc-title">Иконки в UI</div>
+        <div class="tc-val">20–24px</div>
+        <div class="tc-desc">Stroke-width: 1.5 для 24px, 2.0 для 20px. Не использовать filled иконки — только outline stroke.</div>
+      </div>
+      <div class="touch-card">
+        <div class="tc-title">Viewport MiniApp</div>
+        <div class="tc-val">390px</div>
+        <div class="tc-desc">Базовый viewport Telegram MiniApp. Компоненты проектируются для 390px, адаптируются вниз до 360px.</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top:48px;padding:64px 48px;background:linear-gradient(135deg,#1E1B4B,#4338CA);border-radius:20px;text-align:center;display:flex;flex-direction:column;align-items:center">
+      <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;color:rgba(255,255,255,.5);margin-bottom:10px">@wasrusgen1</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;letter-spacing:-3px;color:#fff;line-height:.9;margin-bottom:20px">CRM</div>
+      <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.65;max-width:520px">Руководство по фирменному стилю · Версия 2026</div>
+    </div>
+  </section>
+
+  <!-- ========== ПРИМЕНЕНИЕ ========== -->
+  <section id="application" style="padding:60px 64px">
+    <h2 class="section-title">07 · Применение <span style="font-size:.55em;font-weight:400;opacity:.45">Brand in Use</span></h2>
+    <p class="section-sub" style="margin-bottom:48px">Фирменный стиль в реальных носителях — от визитки до публикации в Telegram.</p>
+
+    <!-- Визитная карточка -->
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Визитная карточка · 90 × 50 мм</h3>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:56px">
+      <div style="width:340px;height:190px;background:linear-gradient(135deg,#1E1B4B 0%,#4338CA 100%);border-radius:14px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 32px rgba(67,56,202,.35)">
+        <div>
+          <div style="display:flex;align-items:center;line-height:1">
+            <span style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.7)">@wasrusgen1</span>
+            <span style="display:inline-block;width:1.5px;height:11px;background:rgba(255,255,255,.3);margin:0 8px;flex-shrink:0"></span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#fff">CRM</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;margin-top:6px">УПРАВЛЕНИЕ ПРОЦЕССАМИ</div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#fff">Руслан Васильев</div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.65);margin-top:3px">Основатель · Директор</div>
+        </div>
+      </div>
+      <div style="width:340px;height:190px;background:#fff;border-radius:14px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,.1);position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,#1E1B4B,#4338CA)"></div>
+        <div style="padding-left:16px">
+          <div style="font-family:'Inter',sans-serif;font-size:10px;color:#9CA3AF;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Контакты</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#374151;line-height:2">📧 i@wasrusgen.ru<br>📱 @wasrusgen1<br>🌐 wasrusgen1.ru</div>
+        </div>
+        <div style="padding-left:16px">
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#4338CA;letter-spacing:.04em">Управляй процессами — расти быстрее</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email-подпись -->
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Email-подпись</h3>
+    <div style="max-width:600px;background:#F9FAFB;border-radius:14px;overflow:hidden;border:1px solid #E5E7EB;margin-bottom:56px;box-shadow:0 4px 16px rgba(0,0,0,.06)">
+      <div style="background:#fff;padding:10px 16px;border-bottom:1px solid #E5E7EB;font-family:'Inter',sans-serif;font-size:11px;color:#6B7280">От: <strong style="color:#374151">Руслан Васильев &lt;i@wasrusgen.ru&gt;</strong> · Тема: Предложение по автоматизации</div>
+      <div style="padding:24px;background:#fff">
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#374151;line-height:1.7;margin-bottom:24px">Добрый день!<br><br>Направляю вам предложение по внедрению CRM. Готов ответить на любые вопросы.</div>
+        <div style="border-top:1px solid #E5E7EB;padding-top:16px;display:flex;gap:16px">
+          <div style="width:4px;flex-shrink:0;background:linear-gradient(to bottom,#1E1B4B,#4338CA);border-radius:2px"></div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#0F0F1A">Руслан Васильев</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;color:#4338CA;font-weight:500;margin-top:2px">@wasrusgen1 | CRM · Основатель</div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;color:#6B7280;margin-top:8px;line-height:1.9">📧 i@wasrusgen.ru · 📱 @wasrusgen1 · 🌐 wasrusgen1.ru</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Обложка презентации -->
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Обложка презентации · 16:9</h3>
+    <div style="max-width:640px;aspect-ratio:16/9;background:linear-gradient(145deg,#1E1B4B 0%,#312E81 45%,#4338CA 100%);border-radius:16px;padding:44px;position:relative;overflow:hidden;margin-bottom:56px;box-shadow:0 12px 40px rgba(67,56,202,.4)">
+      <div style="position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,255,255,.07)"></div>
+      <div style="position:absolute;right:-30px;top:-30px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,.11)"></div>
+      <div style="position:absolute;right:30px;top:30px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.15)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;height:100%;justify-content:space-between">
+        <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.14em">@wasrusgen1 | CRM</div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px">CRM-система<br>для вашего бизнеса</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.6)">Автоматизация · Рост · Прибыль</div>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.35)">2026 · Конфиденциально</div>
+      </div>
+    </div>
+
+    <!-- Telegram / Соцсети -->
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#0F0F1A;margin:0 0 20px;letter-spacing:-.01em">Telegram · Социальные сети</h3>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="width:280px;height:280px;background:linear-gradient(145deg,#1E1B4B 0%,#4338CA 100%);border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 32px rgba(67,56,202,.3)">
+        <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase">Анонс</div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px">Новый модуль CRM</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">Автоматизация воронки продаж для малого и среднего бизнеса</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <span style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">@wasrusgen1</span>
+        </div>
+      </div>
+      <div style="width:280px;height:280px;background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 24px rgba(0,0,0,.1)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#4338CA;letter-spacing:.03em">CRM · Результаты</div>
+          <div style="width:32px;height:32px;border-radius:8px;background:#EEF2FF;display:flex;align-items:center;justify-content:center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.75" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;background:#EEF2FF;border-radius:10px;padding:14px;text-align:center">
+            <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:#4338CA">2.3×</div>
+            <div style="font-family:'Inter',sans-serif;font-size:10px;color:#6B7280;margin-top:3px">рост конверсии</div>
+          </div>
+          <div style="flex:1;background:#EEF2FF;border-radius:10px;padding:14px;text-align:center">
+            <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:#4338CA">−40%</div>
+            <div style="font-family:'Inter',sans-serif;font-size:10px;color:#6B7280;margin-top:3px">на рутину</div>
+          </div>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;color:#9CA3AF">@wasrusgen1 · wasrusgen1.ru</div>
+      </div>
+    </div>
+  </section>
+
+<section id="buttons">
+  <div class="section-label">08 -- Кнопки</div>
+  <h2 class="section-title">Кнопки и CTA-элементы</h2>
+  <p class="section-desc">6 вариантов с WOW-эффектами. Наведи курсор -- каждая кнопка интерактивна.</p>
+  <div style="background:#0F0F1A;border-radius:20px;padding:48px 48px 36px;margin-bottom:32px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#2A2A4A;margin-bottom:28px">Все варианты -- интерактивный демо</div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:20px">
+      <button class="btn md btn-v1">Оставить заявку</button>
+      <button class="btn md btn-v2">Начать сейчас</button>
+      <button class="btn md btn-v3">Подробнее</button>
+      <button class="btn md btn-v4"><span>Сравнить</span></button>
+      <button class="btn md btn-v5">Открыть отчёт</button>
+      <button class="btn md btn-v6">Отмена</button>
+    </div>
+    <div style="font-size:11px;color:#2A2A4A">v1 Primary Shine · v2 Glow Pulse · v3 Glass · v4 Outline Fill · v5 Surface · v6 Ghost</div>
+  </div>
+  <div class="bvc-grid">
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 01</div><div class="bvc-h">Primary</div><button class="btn md btn-v1">Оставить заявку</button></div><div class="bvc-b"><div class="bvc-ef">Gradient + Shine Sweep + Glow</div><div class="bvc-d">Shine-эффект скользит при hover, тень усиливается. Градиент от тёмного к акценту.<br><span class="bvc-w">Когда:</span> главный CTA страницы, заявка, покупка, старт воронки.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 02</div><div class="bvc-h">Glow Pulse</div><button class="btn md btn-v2">Начать сейчас</button></div><div class="bvc-b"><div class="bvc-ef">Pulsating Ring -- Always-On</div><div class="bvc-d">Живёт постоянно -- кольцевая пульсация без hover. Привлекает без взаимодействия.<br><span class="bvc-w">Когда:</span> hero, промо-баннер, ограниченное предложение, таймер акции.</div></div></div>
+    <div class="bvc dk"><div class="bvc-t"><div class="bvc-n">Вариант 03</div><div class="bvc-h">Glass</div><button class="btn md btn-v3">Подробнее</button></div><div class="bvc-b"><div class="bvc-ef">Glassmorphism -- Backdrop Blur</div><div class="bvc-d">Frosted-стекло -- только тёмные и фирменные фоны. Вторичное действие рядом с Primary.<br><span class="bvc-w">Когда:</span> поверх gradient-cover, modal на тёмном, hero -- вторая кнопка.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 04</div><div class="bvc-h">Outline Fill</div><button class="btn md btn-v4"><span>Сравнить варианты</span></button></div><div class="bvc-b"><div class="bvc-ef">Border -- Fill Reveal Left to Right</div><div class="bvc-d">Граница превращается в заливку при hover слева направо. Нейтральный вид до взаимодействия.<br><span class="bvc-w">Когда:</span> вторичное действие рядом с Primary, Скачать, Сравнить, Узнать больше.</div></div></div>
+    <div class="bvc nt"><div class="bvc-t" style="background:#F9FAFB"><div class="bvc-n">Вариант 05</div><div class="bvc-h">Surface</div><button class="btn md btn-v5">Открыть отчёт</button></div><div class="bvc-b"><div class="bvc-ef" style="color:#374151">Elevated -- Neutral -- Shadow Lift</div><div class="bvc-d">Нейтральный вес. Тень поднимается при hover.<br><span class="bvc-w">Когда:</span> инлайн-действия в списках, таблицах, карточках -- Открыть, Редактировать.</div></div></div>
+    <div class="bvc lt"><div class="bvc-t"><div class="bvc-n">Вариант 06</div><div class="bvc-h">Ghost</div><button class="btn md btn-v6">Отмена</button></div><div class="bvc-b"><div class="bvc-ef" style="color:#374151">Текстовый -- минимальный</div><div class="bvc-d">Минимальный визуальный вес, фон появляется при hover.<br><span class="bvc-w">Когда:</span> Отмена, Назад, Пропустить, навигационные ссылки.</div></div></div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 8px">Размеры</h3>
+  <p class="section-desc" style="margin-bottom:20px">Размер выбирается по иерархии и контексту. MD -- базовый.</p>
+  <div style="background:#fff;border-radius:16px;border:1.5px solid #E5E7EB;padding:32px;margin-bottom:40px">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:28px">
+      <button class="btn sm btn-v1">Малый SM</button>
+      <button class="btn md btn-v1">Средний MD</button>
+      <button class="btn lg btn-v1">Большой LG</button>
+      <button class="btn xl btn-v1">Hero XL</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #F3F4F6;padding-top:20px">
+      <div style="padding:0 16px 0 0;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">SM</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">8x16px - 12px - r8<br>Таблицы, chip, badge</div></div>
+      <div style="padding:0 16px;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#4338CA;margin-bottom:4px">MD -- default</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">14x28px - 14px - r12<br>Карточки, формы, секции</div></div>
+      <div style="padding:0 16px;border-right:1px solid #F3F4F6"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">LG</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">18x36px - 16px - r14<br>Hero-секции, popup, modal</div></div>
+      <div style="padding:0 0 0 16px"><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:4px">XL -- Hero</div><div style="font-size:11px;color:#9CA3AF;line-height:1.6">22x48px - 18px - r16<br>Landing cover, главный экран</div></div>
+    </div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 8px">Матрица применения</h3>
+  <p class="section-desc" style="margin-bottom:20px">Один экран -- не более одной Primary/Glow. Не смешивать v1 и v2 в одной секции.</p>
+  <div style="background:#fff;border-radius:16px;border:1.5px solid #E5E7EB;overflow:hidden;margin-bottom:40px">
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;background:#F9FAFB;border-bottom:1px solid #E5E7EB">
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF">Контекст</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB">Описание</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB;text-align:center">Основной</div>
+      <div style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;border-left:1px solid #E5E7EB;text-align:center">Второстеп.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Landing Hero</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Главный экран. Один фокус внимания.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#4338CA">v2 XL</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v3 LG</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Форма / Заявка</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Submit + отмена. Чёткая иерархия.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#4338CA">v1 MD</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v6 MD</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Карточка / Список</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Инлайн-действие.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#4338CA">v5 SM</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v6 SM</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;border-bottom:1px solid #F3F4F6;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Тёмный / Gradient</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Поверх фирменного градиента.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#4338CA">v1 LG</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v3 MD</div></div>
+    <div style="display:grid;grid-template-columns:160px 1fr 110px 110px;align-items:start"><div style="padding:14px 16px;font-size:12px;font-weight:700;color:#1A1A2E">Email / Документ</div><div style="padding:14px 16px;font-size:12px;color:#6B7280;border-left:1px solid #F3F4F6">Ограниченная поддержка CSS.</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;font-weight:700;color:#4338CA">v4 MD</div><div style="padding:14px 16px;text-align:center;border-left:1px solid #F3F4F6;font-size:12px;color:#6B7280">v5 MD</div></div>
+  </div>
+  <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:800;color:#0F0F1A;letter-spacing:-.5px;margin:0 0 20px">Правила</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:#F0FDF4;border:1.5px solid #A7F3D0;border-radius:16px;padding:24px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#059669;margin-bottom:16px">Делай</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Не более одной Primary/Glow на экран.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">v3 Glass -- только тёмные и фирменные фоны.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Иерархия: Primary -- Outline -- Ghost.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #34D399">Disabled: opacity 32%, cursor not-allowed.</div></div></div>
+    <div style="background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:16px;padding:24px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#DC2626;margin-bottom:16px">Не делай</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">v1 и v2 в одной секции -- конфликт dominant.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">v3 Glass на белом фоне -- эффект невидим.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">Кнопка шире 320px без причины.</div><div style="font-size:13px;color:#1A1A2E;line-height:1.5;padding-left:12px;border-left:2px solid #F87171">Переопределять цвета вне токенов бренда.</div></div></div>
+  </div>
+</section>
+
+</main>
+
+<style>
+  .usage-variants-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px; }
+  .usage-card { border:1.5px solid #E5E7EB; border-radius:14px; overflow:hidden; background:#fff; }
+  .usage-label { font-size:13px; font-weight:700; color:#1A1A2E; padding:10px 14px 3px; }
+  .usage-desc { font-size:11px; color:#6B7280; padding:0 14px 12px; line-height:1.6; }
+  .wrong-usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+  .wrong-card { border:1.5px solid #FCA5A5; border-radius:12px; overflow:hidden; background:#fff; }
+  .wrong-why { font-size:11px; color:#DC2626; padding:7px 12px 9px; font-weight:600; }
+  /* --- КНОПКИ --- */
+  @keyframes _btn_glow { 0%,100%{box-shadow:0 0 0 0 rgba(67,56,202,.45),0 4px 20px rgba(67,56,202,.2);}50%{box-shadow:0 0 0 12px rgba(67,56,202,0),0 4px 20px rgba(67,56,202,.2);} }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-.2px;transition:all .18s ease;text-decoration:none;white-space:nowrap;position:relative;overflow:hidden;vertical-align:middle;}
+  .btn.sm{padding:8px 16px;font-size:12px;border-radius:8px;}
+  .btn.md{padding:14px 28px;font-size:14px;border-radius:12px;}
+  .btn.lg{padding:18px 36px;font-size:16px;border-radius:14px;}
+  .btn.xl{padding:22px 48px;font-size:18px;border-radius:16px;}
+  .btn-v1{background:linear-gradient(135deg,#1E1B4B 0%,#4338CA 55%,#6366F1 100%);color:#fff;box-shadow:0 4px 24px rgba(67,56,202,.3);}
+  .btn-v1::after{content:"";position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:left .44s ease;}
+  .btn-v1:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(67,56,202,.5);}
+  .btn-v1:hover::after{left:150%;}
+  .btn-v1:active{transform:translateY(0);}
+  .btn-v2{background:#4338CA;color:#fff;animation:_btn_glow 2.4s ease-in-out infinite;}
+  .btn-v2:hover{transform:scale(1.05);animation-play-state:paused;box-shadow:0 8px 32px rgba(67,56,202,.55);}
+  .btn-v3{background:rgba(255,255,255,.11);border:1.5px solid rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+  .btn-v3:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);transform:translateY(-1px);}
+  .btn-v4{background:transparent;border:2px solid #4338CA;color:#4338CA;}
+  .btn-v4::before{content:"";position:absolute;inset:0;background:#4338CA;transform:scaleX(0);transform-origin:left;transition:transform .24s ease;z-index:0;}
+  .btn-v4>span{position:relative;z-index:1;}
+  .btn-v4:hover{color:#fff;}
+  .btn-v4:hover::before{transform:scaleX(1);}
+  .btn-v5{background:#fff;border:1.5px solid #E5E7EB;color:#1A1A2E;box-shadow:0 1px 4px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);}
+  .btn-v5:hover{box-shadow:0 4px 20px rgba(0,0,0,.12);transform:translateY(-1px);}
+  .btn-v6{background:transparent;border:none;color:#4338CA;}
+  .btn-v6:hover{background:rgba(67,56,202,.08);}
+  .btn-loading{opacity:.65;cursor:wait;pointer-events:none;}
+  .btn-disabled,.btn[disabled]{opacity:.32;cursor:not-allowed;pointer-events:none;}
+  .bvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .bvc{border-radius:16px;overflow:hidden;border:1.5px solid #E5E7EB;}
+  .bvc.dk{background:#0F0F1A;border-color:#1A1A2E;}
+  .bvc.lt{background:#fff;}
+  .bvc.nt{background:#F9FAFB;}
+  .bvc-t{padding:32px 28px 24px;}
+  .bvc-n{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9CA3AF;margin-bottom:4px;}
+  .bvc.dk .bvc-n{color:#3A3A5A;}
+  .bvc-h{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:#0F0F1A;margin-bottom:16px;}
+  .bvc.dk .bvc-h{color:#fff;}
+  .bvc-b{padding:16px 28px;border-top:1px solid #E5E7EB;}
+  .bvc.dk .bvc-b{background:#111122;border-top-color:#1A1A2E;}
+  .bvc.nt .bvc-b{background:#ECEEF1;border-top-color:#E0E2E7;}
+  .bvc-ef{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4338CA;margin-bottom:6px;}
+  .bvc.dk .bvc-ef{color:#6366F1;}
+  .bvc-d{font-size:12px;color:#6B7280;line-height:1.55;}
+  .bvc.dk .bvc-d{color:#555;}
+  .bvc-w{font-weight:700;color:#374151;}
+  .bvc.dk .bvc-w{color:#9CA3AF;}
+</style>
+
+<script>
+  // Build @wasrusgen1 wordmark from existing cover SVG path — no duplication
+  (function() {
+    const NS = 'http://www.w3.org/2000/svg';
+    const sourceSvg = document.querySelector('svg[viewBox="0 0 25237.134 3891.4225"]');
+    const sourceG = sourceSvg && sourceSvg.querySelector('g[transform]');
+    const sourcePath = sourceG && sourceG.querySelector('path');
+    if (!sourcePath) return;
+
+    // Create hidden SVG with <symbol>
+    const host = document.createElementNS(NS, 'svg');
+    host.setAttribute('aria-hidden', 'true');
+    host.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none';
+    const sym = document.createElementNS(NS, 'symbol');
+    sym.setAttribute('id', 'wmark-sym');
+    sym.setAttribute('viewBox', '0 0 25237.134 3891.4225');
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('transform', 'translate(0,-6120.5381)');
+    const p = sourcePath.cloneNode(false);
+    p.removeAttribute('fill');
+    p.style.fill = 'currentColor';
+    g.appendChild(p);
+    sym.appendChild(g);
+    host.appendChild(sym);
+    document.body.insertBefore(host, document.body.firstChild);
+
+    // Replace all .logo-wmark-slot placeholders with actual SVG <use>
+    document.querySelectorAll('.logo-wmark-slot').forEach(function(slot) {
+      var color = slot.dataset.color || '#003E7E';
+      var w = slot.dataset.width || '150';
+      var h = slot.dataset.height || '23';
+      var svgEl = document.createElementNS(NS, 'svg');
+      svgEl.setAttribute('width', w);
+      svgEl.setAttribute('height', h);
+      svgEl.setAttribute('aria-hidden', 'true');
+      svgEl.style.cssText = 'color:' + color + ';display:block;flex-shrink:0';
+      var useEl = document.createElementNS(NS, 'use');
+      useEl.setAttribute('href', '#wmark-sym');
+      svgEl.appendChild(useEl);
+      slot.replaceWith(svgEl);
+    });
+  })();
+
+  // IntersectionObserver for active nav item
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === '#' + id) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
