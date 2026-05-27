@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@wasrusgen1 — Анализ ниш 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --muted: #7070a0;
+    --accent: #6c63ff;
+    --accent2: #00d4aa;
+
+    --crm: #6366F1;
+    --crm-dark: #1E1B4B;
+    --consulting: #10B981;
+    --consulting-dark: #064E3B;
+    --radar: #06B6D4;
+    --radar-dark: #164E63;
+    --expert: #F59E0B;
+    --expert-dark: #78350F;
+    --protect: #DC2626;
+    --protect-dark: #7F1D1D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0f 0%, #12102a 50%, #0a0f1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    display: inline-block;
+    background: rgba(108,99,255,0.15);
+    border: 1px solid rgba(108,99,255,0.3);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 30%, #a09fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .hero-stat .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav a:hover { color: var(--text); border-color: var(--border); }
+  .nav a .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .nav a[data-brand="crm"] .dot { background: var(--crm); }
+  .nav a[data-brand="consulting"] .dot { background: var(--consulting); }
+  .nav a[data-brand="radar"] .dot { background: var(--radar); }
+  .nav a[data-brand="expert"] .dot { background: var(--expert); }
+  .nav a[data-brand="protect"] .dot { background: var(--protect); }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* ─── BRAND SECTION ─── */
+  .brand-section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .brand-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .brand-logo-stack {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .brand-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .brand-icon.crm { background: #4338CA; border: none; }
+  .brand-icon.consulting { background: #047857; border: none; }
+  .brand-icon.radar { background: #0E7490; border: none; }
+  .brand-icon.expert { background: #B45309; border: none; }
+  .brand-icon.protect { background: #B91C1C; border: none; }
+  .brand-icon svg { stroke: rgba(255,255,255,0.92); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .brand-title-block { flex: 1; }
+  .logo-handle { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .04em; color: rgba(255,255,255,.45); display: block; margin-bottom: 3px; }
+  .brand-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 0;
+  }
+  .badge-crm { background: rgba(99,102,241,0.2); color: #818CF8; }
+  .badge-consulting { background: rgba(16,185,129,0.2); color: #34D399; }
+  .badge-radar { background: rgba(6,182,212,0.2); color: #22D3EE; }
+  .badge-expert { background: rgba(245,158,11,0.2); color: #FCD34D; }
+  .badge-protect { background: rgba(220,38,38,0.2); color: #F87171; }
+
+  .brand-title { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: -1px; margin-bottom: 0; }
+  .brand-subtitle { color: var(--muted); font-size: 15px; }
+
+  .brand-metrics {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  .metric-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-width: 110px;
+  }
+  .metric-pill .val { font-size: 16px; font-weight: 700; }
+  .metric-pill .key { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .brand-header { flex-direction: column; }
+    .brand-metrics { flex-direction: row; }
+  }
+
+  /* ─── CARD ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .card.full { grid-column: 1 / -1; }
+  .card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  /* ─── PROBLEM CARD ─── */
+  .problem-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #c8c8e0;
+  }
+  .problem-highlight {
+    border-left: 3px solid;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    background: rgba(255,255,255,0.03);
+    margin: 16px 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  /* ─── ICP ─── */
+  .icp-tag {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 13px;
+    margin: 4px 4px 4px 0;
+    color: #b0b0d0;
+  }
+  .pain-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: #c0c0dc;
+    align-items: flex-start;
+  }
+  .pain-item:last-child { border-bottom: none; }
+  .pain-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #fff;
+  }
+
+  /* ─── GAP TABLE ─── */
+  .gap-table { width: 100%; border-collapse: collapse; }
+  .gap-table th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .gap-table td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(42,42,62,0.5);
+    vertical-align: top;
+    color: #c0c0dc;
+  }
+  .gap-table tr:last-child td { border-bottom: none; }
+  .gap-table td:first-child { color: var(--muted); }
+  .gap-table td:last-child { color: #d0ffd0; }
+
+  /* ─── FEATURES ─── */
+  .feature-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .feature-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .feature-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ─── PRICING ─── */
+  .pricing-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .pricing-card.highlight {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(108,99,255,0.1);
+    position: relative;
+  }
+  .pricing-card.highlight::before {
+    content: 'ПОПУЛЯРНЫЙ';
+    position: absolute;
+    top: -10px; left: 50%; transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+  .pricing-name { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .pricing-price { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+  .pricing-price span { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .pricing-desc { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .pricing-features { list-style: none; }
+  .pricing-features li {
+    font-size: 13px;
+    color: #b0b0d0;
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .pricing-features li::before { content: '✓'; color: var(--accent2); flex-shrink: 0; }
+
+  /* ─── POTENTIAL ─── */
+  .potential-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .potential-row:last-child { border-bottom: none; }
+  .potential-row .k { color: var(--muted); }
+  .potential-row .v { font-weight: 600; color: var(--accent2); }
+
+  /* ─── COMPETITOR ─── */
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 2fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    align-items: center;
+  }
+  .comp-row.header {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 10px;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-name { font-weight: 600; color: var(--text); }
+  .comp-weak { color: var(--muted); font-size: 12px; }
+  .badge-yes { color: #10b981; font-weight: 600; }
+  .badge-no { color: var(--muted); }
+  .badge-partial { color: var(--consulting); }
+
+  /* ─── RISK TABLE ─── */
+  .risk-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    align-items: flex-start;
+  }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .risk-title { font-weight: 600; margin-bottom: 3px; }
+  .risk-desc { color: var(--muted); font-size: 13px; }
+
+  /* ─── SUMMARY TABLE ─── */
+  .summary-section {
+    padding: 64px 0;
+  }
+  .summary-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .summary-section .sub { color: var(--muted); margin-bottom: 32px; }
+
+  .summary-table { width: 100%; border-collapse: collapse; }
+  .summary-table th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .summary-table td {
+    padding: 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    color: #c0c0dc;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .brand-pill .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  .difficulty-bar {
+    display: flex;
+    gap: 4px;
+  }
+  .difficulty-bar .seg {
+    width: 18px; height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+  }
+  .difficulty-bar .seg.fill { background: var(--accent); }
+
+  .priority-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .prio-1 { background: rgba(16,185,129,0.2); color: #10b981; }
+  .prio-2 { background: rgba(245,158,11,0.2); color: var(--consulting); }
+  .prio-3 { background: rgba(59,130,246,0.2); color: var(--expert); }
+  .prio-5 { background: rgba(108,99,255,0.15); color: var(--muted); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer strong { color: var(--text); }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* colored accent borders */
+  .accent-crm .card { border-top: 2px solid var(--crm) !important; }
+  .accent-consulting .card { border-top: 2px solid var(--consulting) !important; }
+  .accent-radar .card { border-top: 2px solid var(--radar) !important; }
+  .accent-expert .card { border-top: 2px solid var(--expert) !important; }
+  .accent-protect .card { border-top: 2px solid var(--protect) !important; }
+
+  .problem-highlight.crm { border-color: var(--crm); }
+  .problem-highlight.consulting { border-color: var(--consulting); }
+  .problem-highlight.radar { border-color: var(--radar); }
+  .problem-highlight.expert { border-color: var(--expert); }
+  .problem-highlight.protect { border-color: var(--protect); }
+
+  .pain-num.crm { background: var(--crm); }
+  .pain-num.consulting { background: var(--consulting); }
+  .pain-num.radar { background: var(--radar); }
+  .pain-num.expert { background: var(--expert); }
+  .pain-num.protect { background: var(--protect); }
+
+  .pricing-card.highlight.crm { border-color: #6366F1; box-shadow: 0 0 20px rgba(99,102,241,0.15); }
+  .pricing-card.highlight.consulting { border-color: #10B981; box-shadow: 0 0 20px rgba(16,185,129,0.15); }
+  .pricing-card.highlight.radar { border-color: #06B6D4; box-shadow: 0 0 20px rgba(6,182,212,0.15); }
+  .pricing-card.highlight.expert { border-color: #F59E0B; box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+  .pricing-card.highlight.protect { border-color: #DC2626; box-shadow: 0 0 20px rgba(220,38,38,0.15); }
+
+  .pricing-card.highlight.crm::before { background: var(--crm); }
+  .pricing-card.highlight.consulting::before { background: var(--consulting); }
+  .pricing-card.highlight.radar::before { background: var(--radar); }
+  .pricing-card.highlight.expert::before { background: var(--expert); }
+  .pricing-card.highlight.protect::before { background: var(--protect); }
+
+  .feature-icon.crm { background: rgba(99,102,241,0.15); }
+  .feature-icon.consulting { background: rgba(16,185,129,0.15); }
+  .feature-icon.radar { background: rgba(6,182,212,0.15); }
+  .feature-icon.expert { background: rgba(245,158,11,0.15); }
+  .feature-icon.protect { background: rgba(220,38,38,0.15); }
+  .feature-icon svg { stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+  .feature-icon.crm svg { stroke: #818CF8; }
+  .feature-icon.consulting svg { stroke: #34D399; }
+  .feature-icon.radar svg { stroke: #22D3EE; }
+  .feature-icon.expert svg { stroke: #FCD34D; }
+  .feature-icon.protect svg { stroke: #F87171; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">@wasrusgen1 · Конкурентный анализ ниш</div>
+  <h1>5 брендов. 5 свободных ниш.</h1>
+  <p>Детальное описание рыночных возможностей, конкурентной среды и стратегии входа для каждого направления зонтичного бренда</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">5</div><div class="label">Брендов</div></div>
+    <div class="hero-stat"><div class="num">50+</div><div class="label">Конкурентов проанализировано</div></div>
+    <div class="hero-stat"><div class="num">Май 2026</div><div class="label">Дата анализа</div></div>
+    <div class="hero-stat"><div class="num">B2B + B2C</div><div class="label">Сегменты</div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#crm" data-brand="crm"><span class="dot"></span>CRM</a>
+  <a href="#consulting" data-brand="consulting"><span class="dot"></span>КОНСАЛТИНГ</a>
+  <a href="#radar" data-brand="radar"><span class="dot"></span>РАДАР</a>
+  <a href="#expert" data-brand="expert"><span class="dot"></span>ЭКСПЕРТ</a>
+  <a href="#protect" data-brand="protect"><span class="dot"></span>ЗАЩИТА</a>
+  <a href="#summary" data-brand="crm" style="margin-left:auto"><span class="dot" style="background:#555"></span>Сводка</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- BRAND 1: CRM -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="crm" class="brand-section accent-crm">
+<div class="container">
+
+  <div class="brand-header">
+    <div class="brand-title-block">
+      <div class="brand-logo-area">
+        <div class="brand-icon crm"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="brand-logo-stack">
+          <span class="logo-handle">@wasrusgen1</span>
+          <div class="brand-title">CRM</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="brand-badge badge-crm">B2B · SaaS</div>
+        <div class="brand-subtitle">Mobile-first B2B CRM с AI для полевых продаж</div>
+      </div>
+    </div>
+    <div class="brand-metrics">
+      <div class="metric-pill">
+        <span class="val" style="color:var(--crm)">44 млрд</span>
+        <span class="key">Объём рынка РФ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--crm)">490–1490 ₽</span>
+        <span class="key">Цена / польз / мес</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--crm)">6–12 мес</span>
+        <span class="key">До MVP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem + ICP -->
+  <div class="grid-2">
+    <div class="card">
+      <h3>Проблема</h3>
+      <p class="problem-text">Все CRM созданы как веб-приложения — мобильные версии добавляли «болтом» позже. Результат: приложение обрезано, работает медленно, не поддерживает ключевые функции.</p>
+      <div class="problem-highlight crm">
+        Менеджер после встречи тратит 40–60 минут на ручной ввод данных в CRM. Данные вводятся с опозданием или не вводятся вообще. Руководитель не видит реальную картину.
+      </div>
+      <p class="problem-text">Огромный пласт B2B-продаж — это полевые продажи. Менеджер едет к клиенту, проводит встречу, возвращается в офис. Ни одна CRM не решает этот сценарий по-настоящему.</p>
+    </div>
+    <div class="card">
+      <h3>Кто страдает (ICP)</h3>
+      <div class="icp-tag">Штат: 3–30 менеджеров</div>
+      <div class="icp-tag">Выручка: 50 млн — 1 млрд ₽/год</div>
+      <div class="icp-tag">Строительные материалы</div>
+      <div class="icp-tag">Оборудование и оптовая торговля</div>
+      <div class="icp-tag">Медицинское оборудование</div>
+      <div class="icp-tag">Юридические и бух. услуги</div>
+      <div class="icp-tag">Москва + региональные центры</div>
+      <br><br>
+      <div class="pain-item"><span class="pain-num crm">1</span> Данные вносятся вечером по памяти — теряются детали встреч</div>
+      <div class="pain-item"><span class="pain-num crm">2</span> Руководитель не знает где физически менеджеры в рабочее время</div>
+      <div class="pain-item"><span class="pain-num crm">3</span> После встречи нет протокола — сделка «зависает» без следующего шага</div>
+      <div class="pain-item"><span class="pain-num crm">4</span> Онбординг в Битрикс24 занимает 2–3 недели и требует интегратора</div>
+    </div>
+  </div>
+
+  <!-- Gap -->
+  <div class="grid-2" style="margin-top:16px">
+    <div class="card">
+      <h3>Почему ниша свободна</h3>
+      <table class="gap-table">
+        <tr><th>Что есть</th><th>Чего нет</th></tr>
+        <tr><td>Битрикс24 — мощная, но сложная</td><td>CRM, которую менеджер освоит за 1 день без обучения</td></tr>
+        <tr><td>amoCRM — удобная, но веб-ориентированная</td><td>Voice-to-CRM: наговорил итоги → поля заполнились сами</td></tr>
+        <tr><td>ELMA365 — гибкая, но только Enterprise</td><td>Геолокация + маршрут + check-in на точке</td></tr>
+        <tr><td>SimpleOne — сильный AI, но Enterprise</td><td>ML-скоринг сделок для МСБ</td></tr>
+        <tr><td>Все — требуют настройки 2–4 недели</td><td>Запуск за 30 минут без интегратора</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Ядро продукта</h3>
+      <div class="feature-item">
+        <div class="feature-icon crm"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+        <div>
+          <div class="feature-title">Voice-to-CRM</div>
+          <div class="feature-desc">Менеджер говорит 2–3 минуты после встречи — AI транскрибирует, заполняет карточку, ставит задачу, планирует follow-up автоматически</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon crm"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <div class="feature-title">Геолокация и маршруты</div>
+          <div class="feature-desc">Карта команды в реальном времени. Check-in при прибытии. Оптимальный маршрут на день строится автоматически</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon crm"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></div>
+        <div>
+          <div class="feature-title">AI Next Step</div>
+          <div class="feature-desc">После встречи система предлагает конкретное следующее действие на основе истории и контекста сделки</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon crm"><svg width="20" height="20" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div>
+          <div class="feature-title">Онбординг за 30 минут</div>
+          <div class="feature-desc">Новый менеджер регистрируется, выбирает роль — получает готовую воронку для своей отрасли. Никакого интегратора</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="card" style="margin-top:16px">
+    <h3>Ценовая модель</h3>
+    <div class="grid-3">
+      <div class="pricing-card">
+        <div class="pricing-name">Старт</div>
+        <div class="pricing-price" style="color:var(--crm)">490 ₽<span>/польз/мес</span></div>
+        <div class="pricing-desc">Базовая CRM для небольших команд</div>
+        <ul class="pricing-features">
+          <li>Мобильное приложение (iOS + Android)</li>
+          <li>Карточки сделок и контактов</li>
+          <li>Голосовой ввод данных</li>
+          <li>Push-уведомления и задачи</li>
+        </ul>
+      </div>
+      <div class="pricing-card highlight crm">
+        <div class="pricing-name">Рост</div>
+        <div class="pricing-price" style="color:var(--crm)">890 ₽<span>/польз/мес</span></div>
+        <div class="pricing-desc">Для активных полевых продаж</div>
+        <ul class="pricing-features">
+          <li>Всё из «Старт»</li>
+          <li>Геолокация + маршруты + check-in</li>
+          <li>AI Next Step рекомендации</li>
+          <li>Интеграция с мессенджерами</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Команда</div>
+        <div class="pricing-price" style="color:var(--crm)">1 490 ₽<span>/польз/мес</span></div>
+        <div class="pricing-desc">Полный контроль для руководителя</div>
+        <ul class="pricing-features">
+          <li>Всё из «Рост»</li>
+          <li>Аналитика руководителя</li>
+          <li>ML-скоринг сделок</li>
+          <li>API + интеграции с 1С/ERP</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Potential -->
+  <div class="card" style="margin-top:16px">
+    <h3>Потенциал рынка</h3>
+    <div class="grid-4">
+      <div class="potential-row" style="display:flex;flex-direction:column;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <span class="k" style="margin-bottom:4px">Рынок CRM РФ</span>
+        <span class="v" style="font-size:20px">44,1 млрд ₽</span>
+      </div>
+      <div class="potential-row" style="display:flex;flex-direction:column;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <span class="k" style="margin-bottom:4px">Сегмент field sales</span>
+        <span class="v" style="font-size:20px">~7–9 млрд ₽</span>
+      </div>
+      <div class="potential-row" style="display:flex;flex-direction:column;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <span class="k" style="margin-bottom:4px">100 клиентов × 10 менедж.</span>
+        <span class="v" style="font-size:20px">890 тыс. ₽/мес</span>
+      </div>
+      <div class="potential-row" style="display:flex;flex-direction:column;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <span class="k" style="margin-bottom:4px">Сложность запуска</span>
+        <span class="v" style="font-size:20px;color:var(--protect)">Высокая</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- BRAND 2: CONSULTING -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="consulting" class="brand-section accent-consulting">
+<div class="container">
+
+  <div class="brand-header">
+    <div class="brand-title-block">
+      <div class="brand-logo-area">
+        <div class="brand-icon consulting"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="brand-logo-stack">
+          <span class="logo-handle">@wasrusgen1</span>
+          <div class="brand-title">КОНСАЛТИНГ</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="brand-badge badge-consulting">B2B · Услуги</div>
+        <div class="brand-subtitle">AI-партнёр для МСБ с фиксированным результатом</div>
+      </div>
+    </div>
+    <div class="brand-metrics">
+      <div class="metric-pill">
+        <span class="val" style="color:var(--consulting)">680 тыс.</span>
+        <span class="key">Целевых компаний МСБ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--consulting)">49–350 тыс. ₽</span>
+        <span class="key">Чек на проект</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--consulting)">1–2 мес</span>
+        <span class="key">До первых денег</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Проблема</h3>
+      <p class="problem-text">Рынок предлагает два крайних варианта, оба не подходят МСБ:</p>
+      <div class="problem-highlight consulting">
+        Дорогой консалтинг (Яков и Партнёры, Б1, Kept) — мин. чек 10–20 млн руб. Дешёвые интеграторы — продают чат-бот без гарантии результата. МСБ остаётся ни с чем.
+      </div>
+      <div class="pain-item"><span class="pain-num consulting">74%</span> МСБ не имеют AI-стратегии вообще</div>
+      <div class="pain-item"><span class="pain-num consulting">47%</span> не знают с чего начать внедрение AI</div>
+      <div class="pain-item"><span class="pain-num consulting">80%</span> «AI-внедрений» — это просто чат-бот на GPT без интеграции с бизнесом</div>
+      <div class="pain-item"><span class="pain-num consulting">39%</span> компаний считают подписку на ChatGPT «использованием AI»</div>
+    </div>
+    <div class="card">
+      <h3>Почему ниша свободна</h3>
+      <table class="gap-table">
+        <tr><th>Игрок</th><th>Что продаёт</th><th>Почему не для МСБ</th></tr>
+        <tr><td>Яков и Партнёры</td><td>Стратегия, трансформация</td><td>Мин. чек 10+ млн ₽</td></tr>
+        <tr><td>Б1 / Kept</td><td>Аудит, налоги, M&A</td><td>Только Enterprise</td></tr>
+        <tr><td>Сбер GigaChat</td><td>Инструменты, платформы</td><td>Нет внедрения и результата</td></tr>
+        <tr><td>Insight AI, Veonix</td><td>Разработка под ключ</td><td>Нет гарантии бизнес-результата</td></tr>
+        <tr><td>Фрилансеры</td><td>Выполнение задачи</td><td>Нет стратегии и ответственности</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Модель продукта: «AI-директор на аутсорсе»</h3>
+    <div class="grid-3">
+      <div class="feature-item" style="flex-direction:column;gap:10px;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon consulting" style="width:44px;height:44px;border-radius:14px;"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div>
+          <div class="feature-title" style="font-size:16px;margin-bottom:6px">Шаг 1: Диагностика</div>
+          <div class="feature-desc">2-дневный аудит. Карта процессов «где теряются деньги». Топ-3 AI-гипотезы с расчётом ROI</div>
+          <div style="margin-top:12px;font-weight:700;color:var(--consulting);font-size:18px">49 000 — 79 000 ₽</div>
+          <div style="font-size:12px;color:var(--muted)">Срок: 2 недели</div>
+        </div>
+      </div>
+      <div class="feature-item" style="flex-direction:column;gap:10px;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid rgba(245,158,11,0.3)">
+        <div class="feature-icon consulting" style="width:44px;height:44px;border-radius:14px;"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+        <div>
+          <div class="feature-title" style="font-size:16px;margin-bottom:6px">Шаг 2: Пилот</div>
+          <div class="feature-desc">Внедрение одной AI-инициативы за 4–6 недель. <strong style="color:var(--consulting)">Гарантия: нет ROI за 90 дней — возвращаем 50% стоимости</strong></div>
+          <div style="margin-top:12px;font-weight:700;color:var(--consulting);font-size:18px">150 000 — 350 000 ₽</div>
+          <div style="font-size:12px;color:var(--muted)">Срок: 4–6 недель</div>
+        </div>
+      </div>
+      <div class="feature-item" style="flex-direction:column;gap:10px;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon consulting" style="width:44px;height:44px;border-radius:14px;"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div>
+        <div>
+          <div class="feature-title" style="font-size:16px;margin-bottom:6px">Шаг 3: Ретейнер</div>
+          <div class="feature-desc">«AI-директор» на постоянной основе. Ежемесячный обзор, новые инициативы, обучение команды</div>
+          <div style="margin-top:12px;font-weight:700;color:var(--consulting);font-size:18px">30 000 — 85 000 ₽/мес</div>
+          <div style="font-size:12px;color:var(--muted)">Долгосрочное партнёрство</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Ключевой дифференциатор — ROI-гарантия</h3>
+    <p style="color:#c0c0dc;font-size:14px;margin-bottom:16px">Ни один игрок рынка не берёт на себя ответственность за измеримый результат. Это и есть позиционирование:</p>
+    <div class="problem-highlight consulting">
+      «Мы не продаём технологии — мы продаём рост эффективности. Если за 90 дней нет измеримого результата — возвращаем деньги.»
+    </div>
+    <div class="grid-4" style="margin-top:16px">
+      <div style="padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:24px;font-weight:700;color:var(--consulting)">2,5 млн ₽</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">при 50 клиентах на ретейнере × 50 тыс./мес</div>
+      </div>
+      <div style="padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:24px;font-weight:700;color:var(--consulting)">&lt;1%</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">проникновение AI-консалтинга в МСБ сейчас</div>
+      </div>
+      <div style="padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:24px;font-weight:700;color:var(--consulting)">680 тыс.</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">компаний МСБ с выручкой 30–500 млн ₽/год</div>
+      </div>
+      <div style="padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:24px;font-weight:700;color:var(--radar)">Низкая</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">сложность запуска первого продукта</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- BRAND 3: RADAR -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="radar" class="brand-section accent-radar">
+<div class="container">
+
+  <div class="brand-header">
+    <div class="brand-title-block">
+      <div class="brand-logo-area">
+        <div class="brand-icon radar"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="brand-logo-stack">
+          <span class="logo-handle">@wasrusgen1</span>
+          <div class="brand-title">РАДАР</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="brand-badge badge-radar">B2B · SaaS</div>
+        <div class="brand-subtitle">Управление рейтингом Яндекс Карт и 2GIS для сетей МСБ</div>
+      </div>
+    </div>
+    <div class="brand-metrics">
+      <div class="metric-pill">
+        <span class="val" style="color:var(--radar)">50 млрд ₽</span>
+        <span class="key">Рынок ORM/SERM РФ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--radar)">490–590 ₽</span>
+        <span class="key">Цена / точка / мес</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--radar)">2–4 мес</span>
+        <span class="key">До MVP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Проблема</h3>
+      <p class="problem-text">Яндекс Карты — главная точка принятия решения. 85% потребителей читают отзывы перед визитом. Рейтинг ниже 4.2 = потеря 30–40% клиентов.</p>
+      <div class="problem-highlight radar">
+        Для сети 5–30 точек контролировать репутацию вручную физически невозможно. Нужен инструмент, но все решения либо дорогие без прозрачных цен, либо дешёвые без AI.
+      </div>
+      <div class="pain-item"><span class="pain-num radar">⏰</span> Узнают о негативном отзыве через несколько дней — уже потеряли клиентов</div>
+      <div class="pain-item"><span class="pain-num radar">✍️</span> Ответы на отзывы пишут вручную — уходит несколько часов в неделю</div>
+      <div class="pain-item"><span class="pain-num radar">📉</span> Лояльные клиенты не оставляют отзывы — а недовольные всегда пишут</div>
+      <div class="pain-item"><span class="pain-num radar">🗺️</span> Нет единой панели по всем точкам сети — каждую проверяют вручную</div>
+    </div>
+    <div class="card">
+      <h3>Конкурентная карта</h3>
+      <div class="comp-row header">
+        <span>Игрок</span><span>AI-автоответы</span><span>Цена/точка</span><span>Слабость</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-name">Repometr</span>
+        <span class="badge-no">✗ Нет</span>
+        <span class="badge-yes">~600 ₽/мес</span>
+        <span class="comp-weak">Нет AI — всё вручную</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-name">Revvy</span>
+        <span class="badge-partial">~ Частично</span>
+        <span>2 990–4 990 ₽</span>
+        <span class="comp-weak">Только 1 локация, слабая аналитика сетей</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-name">RocketData</span>
+        <span class="badge-yes">✓ Есть (ChatGPT)</span>
+        <span class="badge-no">Нет публично</span>
+        <span class="comp-weak">Не для МСБ, нужен менеджер для входа</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-name">MyReviews</span>
+        <span class="badge-yes">✓ Есть</span>
+        <span class="badge-no">Нет публично</span>
+        <span class="comp-weak">Непрозрачные цены, нет онбординга без звонка</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-name">DailyGrow</span>
+        <span class="badge-yes">✓ Есть</span>
+        <span class="badge-no">Enterprise</span>
+        <span class="comp-weak">Только крупные сети, по запросу</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:16px">
+    <div class="card">
+      <h3>Функция 1: Мониторинг + AI-ответы</h3>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <div>
+          <div class="feature-title">Уведомление за 15 минут</div>
+          <div class="feature-desc">Новый отзыв на Яндекс Картах или 2GIS — мгновенное push-уведомление</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+        <div>
+          <div class="feature-title">AI-генерация ответа</div>
+          <div class="feature-desc">Учитывает тональность отзыва, бренд-голос, упомянутые детали. Одобрение 1 кликом</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div>
+          <div class="feature-title">Автопубликация для 4–5★</div>
+          <div class="feature-desc">Позитивные отзывы — автоответ без участия менеджера. Негатив — черновик с предложением решения</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Функция 2: Сбор отзывов</h3>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <div>
+          <div class="feature-title">Триггер после визита</div>
+          <div class="feature-desc">После завершения заказа/визита → SMS/WhatsApp клиенту с просьбой об отзыве</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
+        <div>
+          <div class="feature-title">Умная маршрутизация</div>
+          <div class="feature-desc">Доволен → ссылка на Яндекс Карты. Недоволен → форма обратной связи (негатив не выходит публично)</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+        <div>
+          <div class="feature-title">QR-код для ресепшн</div>
+          <div class="feature-desc">Печатный материал для размещения на стойке — один скан и клиент попадает на форму отзыва</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Функция 3: Аналитика сети</h3>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div>
+          <div class="feature-title">Единая панель</div>
+          <div class="feature-desc">Рейтинг всех точек, динамика, количество отзывов — в одном экране</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div>
+          <div class="feature-title">Автоотчёт руководителю</div>
+          <div class="feature-desc">«Точка на ул. Ленина — рейтинг упал с 4.6 до 4.3, 3 жалобы на скорость обслуживания»</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div>
+          <div class="feature-title">Мониторинг конкурентов</div>
+          <div class="feature-desc">Рейтинг и отзывы ближайших конкурентов — автоматически, на основе публичных данных</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Ценовая модель</h3>
+    <div class="grid-4">
+      <div class="pricing-card">
+        <div class="pricing-name">Старт</div>
+        <div class="pricing-price" style="color:var(--radar)">990 ₽<span>/мес</span></div>
+        <div class="pricing-desc">1–3 точки</div>
+        <ul class="pricing-features">
+          <li>Мониторинг Яндекс + 2GIS</li>
+          <li>Уведомления о новых отзывах</li>
+          <li>Ручные ответы из кабинета</li>
+        </ul>
+      </div>
+      <div class="pricing-card highlight radar">
+        <div class="pricing-name">Сеть</div>
+        <div class="pricing-price" style="color:var(--radar)">590 ₽<span>/точка/мес</span></div>
+        <div class="pricing-desc">4–15 точек</div>
+        <ul class="pricing-features">
+          <li>AI-автоответы</li>
+          <li>Сбор отзывов (QR + SMS/WA)</li>
+          <li>Аналитика сети</li>
+          <li>Еженедельный отчёт</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Сеть Про</div>
+        <div class="pricing-price" style="color:var(--radar)">490 ₽<span>/точка/мес</span></div>
+        <div class="pricing-desc">16–50 точек</div>
+        <ul class="pricing-features">
+          <li>Всё из «Сеть»</li>
+          <li>Конкурентный мониторинг</li>
+          <li>Кастомные промпты бренда</li>
+          <li>Приоритетная поддержка</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price" style="color:var(--radar)">По запросу</div>
+        <div class="pricing-desc">50+ точек</div>
+        <ul class="pricing-features">
+          <li>API интеграция</li>
+          <li>Белый лейбл</li>
+          <li>Выделенный менеджер</li>
+          <li>SLA и кастомный онбординг</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:16px;padding:12px 16px;background:rgba(16,185,129,0.08);border-radius:8px;border:1px solid rgba(16,185,129,0.2);font-size:13px;color:#b0e8d0">
+      💡 Пример: кафе-сеть из 12 точек → 590 × 12 = <strong>7 080 ₽/мес</strong> | 500 клиентов × 5 900 ₽ = <strong>2,95 млн ₽/мес</strong>
+    </div>
+  </div>
+
+</div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- BRAND 4: EXPERT -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="expert" class="brand-section accent-expert">
+<div class="container">
+
+  <div class="brand-header">
+    <div class="brand-title-block">
+      <div class="brand-logo-area">
+        <div class="brand-icon expert"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div class="brand-logo-stack">
+          <span class="logo-handle">@wasrusgen1</span>
+          <div class="brand-title">ЭКСПЕРТ</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="brand-badge badge-expert">B2B · SaaS</div>
+        <div class="brand-subtitle">Парсинг данных + AI-интерпретация для принятия бизнес-решений</div>
+      </div>
+    </div>
+    <div class="brand-metrics">
+      <div class="metric-pill">
+        <span class="val" style="color:var(--expert)">50 тыс.</span>
+        <span class="key">Потенциальных клиентов РФ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--expert)">9 900–60 тыс. ₽</span>
+        <span class="key">Тариф / мес</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--expert)">3–6 мес</span>
+        <span class="key">До MVP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Проблема</h3>
+      <p class="problem-text">Компании тонут в данных, которые невозможно собрать и осмыслить вручную. Всё лежит открыто на сайтах конкурентов и маркетплейсах — но нет инструмента, который это собирает И объясняет что делать.</p>
+      <div class="problem-highlight expert">
+        Клиент платит за данные, но остаётся один на один с дашбордом из 5 000 строк. Нет готового ответа на вопрос «что это значит для моего бизнеса и что делать».
+      </div>
+      <div class="pain-item"><span class="pain-num expert">📊</span> Дистрибьютор хочет знать когда конкурент меняет цену на профлист — узнаёт через неделю</div>
+      <div class="pain-item"><span class="pain-num expert">🏷️</span> Производитель мебели не знает какие позиции конкурентов растут в рейтинге на Яндекс.Маркете</div>
+      <div class="pain-item"><span class="pain-num expert">🆕</span> Нет мониторинга появления новых товаров у 20 конкурентов — всё вручную</div>
+    </div>
+    <div class="card">
+      <h3>Главный пробел рынка</h3>
+      <table class="gap-table">
+        <tr><th>Что есть у конкурентов</th><th>Чего нет — наша ниша</th></tr>
+        <tr><td>Таблица с ценами конкурентов</td><td>«Ваши цены на 12% выше рынка в категории X — вот конкретные позиции»</td></tr>
+        <tr><td>Алерт: «Конкурент изменил цену»</td><td>«Конкурент снизил цены по всей линейке — признак проблем со складом или акция, вот аналоги»</td></tr>
+        <tr><td>Дашборд с динамикой рейтинга</td><td>«Конкурент получил 47 негативных отзывов на тему доставки — у вас окно чтобы забрать его клиентов»</td></tr>
+        <tr><td>Выгрузка ассортимента</td><td>«В вашей категории 23 новые позиции за месяц, вот те что набирают рейтинг быстрее всего»</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>3 уровня продукта</h3>
+    <div class="grid-3">
+      <div style="padding:20px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div style="font-size:13px;color:var(--expert);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">Уровень 1</div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:8px">Мониторинг</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px">Данные + алерты</div>
+        <div class="feature-desc" style="font-size:13px">Настраиваешь сайты конкурентов / товарные категории. Система собирает по расписанию. Алерты: цена изменилась / появился новый товар / товар исчез</div>
+        <div style="margin-top:16px;font-weight:700;color:var(--expert)">9 900 ₽/мес</div>
+      </div>
+      <div style="padding:20px;background:var(--surface2);border-radius:12px;border:1px solid rgba(59,130,246,0.3)">
+        <div style="font-size:13px;color:var(--expert);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">Уровень 2</div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:8px">AI-дайджест</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px">Данные + первичная интерпретация</div>
+        <div class="feature-desc" style="font-size:13px">Раз в неделю/месяц — автоматический отчёт на email/Telegram. «Топ-3 события которые требуют вашего внимания». Каждое событие: что произошло + почему важно + возможная реакция</div>
+        <div style="margin-top:16px;font-weight:700;color:var(--expert)">24 900 ₽/мес</div>
+      </div>
+      <div style="padding:20px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div style="font-size:13px;color:var(--expert);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">Уровень 3</div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:8px">AI-аналитик</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px">Глубокий анализ по запросу</div>
+        <div class="feature-desc" style="font-size:13px">Пользователь задаёт вопрос: «Почему наши продажи позиции А упали в марте?» Система сопоставляет цены конкурентов, новые предложения, отзывы, сезонность → гипотезы с доказательной базой</div>
+        <div style="margin-top:16px;font-weight:700;color:var(--expert)">59 900 ₽/мес</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Технические ограничения и стратегия</h3>
+    <table class="gap-table">
+      <tr><th>Платформа</th><th>Ограничение</th><th>Решение</th></tr>
+      <tr><td>Авито</td><td>Запрещён парсинг (ТУ п.2.4), антибот с 2023</td><td>Официальный API для партнёров / приоритет другим источникам</td></tr>
+      <tr><td>Ozon</td><td>Seller API только для продавцов</td><td>Партнёрская программа + данные аналитических агрегаторов</td></tr>
+      <tr><td>Яндекс.Маркет</td><td>Высокая ротация структуры страниц</td><td>Партнёрский API + ротирующие прокси</td></tr>
+      <tr><td>Сайты конкурентов</td><td>Нет ограничений у большинства</td><td>Прямой парсинг в разумных лимитах — закрывает 70% задач сразу</td></tr>
+    </table>
+    <div style="margin-top:16px;padding:12px 16px;background:rgba(59,130,246,0.08);border-radius:8px;border:1px solid rgba(59,130,246,0.2);font-size:13px;color:#b0c8f0">
+      💡 Стратегия: начать с открытых источников — сайты конкурентов + 2GIS + публичные данные. Маркетплейсы добавлять через официальные партнёрства итерационно. Это закрывает 70% задач клиентов с первого дня.
+    </div>
+  </div>
+
+</div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- BRAND 5: PROTECT -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="protect" class="brand-section accent-protect">
+<div class="container">
+
+  <div class="brand-header">
+    <div class="brand-title-block">
+      <div class="brand-logo-area">
+        <div class="brand-icon protect"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="brand-logo-stack">
+          <span class="logo-handle">@wasrusgen1</span>
+          <div class="brand-title">ЗАЩИТА</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="brand-badge badge-protect">B2B · B2C · SaaS</div>
+        <div class="brand-subtitle">AI-анализ договоров для защиты МСБ и частных лиц от недобросовестных партнёров</div>
+      </div>
+    </div>
+    <div class="brand-metrics">
+      <div class="metric-pill">
+        <span class="val" style="color:var(--protect)">15 млрд ₽</span>
+        <span class="key">Рынок LegalTech РФ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--protect)">490 ₽</span>
+        <span class="key">Разовый анализ</span>
+      </div>
+      <div class="metric-pill">
+        <span class="val" style="color:var(--protect)">1–2 мес</span>
+        <span class="key">До первых денег</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Проблема</h3>
+      <p class="problem-text">Каждый день тысячи предпринимателей и физических лиц подписывают договоры, не понимая что в них написано.</p>
+      <div class="problem-highlight protect">
+        Юрист стоит 7 000–25 000 ₽/час, отвечает 2–3 дня — а сделка горит сегодня. AI-сервисы на рынке созданы для корпоративных юридических департаментов: сложно, дорого, не для МСБ.
+      </div>
+      <div class="pain-item"><span class="pain-num protect">❌</span> Штрафы в 10x за нарушение сроков — спрятаны в «условиях»</div>
+      <div class="pain-item"><span class="pain-num protect">❌</span> Одностороннее изменение цены без уведомления — «стандартный» пункт</div>
+      <div class="pain-item"><span class="pain-num protect">❌</span> Автопролонгация без уведомления — «забыл» отменить = ещё год обязательств</div>
+      <div class="pain-item"><span class="pain-num protect">❌</span> Подсудность в другом регионе — невозможно отстоять права</div>
+    </div>
+    <div class="card">
+      <h3>Почему ниша свободна</h3>
+      <table class="gap-table">
+        <tr><th>Игрок</th><th>Почему не подходит МСБ/B2C</th></tr>
+        <tr><td>Pravo.tech / ПравоПрактика</td><td>48 000 ₽/год/польз — для юридических департаментов</td></tr>
+        <tr><td>Яндекс Нейроюрист</td><td>2 000–8 500 ₽/мес — для B2B юридических служб</td></tr>
+        <tr><td>Noroots</td><td>Непрозрачные цены, сложный для неюриста интерфейс</td></tr>
+        <tr><td>Doczilla Pro</td><td>Создание договоров, а не анализ входящих</td></tr>
+        <tr><td>Pravoved.ru</td><td>Нет AI, юрист отвечает 2–3 дня, дорого</td></tr>
+      </table>
+      <div style="margin-top:16px;padding:12px;background:rgba(239,68,68,0.08);border-radius:8px;border:1px solid rgba(239,68,68,0.2);font-size:13px;color:#f0c0c0">
+        <strong>Незакрытая ниша:</strong> анализ входящего договора на языке бизнеса, за 5 минут, без подписки — этого нет ни у одного игрока рынка
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Механика работы (максимально простая)</h3>
+    <div class="grid-4">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:52px;height:52px;border-radius:16px;margin:0 auto 10px;"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div style="font-weight:600;margin-bottom:6px">1. Загружаешь</div>
+        <div style="font-size:13px;color:var(--muted)">PDF, DOCX, фото договора или вставляешь текст</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:52px;height:52px;border-radius:16px;margin:0 auto 10px;"><svg width="26" height="26" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div style="font-weight:600;margin-bottom:6px">2. AI анализирует</div>
+        <div style="font-size:13px;color:var(--muted)">2–3 минуты. Проверяет все пункты на риски и несоответствия</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;background:var(--surface2);border-radius:12px;border:1px solid rgba(239,68,68,0.3)">
+        <div class="feature-icon protect" style="width:52px;height:52px;border-radius:16px;margin:0 auto 10px;"><svg width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div style="font-weight:600;margin-bottom:6px">3. Получаешь отчёт</div>
+        <div style="font-size:13px;color:var(--muted)">🔴 Опасно / 🟡 Внимание / 🟢 Норма — на понятном языке</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:52px;height:52px;border-radius:16px;margin:0 auto 10px;"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div style="font-weight:600;margin-bottom:6px">4. Правки</div>
+        <div style="font-size:13px;color:var(--muted)">Готовая формулировка для письма контрагенту с просьбой об изменении</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px">
+    <div class="card">
+      <h3>Дифференциатор — язык результата</h3>
+      <div style="padding:14px;background:rgba(239,68,68,0.06);border-radius:8px;border-left:3px solid #555;margin-bottom:12px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600">КАК ГОВОРЯТ КОНКУРЕНТЫ:</div>
+        <div style="font-size:13px;color:#a0a0c0;font-style:italic">«Пункт 7.2 предусматривает одностороннее изменение существенных условий договора стороной Исполнителя без уведомления Заказчика»</div>
+      </div>
+      <div style="padding:14px;background:rgba(239,68,68,0.1);border-radius:8px;border-left:3px solid var(--protect)">
+        <div style="font-size:11px;color:var(--protect);margin-bottom:6px;font-weight:600">КАК ГОВОРИМ МЫ:</div>
+        <div style="font-size:13px;color:#f0d0d0;font-style:italic">🔴 <strong>ОПАСНО:</strong> Исполнитель может изменить цену или сроки в любой момент без вашего согласия. Попросите добавить: «изменения вступают в силу только после письменного согласия Заказчика»</div>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px">
+        <div style="text-align:center;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+          <div style="font-size:22px;font-weight:700;color:var(--protect)">50–100x</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Дешевле юриста-человека</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+          <div style="font-size:22px;font-weight:700;color:var(--protect)">5 мин</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">VS 2–3 дня у юриста</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Ценовая модель</h3>
+      <div style="margin-bottom:12px">
+        <div class="pricing-card" style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-direction:row;padding:14px 18px">
+          <div>
+            <div class="pricing-name" style="margin-bottom:2px">Разовый анализ</div>
+            <div style="font-size:12px;color:var(--muted)">Без регистрации — минимальный барьер входа</div>
+          </div>
+          <div class="pricing-price" style="color:var(--protect);margin-bottom:0;white-space:nowrap">490 ₽</div>
+        </div>
+        <div class="pricing-card" style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-direction:row;padding:14px 18px">
+          <div>
+            <div class="pricing-name" style="margin-bottom:2px">Пакет 5 договоров</div>
+            <div style="font-size:12px;color:var(--muted)">Экономия 20%</div>
+          </div>
+          <div class="pricing-price" style="color:var(--protect);margin-bottom:0;white-space:nowrap">1 990 ₽</div>
+        </div>
+        <div class="pricing-card highlight protect" style="margin-bottom:10px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="pricing-name">Подписка Старт</div>
+              <div style="font-size:12px;color:var(--muted)">До 5 договоров/мес + хранение</div>
+            </div>
+            <div class="pricing-price" style="color:var(--protect);margin-bottom:0;white-space:nowrap">1 490 ₽/мес</div>
+          </div>
+        </div>
+        <div class="pricing-card" style="display:flex;align-items:center;justify-content:space-between;flex-direction:row;padding:14px 18px">
+          <div>
+            <div class="pricing-name" style="margin-bottom:2px">Подписка Бизнес</div>
+            <div style="font-size:12px;color:var(--muted)">До 20 договоров + проверка контрагента + шаблоны правок</div>
+          </div>
+          <div class="pricing-price" style="color:var(--protect);margin-bottom:0;white-space:nowrap">3 490 ₽/мес</div>
+        </div>
+      </div>
+      <div style="padding:10px 14px;background:rgba(239,68,68,0.08);border-radius:8px;border:1px solid rgba(239,68,68,0.2);font-size:13px;color:#f0c0c0">
+        💡 Стратегия входа: разовый анализ без регистрации снижает барьер до нуля. «Загрузи договор прямо сейчас» — максимальная конверсия
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Правовые ограничения и как их снижать</h3>
+    <div class="grid-3">
+      <div class="risk-item" style="display:flex;flex-direction:column;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:40px;height:40px;border-radius:12px;margin-bottom:8px;"><svg width="22" height="22" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21H17"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+        <div class="risk-title">AI не является юристом</div>
+        <div class="risk-desc">Нет юридической ответственности за ошибки</div>
+        <div style="margin-top:10px;font-size:12px;color:#a0d0a0">Решение: чёткий дисклеймер. Позиционирование как «первичная проверка, не замена юриста»</div>
+      </div>
+      <div class="risk-item" style="display:flex;flex-direction:column;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:40px;height:40px;border-radius:12px;margin-bottom:8px;"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="risk-title">ФЗ-152 Персональные данные</div>
+        <div class="risk-desc">Договоры содержат персональные данные сторон</div>
+        <div style="margin-top:10px;font-size:12px;color:#a0d0a0">Решение: локализация данных в РФ, автоудаление через 30 дней, опция «не хранить»</div>
+      </div>
+      <div class="risk-item" style="display:flex;flex-direction:column;padding:16px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)">
+        <div class="feature-icon protect" style="width:40px;height:40px;border-radius:12px;margin-bottom:8px;"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+        <div class="risk-title">Статус юридической консультации</div>
+        <div class="risk-desc">Риск квалификации как незаконной юридической деятельности</div>
+        <div style="margin-top:10px;font-size:12px;color:#a0d0a0">Решение: позиционирование как информационный сервис, не юридическая консультация</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- SUMMARY -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="summary" class="summary-section">
+<div class="container">
+
+  <h2>Сводная матрица приоритизации</h2>
+  <p class="sub">Сравнение по ключевым параметрам запуска — рекомендуемый порядок входа в рынок</p>
+
+  <div class="card">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Бренд</th>
+          <th>Рынок</th>
+          <th>Цена входа клиента</th>
+          <th>Сложность MVP</th>
+          <th>Скорость до денег</th>
+          <th>Барьер копирования</th>
+          <th>Приоритет</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="brand-pill"><span class="dot" style="background:var(--radar)"></span>РАДАР</span></td>
+          <td>50 млрд ₽/год</td>
+          <td>490–590 ₽/точка/мес</td>
+          <td>
+            <div class="difficulty-bar">
+              <div class="seg fill"></div><div class="seg fill"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+            </div>
+          </td>
+          <td style="color:var(--radar);font-weight:600">2–4 мес</td>
+          <td style="color:var(--radar)">Средний</td>
+          <td><span class="priority-badge prio-1">▶ Запуск #1</span></td>
+        </tr>
+        <tr>
+          <td><span class="brand-pill"><span class="dot" style="background:var(--protect)"></span>ЗАЩИТА</span></td>
+          <td>15 млрд ₽</td>
+          <td>490 ₽/договор</td>
+          <td>
+            <div class="difficulty-bar">
+              <div class="seg fill"></div><div class="seg fill"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+            </div>
+          </td>
+          <td style="color:var(--radar);font-weight:600">1–2 мес</td>
+          <td style="color:var(--consulting)">Средний</td>
+          <td><span class="priority-badge prio-1">▶ Запуск #1</span></td>
+        </tr>
+        <tr>
+          <td><span class="brand-pill"><span class="dot" style="background:var(--consulting)"></span>КОНСАЛТИНГ</span></td>
+          <td>Нет данных (услуга)</td>
+          <td>49 000 ₽ — первый шаг</td>
+          <td>
+            <div class="difficulty-bar">
+              <div class="seg fill"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+            </div>
+          </td>
+          <td style="color:var(--radar);font-weight:600">1–2 мес</td>
+          <td style="color:var(--protect)">Низкий</td>
+          <td><span class="priority-badge prio-2">▶ Запуск #2</span></td>
+        </tr>
+        <tr>
+          <td><span class="brand-pill"><span class="dot" style="background:var(--expert)"></span>ЭКСПЕРТ</span></td>
+          <td>~50 тыс. компаний ЦА</td>
+          <td>9 900–24 900 ₽/мес</td>
+          <td>
+            <div class="difficulty-bar">
+              <div class="seg fill"></div><div class="seg fill"></div><div class="seg fill"></div><div class="seg"></div><div class="seg"></div>
+            </div>
+          </td>
+          <td style="color:var(--consulting);font-weight:600">3–6 мес</td>
+          <td style="color:var(--consulting)">Средний</td>
+          <td><span class="priority-badge prio-3">▶ Запуск #3</span></td>
+        </tr>
+        <tr>
+          <td><span class="brand-pill"><span class="dot" style="background:var(--crm)"></span>CRM</span></td>
+          <td>44 млрд ₽/год</td>
+          <td>490–1 490 ₽/польз/мес</td>
+          <td>
+            <div class="difficulty-bar">
+              <div class="seg fill"></div><div class="seg fill"></div><div class="seg fill"></div><div class="seg fill"></div><div class="seg fill"></div>
+            </div>
+          </td>
+          <td style="color:var(--protect);font-weight:600">6–12 мес</td>
+          <td style="color:var(--radar)">Высокий</td>
+          <td><span class="priority-badge prio-5">▶ Запуск #5</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px">
+    <div class="card">
+      <h3>Рекомендация к первому запуску</h3>
+      <div class="problem-highlight radar" style="margin-bottom:14px">
+        <strong>РАДАР + ЗАЩИТА одновременно</strong> — минимальная разработка, быстрые деньги, чёткий ICP, понятный оффер. Оба продукта можно вывести на рынок параллельно за 2–3 месяца.
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon radar"><svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M7.76 7.76a6 6 0 0 0 0 8.49"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49"/></svg></div>
+        <div>
+          <div class="feature-title">РАДАР — рекуррентная выручка</div>
+          <div class="feature-desc">Подписка с низким оттоком. Клиент подключил → отключать невыгодно — рейтинг сразу падает без мониторинга</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon protect"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <div class="feature-title">ЗАЩИТА — вирусный рост</div>
+          <div class="feature-desc">Разовая оплата без регистрации = нулевой барьер. Один сохранённый договор → клиент рассказывает коллегам</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Следующие шаги</h3>
+      <div class="pain-item" style="padding:12px 0">
+        <span class="pain-num radar" style="background:var(--radar);min-width:28px;height:28px;font-size:13px">1</span>
+        <div>Выбрать первый бренд для детальной go-to-market стратегии. Рекомендуем РАДАР или ЗАЩИТА</div>
+      </div>
+      <div class="pain-item" style="padding:12px 0">
+        <span class="pain-num radar" style="background:var(--consulting);min-width:28px;height:28px;font-size:13px">2</span>
+        <div>Провести 10–15 кастдев-интервью с потенциальными клиентами для подтверждения гипотез по нише</div>
+      </div>
+      <div class="pain-item" style="padding:12px 0">
+        <span class="pain-num radar" style="background:var(--expert);min-width:28px;height:28px;font-size:13px">3</span>
+        <div>Сформировать лендинг с формой ожидания (waitlist) — до начала разработки проверить спрос</div>
+      </div>
+      <div class="pain-item" style="padding:12px 0">
+        <span class="pain-num radar" style="background:var(--crm);min-width:28px;height:28px;font-size:13px">4</span>
+        <div>Определить команду или подрядчиков по выбранным направлениям — техническая экспертиза для MVP</div>
+      </div>
+      <div class="pain-item" style="padding:12px 0;border-bottom:none">
+        <span class="pain-num radar" style="background:var(--protect);min-width:28px;height:28px;font-size:13px">5</span>
+        <div>Построить финансовую модель: unit economics, CAC, LTV, runway — перед привлечением инвестиций или запуском</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <strong>@wasrusgen1</strong> · Зонтичный бренд · Анализ ниш
+  </div>
+  <div style="color:var(--muted)">Подготовлено: <strong style="color:var(--text)">май 2026</strong> · Данные: открытые источники, конкурентный анализ</div>
+</div>
+
+<script>
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // active nav
+  const sections = document.querySelectorAll('section[id], div[id="summary"]');
+  const navLinks = document.querySelectorAll('.nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.style.color = a.getAttribute('href') === '#' + entry.target.id ? '#e8e8f0' : '';
+          a.style.borderColor = a.getAttribute('href') === '#' + entry.target.id ? '#6c63ff' : '';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
