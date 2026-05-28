@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@wasrusgen1 — Стратегия бандлов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0D0D1A;
+    --surface: #13131F;
+    --surface2: #1A1A2E;
+    --border: rgba(255,255,255,.08);
+    --muted: rgba(255,255,255,.45);
+    --text: rgba(255,255,255,.92);
+
+    --crm:        #6366F1;
+    --consulting: #10B981;
+    --radar:      #06B6D4;
+    --expert:     #F59E0B;
+    --protect:    #EF4444;
+
+    --crm-bg:        #4338CA;
+    --consulting-bg: #047857;
+    --radar-bg:      #0E7490;
+    --expert-bg:     #B45309;
+    --protect-bg:    #B91C1C;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13,13,26,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; gap: 32px; height: 52px;
+  }
+  .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; color: var(--text); letter-spacing: -.3px; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: .08em; transition: color .15s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 12px; }
+  .section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: -1px; margin-bottom: 8px; line-height: 1.1; }
+  .section-sub { color: var(--muted); font-size: 16px; margin-bottom: 48px; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 40px 80px;
+    max-width: 1100px; margin: 0 auto;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--crm); background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.25);
+    padding: 4px 14px; border-radius: 20px; margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Montserrat', sans-serif; font-weight: 900;
+    font-size: 52px; letter-spacing: -2px; line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .hero-title span { color: var(--crm); }
+  .hero-desc { font-size: 18px; color: var(--muted); max-width: 560px; margin: 0 auto 48px; }
+  .hero-insight {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 24px;
+    font-size: 14px; color: var(--muted);
+  }
+  .hero-insight strong { color: var(--text); }
+
+  /* ── PRODUCT PILLS ── */
+  .products-row {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 48px;
+  }
+  .prod-pill {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px 8px 10px;
+    border-radius: 10px; border: 1px solid var(--border);
+    font-size: 13px; font-weight: 600;
+  }
+  .prod-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── 5 FUNCTIONS ── */
+  .functions-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+    margin-bottom: 16px;
+  }
+  .fn-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 16px;
+    position: relative; overflow: hidden;
+  }
+  .fn-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .fn-card.crm::before      { background: var(--crm); }
+  .fn-card.consulting::before { background: var(--consulting); }
+  .fn-card.radar::before    { background: var(--radar); }
+  .fn-card.expert::before   { background: var(--expert); }
+  .fn-card.protect::before  { background: var(--protect); }
+
+  .fn-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .fn-icon svg { stroke: rgba(255,255,255,.9); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .fn-card.crm .fn-icon      { background: var(--crm-bg); }
+  .fn-card.consulting .fn-icon { background: var(--consulting-bg); }
+  .fn-card.radar .fn-icon    { background: var(--radar-bg); }
+  .fn-card.expert .fn-icon   { background: var(--expert-bg); }
+  .fn-card.protect .fn-icon  { background: var(--protect-bg); }
+
+  .fn-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: -.3px; margin-bottom: 4px; }
+  .fn-role { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .fn-replaces { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .fn-replaces strong { color: var(--text); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 40px; }
+
+  /* ── BUNDLES ── */
+  .bundles-tier { margin-bottom: 48px; }
+  .tier-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .tier-badge {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    padding: 3px 10px; border-radius: 4px;
+  }
+  .tier-1 .tier-badge { background: rgba(99,102,241,.15); color: #818CF8; }
+  .tier-2 .tier-badge { background: rgba(16,185,129,.15); color: #34D399; }
+  .tier-3 .tier-badge { background: rgba(245,158,11,.15); color: #FCD34D; }
+  .tier-4 .tier-badge { background: rgba(239,68,68,.15); color: #FCA5A5; }
+
+  .tier-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 18px; letter-spacing: -.4px; }
+  .tier-desc { font-size: 13px; color: var(--muted); }
+
+  .bundles-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .bundles-row.tier-4-row { grid-template-columns: 1fr; }
+
+  .bundle-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 22px;
+    transition: border-color .2s;
+  }
+  .bundle-card:hover { border-color: rgba(255,255,255,.2); }
+
+  .bundle-products {
+    display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .bp-chip {
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    padding: 3px 8px; border-radius: 5px;
+    text-transform: uppercase;
+  }
+  .bp-crm      { background: rgba(99,102,241,.2); color: #818CF8; }
+  .bp-consulting { background: rgba(16,185,129,.2); color: #34D399; }
+  .bp-radar    { background: rgba(6,182,212,.2); color: #22D3EE; }
+  .bp-expert   { background: rgba(245,158,11,.2); color: #FCD34D; }
+  .bp-protect  { background: rgba(239,68,68,.2); color: #FCA5A5; }
+
+  .bundle-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 16px; letter-spacing: -.4px; margin-bottom: 6px; }
+  .bundle-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+  .bundle-icp  { font-size: 12px; color: var(--muted); }
+  .bundle-icp strong { color: var(--text); }
+
+  .bundle-discount {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    color: #34D399; background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.2);
+    padding: 2px 8px; border-radius: 4px; margin-top: 10px;
+  }
+
+  /* Full platform card */
+  .bundle-card.platform {
+    background: linear-gradient(135deg, rgba(67,56,202,.2), rgba(14,116,144,.15));
+    border-color: rgba(99,102,241,.3);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;
+  }
+  .platform-left .bundle-name { font-size: 22px; margin-bottom: 10px; }
+  .platform-right { display: flex; flex-direction: column; gap: 8px; }
+  .platform-stat { display: flex; justify-content: space-between; align-items: center; }
+  .platform-stat .val { font-size: 20px; font-weight: 700; font-family: 'Montserrat', sans-serif; }
+  .platform-stat .lbl { font-size: 12px; color: var(--muted); }
+
+  /* ── ENTRY PATH ── */
+  .entry-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .entry-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 16px;
+  }
+  .entry-title {
+    font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .entry-label { font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .entry-upsell { margin-bottom: 8px; }
+  .entry-upsell-label { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+  .entry-step {
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 6px; font-size: 12px;
+  }
+  .step-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; flex-shrink: 0;
+  }
+  .entry-reason { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+  /* ── PRICING LOGIC ── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .price-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .price-count { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -2px; margin-bottom: 4px; }
+  .price-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; }
+  .price-discount {
+    font-size: 22px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+    margin-bottom: 6px;
+  }
+  .price-sub { font-size: 12px; color: var(--muted); }
+  .price-card.recommended {
+    border-color: var(--crm); background: rgba(67,56,202,.12);
+  }
+  .rec-badge {
+    display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: #818CF8; background: rgba(99,102,241,.2);
+    padding: 2px 8px; border-radius: 4px; margin-bottom: 12px;
+  }
+
+  /* ── LANDING WIREFRAME ── */
+  .wireframe {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px; margin-top: 0;
+  }
+  .wf-section {
+    border: 1px dashed rgba(255,255,255,.15);
+    border-radius: 10px; padding: 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .wf-label {
+    position: absolute; top: -10px; left: 16px;
+    background: var(--surface2); padding: 0 8px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .1em; color: var(--muted);
+  }
+  .wf-content { font-size: 13px; color: var(--muted); }
+  .wf-content strong { color: var(--text); }
+  .wf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .wf-row .wf-section { margin-bottom: 0; }
+
+  /* ── INSIGHT BOX ── */
+  .insight-box {
+    background: rgba(67,56,202,.1); border: 1px solid rgba(99,102,241,.25);
+    border-radius: 12px; padding: 20px 24px;
+    margin-top: 24px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .insight-icon { font-size: 20px; flex-shrink: 0; }
+  .insight-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .insight-text strong { color: var(--text); }
+
+  /* ── FOOTER ── */
+  .footer { padding: 40px; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 900px) {
+    .functions-grid, .entry-grid { grid-template-columns: 1fr 1fr; }
+    .bundles-row { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .bundle-card.platform { grid-template-columns: 1fr; }
+    .hero-title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">@wasrusgen1 · Bundle Strategy</span>
+  <div class="nav-links">
+    <a href="#functions">5 функций</a>
+    <a href="#bundles">Бандлы</a>
+    <a href="#paths">Пути входа</a>
+    <a href="#pricing">Цены</a>
+    <a href="#landing">Лендинг</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Стратегия · Май 2026</div>
+  <h1 class="hero-title">5 функций компании<br><span>без найма</span></h1>
+  <p class="hero-desc">Одна подписка вместо пяти сотрудников. AI-платформа для МСБ которая работает, когда команда спит.</p>
+
+  <div class="products-row">
+    <div class="prod-pill"><div class="prod-dot" style="background:var(--crm)"></div>CRM</div>
+    <div class="prod-pill"><div class="prod-dot" style="background:var(--consulting)"></div>КОНСАЛТИНГ</div>
+    <div class="prod-pill"><div class="prod-dot" style="background:var(--radar)"></div>РАДАР</div>
+    <div class="prod-pill"><div class="prod-dot" style="background:var(--expert)"></div>ЭКСПЕРТ</div>
+    <div class="prod-pill"><div class="prod-dot" style="background:var(--protect)"></div>ЗАЩИТА</div>
+  </div>
+
+  <div class="hero-insight">
+    💡 <div><strong>Ключевой инсайт:</strong> МСБ не может позволить себе 5 отдельных специалистов — но может позволить себе одну платформу</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 5 FUNCTIONS -->
+<section id="functions" class="section">
+  <div class="section-label">Блок 01</div>
+  <h2 class="section-title">Какие функции закрывает платформа</h2>
+  <p class="section-sub">Каждый продукт = один департамент, который обычно нанимают.</p>
+
+  <div class="functions-grid">
+
+    <div class="fn-card crm">
+      <div class="fn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="fn-name">CRM</div>
+      <div class="fn-role">Отдел продаж</div>
+      <div class="fn-replaces">Заменяет <strong>РОПа + CRM-администратора</strong>. Полевые продажи, воронка, AI-подсказки.</div>
+    </div>
+
+    <div class="fn-card consulting">
+      <div class="fn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="fn-name">КОНСАЛТИНГ</div>
+      <div class="fn-role">Отдел развития</div>
+      <div class="fn-replaces">Заменяет <strong>бизнес-аналитика + консультанта</strong>. Диагностика, точки роста, внедрение.</div>
+    </div>
+
+    <div class="fn-card radar">
+      <div class="fn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="fn-name">РАДАР</div>
+      <div class="fn-role">Отдел маркетинга</div>
+      <div class="fn-replaces">Заменяет <strong>маркетолога + SERM-менеджера</strong>. Рейтинги, репутация, гео-присутствие.</div>
+    </div>
+
+    <div class="fn-card expert">
+      <div class="fn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="fn-name">ЭКСПЕРТ</div>
+      <div class="fn-role">Отдел аналитики</div>
+      <div class="fn-replaces">Заменяет <strong>аналитика + BI-специалиста</strong>. Данные конкурентов, рынок, AI-интерпретация.</div>
+    </div>
+
+    <div class="fn-card protect">
+      <div class="fn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="fn-name">ЗАЩИТА</div>
+      <div class="fn-role">Юридический отдел</div>
+      <div class="fn-replaces">Заменяет <strong>юриста по договорам</strong>. AI-анализ рисков, спорные пункты, рекомендации.</div>
+    </div>
+
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-icon">🎯</div>
+    <div class="insight-text">
+      <strong>Ключевой месседж для лендинга:</strong> «Средняя компания МСБ (10–50 человек) тратит 800 тыс. – 2 млн ₽/год на сотрудников для этих 5 функций. Подписка @wasrusgen1 — от 49 тыс. ₽/год. Разница — ваша прибыль.»
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BUNDLES -->
+<section id="bundles" class="section">
+  <div class="section-label">Блок 02</div>
+  <h2 class="section-title">Варианты бандлов</h2>
+  <p class="section-sub">Четыре уровня. Клиент входит с одного продукта и естественно растёт к платформе.</p>
+
+  <!-- TIER 1 -->
+  <div class="bundles-tier tier-1">
+    <div class="tier-header">
+      <span class="tier-badge">Уровень 1</span>
+      <div>
+        <div class="tier-title">Один продукт — одна боль</div>
+        <div class="tier-desc">Точечное решение. Низкий барьер входа, максимальная конверсия первой покупки.</div>
+      </div>
+    </div>
+    <div class="bundles-row">
+      <div class="bundle-card">
+        <div class="bundle-products"><span class="bp-chip bp-crm">CRM</span></div>
+        <div class="bundle-name">Управление продажами</div>
+        <div class="bundle-desc">Полевые продажи, воронка сделок, AI-подсказки менеджерам. Без таблиц Excel и потери клиентов.</div>
+        <div class="bundle-icp"><strong>Кто покупает:</strong> РОП, Директор по продажам, Собственник торговой компании</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products"><span class="bp-chip bp-radar">РАДАР</span></div>
+        <div class="bundle-name">Управление репутацией</div>
+        <div class="bundle-desc">Рейтинги на Яндекс Картах и 2GIS для всей сети. Автоматически, без маркетолога.</div>
+        <div class="bundle-icp"><strong>Кто покупает:</strong> Владелец сети, Франчайзи, Маркетинг-директор</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products"><span class="bp-chip bp-protect">ЗАЩИТА</span></div>
+        <div class="bundle-name">Защита от рисков</div>
+        <div class="bundle-desc">AI анализирует каждый договор за минуты. Находит скрытые риски до подписания.</div>
+        <div class="bundle-icp"><strong>Кто покупает:</strong> Собственник бизнеса, Закупщик, Частное лицо</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="bundles-tier tier-2">
+    <div class="tier-header">
+      <span class="tier-badge">Уровень 2</span>
+      <div>
+        <div class="tier-title">Пара — синергия двух функций</div>
+        <div class="tier-desc">Скидка 20%. Клиент видит ROI двух продуктов вместе — мотивация расти дальше.</div>
+      </div>
+    </div>
+    <div class="bundles-row">
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-crm">CRM</span>
+          <span class="bp-chip bp-radar">РАДАР</span>
+        </div>
+        <div class="bundle-name">Продажи + Репутация</div>
+        <div class="bundle-desc">Замыкаете цикл: полевые менеджеры продают, а рейтинг на картах генерирует входящий поток.</div>
+        <div class="bundle-icp"><strong>Для кого:</strong> Торговые компании с точками присутствия, дистрибьюторы</div>
+        <div class="bundle-discount">−20% к стоимости</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-consulting">КОНСАЛТИНГ</span>
+          <span class="bp-chip bp-expert">ЭКСПЕРТ</span>
+        </div>
+        <div class="bundle-name">Данные + Решения</div>
+        <div class="bundle-desc">ЭКСПЕРТ собирает и интерпретирует данные — КОНСАЛТИНГ превращает их в конкретные шаги роста.</div>
+        <div class="bundle-icp"><strong>Для кого:</strong> Компании в фазе роста, собственники без аналитики</div>
+        <div class="bundle-discount">−20% к стоимости</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-crm">CRM</span>
+          <span class="bp-chip bp-protect">ЗАЩИТА</span>
+        </div>
+        <div class="bundle-name">Продажи без риска</div>
+        <div class="bundle-desc">Менеджеры заключают сделки — AI сразу проверяет договоры. Никаких юридических сюрпризов после подписания.</div>
+        <div class="bundle-icp"><strong>Для кого:</strong> Оптовая торговля, подрядчики, B2B с длинными контрактами</div>
+        <div class="bundle-discount">−20% к стоимости</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div class="bundles-tier tier-3">
+    <div class="tier-header">
+      <span class="tier-badge">Уровень 3</span>
+      <div>
+        <div class="tier-title">Отраслевые пакеты — три функции</div>
+        <div class="tier-desc">Скидка 35%. Предложение под конкретный тип бизнеса. Продаётся легче чем набор продуктов.</div>
+      </div>
+    </div>
+    <div class="bundles-row">
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-crm">CRM</span>
+          <span class="bp-chip bp-radar">РАДАР</span>
+          <span class="bp-chip bp-expert">ЭКСПЕРТ</span>
+        </div>
+        <div class="bundle-name">«Отдел продаж под ключ»</div>
+        <div class="bundle-desc">Продаёте — отслеживаете репутацию — анализируете конкурентов. Полный цикл работы с рынком без найма отдела.</div>
+        <div class="bundle-icp"><strong>Идеально для:</strong> Торговые сети, дистрибьюторы, сервисные компании с несколькими точками</div>
+        <div class="bundle-discount">−35% к стоимости</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-consulting">КОНСАЛТИНГ</span>
+          <span class="bp-chip bp-expert">ЭКСПЕРТ</span>
+          <span class="bp-chip bp-protect">ЗАЩИТА</span>
+        </div>
+        <div class="bundle-name">«Директор по развитию»</div>
+        <div class="bundle-desc">Данные рынка + стратегия роста + юридическая безопасность сделок. Три функции одного сильного топ-менеджера.</div>
+        <div class="bundle-icp"><strong>Идеально для:</strong> Производство, оптовая торговля, компании на этапе масштабирования</div>
+        <div class="bundle-discount">−35% к стоимости</div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-products">
+          <span class="bp-chip bp-crm">CRM</span>
+          <span class="bp-chip bp-consulting">КОНСАЛТИНГ</span>
+          <span class="bp-chip bp-protect">ЗАЩИТА</span>
+        </div>
+        <div class="bundle-name">«Операционное ядро»</div>
+        <div class="bundle-desc">Управляете продажами — получаете стратегические рекомендации — защищаете каждую сделку. Ядро операционного бизнеса.</div>
+        <div class="bundle-icp"><strong>Идеально для:</strong> Услуги, консалтинг, B2B с проектными контрактами</div>
+        <div class="bundle-discount">−35% к стоимости</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 4 -->
+  <div class="bundles-tier tier-4">
+    <div class="tier-header">
+      <span class="tier-badge">Уровень 4</span>
+      <div>
+        <div class="tier-title">Полная платформа — AI-команда</div>
+        <div class="tier-desc">Скидка 50%. Все 5 продуктов. Позиционируется как найм AI-команды, а не подписка на инструменты.</div>
+      </div>
+    </div>
+    <div class="bundles-row tier-4-row">
+      <div class="bundle-card platform">
+        <div class="platform-left">
+          <div class="bundle-products">
+            <span class="bp-chip bp-crm">CRM</span>
+            <span class="bp-chip bp-consulting">КОНС</span>
+            <span class="bp-chip bp-radar">РАДАР</span>
+            <span class="bp-chip bp-expert">ЭКСП</span>
+            <span class="bp-chip bp-protect">ЗАЩ</span>
+          </div>
+          <div class="bundle-name" style="font-size:22px">«AI-команда» — полная платформа</div>
+          <div class="bundle-desc" style="font-size:14px">Продажи. Консалтинг. Маркетинг. Аналитика. Юриспруденция. Пять функций, одна подписка, ноль найма.</div>
+          <div class="bundle-icp"><strong>Для кого:</strong> Амбициозный МСБ, который хочет расти без раздутого штата</div>
+          <div class="bundle-discount" style="font-size:13px">−50% — выгоднее двух продуктов отдельно</div>
+        </div>
+        <div class="platform-right">
+          <div class="platform-stat">
+            <div class="lbl">Функций закрывает</div>
+            <div class="val">5 из 5</div>
+          </div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div class="platform-stat">
+            <div class="lbl">Экономия vs найм</div>
+            <div class="val" style="color:var(--consulting)">до 1.8 млн ₽/год</div>
+          </div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div class="platform-stat">
+            <div class="lbl">Срок запуска</div>
+            <div class="val">1 день</div>
+          </div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div class="platform-stat">
+            <div class="lbl">Скидка к розничной цене</div>
+            <div class="val" style="color:var(--expert)">−50%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ENTRY PATHS -->
+<section id="paths" class="section">
+  <div class="section-label">Блок 03</div>
+  <h2 class="section-title">Пути входа и апселл</h2>
+  <p class="section-sub">С какого продукта клиент входит — туда и настраиваем воронку. Следующий шаг всегда готов.</p>
+
+  <div class="entry-grid">
+
+    <div class="entry-card" style="border-top:3px solid var(--crm)">
+      <div class="entry-title" style="color:var(--crm)">CRM →</div>
+      <div class="entry-label">Продавец / РОП</div>
+      <div class="entry-upsell">
+        <div class="entry-upsell-label">Следующий шаг</div>
+        <div class="entry-step"><div class="step-num" style="background:rgba(99,102,241,.3)">1</div><span class="bp-chip bp-radar" style="font-size:10px">РАДАР</span></div>
+        <div class="entry-reason">«Ваши менеджеры продают — убедитесь что рейтинг не убивает входящий поток»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(99,102,241,.2)">2</div><span class="bp-chip bp-expert" style="font-size:10px">ЭКСПЕРТ</span></div>
+        <div class="entry-reason">«Что делают конкуренты пока вы работаете с текущей базой»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(99,102,241,.1)">3</div><span class="bp-chip bp-protect" style="font-size:10px">ЗАЩИТА</span></div>
+        <div class="entry-reason">«Новая сделка = новый договор. Проверяйте каждый»</div>
+      </div>
+    </div>
+
+    <div class="entry-card" style="border-top:3px solid var(--consulting)">
+      <div class="entry-title" style="color:var(--consulting)">КОНСАЛТИНГ →</div>
+      <div class="entry-label">Собственник / CEO</div>
+      <div class="entry-upsell">
+        <div class="entry-upsell-label">Следующий шаг</div>
+        <div class="entry-step"><div class="step-num" style="background:rgba(16,185,129,.3)">1</div><span class="bp-chip bp-expert" style="font-size:10px">ЭКСПЕРТ</span></div>
+        <div class="entry-reason">«Консалтинг даёт рекомендации — ЭКСПЕРТ даёт данные для их подтверждения»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(16,185,129,.2)">2</div><span class="bp-chip bp-crm" style="font-size:10px">CRM</span></div>
+        <div class="entry-reason">«Стратегия без инструмента продаж не работает»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(16,185,129,.1)">3</div><span class="bp-chip bp-protect" style="font-size:10px">ЗАЩИТА</span></div>
+        <div class="entry-reason">«Рост компании = больше договоров. Защитите каждый»</div>
+      </div>
+    </div>
+
+    <div class="entry-card" style="border-top:3px solid var(--radar)">
+      <div class="entry-title" style="color:var(--radar)">РАДАР →</div>
+      <div class="entry-label">Маркетинг / Сеть</div>
+      <div class="entry-upsell">
+        <div class="entry-upsell-label">Следующий шаг</div>
+        <div class="entry-step"><div class="step-num" style="background:rgba(6,182,212,.3)">1</div><span class="bp-chip bp-crm" style="font-size:10px">CRM</span></div>
+        <div class="entry-reason">«Репутация приводит клиентов — CRM их не теряет»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(6,182,212,.2)">2</div><span class="bp-chip bp-expert" style="font-size:10px">ЭКСПЕРТ</span></div>
+        <div class="entry-reason">«Почему у конкурентов рейтинг выше? Данные ответят»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(6,182,212,.1)">3</div><span class="bp-chip bp-consulting" style="font-size:10px">КОНСАЛТИНГ</span></div>
+        <div class="entry-reason">«Репутация выросла — самое время масштабировать сеть»</div>
+      </div>
+    </div>
+
+    <div class="entry-card" style="border-top:3px solid var(--expert)">
+      <div class="entry-title" style="color:var(--expert)">ЭКСПЕРТ →</div>
+      <div class="entry-label">Аналитик / Директор</div>
+      <div class="entry-upsell">
+        <div class="entry-upsell-label">Следующий шаг</div>
+        <div class="entry-step"><div class="step-num" style="background:rgba(245,158,11,.3)">1</div><span class="bp-chip bp-consulting" style="font-size:10px">КОНСАЛТИНГ</span></div>
+        <div class="entry-reason">«Вы видите данные — КОНСАЛТИНГ превратит их в план действий»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(245,158,11,.2)">2</div><span class="bp-chip bp-crm" style="font-size:10px">CRM</span></div>
+        <div class="entry-reason">«Данные показали слабое место продаж — CRM его закрывает»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(245,158,11,.1)">3</div><span class="bp-chip bp-radar" style="font-size:10px">РАДАР</span></div>
+        <div class="entry-reason">«Конкуренты хуже по данным — но лидируют на картах. Исправим»</div>
+      </div>
+    </div>
+
+    <div class="entry-card" style="border-top:3px solid var(--protect)">
+      <div class="entry-title" style="color:var(--protect)">ЗАЩИТА →</div>
+      <div class="entry-label">Собственник / Закупки</div>
+      <div class="entry-upsell">
+        <div class="entry-upsell-label">Следующий шаг</div>
+        <div class="entry-step"><div class="step-num" style="background:rgba(239,68,68,.3)">1</div><span class="bp-chip bp-consulting" style="font-size:10px">КОНСАЛТИНГ</span></div>
+        <div class="entry-reason">«Риск снят — самое время найти точки роста бизнеса»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(239,68,68,.2)">2</div><span class="bp-chip bp-expert" style="font-size:10px">ЭКСПЕРТ</span></div>
+        <div class="entry-reason">«Проверяйте контрагентов ещё до того как договор попал на стол»</div>
+        <div class="entry-step" style="margin-top:8px"><div class="step-num" style="background:rgba(239,68,68,.1)">3</div><span class="bp-chip bp-crm" style="font-size:10px">CRM</span></div>
+        <div class="entry-reason">«Больше сделок = больше договоров. Управляйте всеми»</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-icon">⚡</div>
+    <div class="insight-text">
+      <strong>Правило апселла:</strong> Следующий продукт всегда подаётся как логичное продолжение того, что клиент уже делает — не как «купите ещё», а как «вот чего вам не хватает чтобы первый продукт работал полностью».
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRICING LOGIC -->
+<section id="pricing" class="section">
+  <div class="section-label">Блок 04</div>
+  <h2 class="section-title">Логика ценообразования</h2>
+  <p class="section-sub">Чем больше продуктов — тем выгоднее. Платформа всегда дешевле набора.</p>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-count">1</div>
+      <div class="price-label">продукт</div>
+      <div style="height:1px;background:var(--border);margin-bottom:16px"></div>
+      <div class="price-discount" style="color:var(--muted)">100%</div>
+      <div class="price-sub">Полная цена<br>Барьер входа — минимальный</div>
+    </div>
+    <div class="price-card">
+      <div class="price-count">2</div>
+      <div class="price-label">продукта</div>
+      <div style="height:1px;background:var(--border);margin-bottom:16px"></div>
+      <div class="price-discount" style="color:var(--consulting)">−20%</div>
+      <div class="price-sub">К каждому продукту<br>Мотивирует добавить второй</div>
+    </div>
+    <div class="price-card recommended">
+      <div class="rec-badge">Популярный</div>
+      <div class="price-count">3</div>
+      <div class="price-label">продукта</div>
+      <div style="height:1px;background:rgba(99,102,241,.3);margin-bottom:16px"></div>
+      <div class="price-discount" style="color:#818CF8">−35%</div>
+      <div class="price-sub">Лучший баланс цена/ценность<br>Отраслевые пакеты</div>
+    </div>
+    <div class="price-card">
+      <div class="price-count">5</div>
+      <div class="price-label">продуктов</div>
+      <div style="height:1px;background:var(--border);margin-bottom:16px"></div>
+      <div class="price-discount" style="color:var(--expert)">−50%</div>
+      <div class="price-sub">Полная платформа<br>«AI-команда» — максимальный LTV</div>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top:24px">
+    <div class="insight-icon">📐</div>
+    <div class="insight-text">
+      <strong>Нужно обсудить:</strong> Точные цены на каждый продукт пока не зафиксированы. Предлагаю следующий шаг — определить базовую цену одного продукта (например, CRM = X ₽/мес), от неё строим всю матрицу. Также: годовая подписка vs ежемесячная — разница в LTV существенная.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LANDING WIREFRAME -->
+<section id="landing" class="section">
+  <div class="section-label">Блок 05</div>
+  <h2 class="section-title">Структура лендинга</h2>
+  <p class="section-sub">Концептуальный вайрфрейм. Под обсуждение и правки.</p>
+
+  <div class="wireframe">
+
+    <div class="wf-section">
+      <div class="wf-label">Hero</div>
+      <div class="wf-content">
+        <strong>Заголовок:</strong> «5 функций компании без найма»<br>
+        <strong>Подзаголовок:</strong> «AI-команда в подписке. Продажи, маркетинг, аналитика, консалтинг, юриспруденция — без HR и зарплатной ведомости»<br>
+        <strong>CTA:</strong> «Начать с одного продукта» + «Смотреть платформу»<br>
+        <strong>Social proof:</strong> логотипы клиентов или «уже используют X компаний МСБ»
+      </div>
+    </div>
+
+    <div class="wf-section">
+      <div class="wf-label">Боль → цифры</div>
+      <div class="wf-content">
+        <strong>Блок с контрастом:</strong> «Штатный специалист: 80–150 тыс. ₽/мес + налоги + обучение + замена» vs «@wasrusgen1 [продукт]: X ₽/мес, запуск за 1 день»
+      </div>
+    </div>
+
+    <div class="wf-section">
+      <div class="wf-label">5 продуктов (горизонталь)</div>
+      <div class="wf-content">
+        Карточки 5 продуктов. Клик → разворачивается: что делает, кого заменяет, цена соло. Визуально как «5 сотрудников в одной строке»
+      </div>
+    </div>
+
+    <div class="wf-section">
+      <div class="wf-label">Конфигуратор бандла</div>
+      <div class="wf-content">
+        <strong>Интерактивный блок:</strong> «Выбери нужные функции» → подсвечиваются продукты → считается стоимость и скидка в реальном времени. Это ключевой конверсионный блок. CTA: «Собрать свой пакет»
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div class="wf-section">
+        <div class="wf-label">Отраслевые пакеты</div>
+        <div class="wf-content">«Отдел продаж», «Директор по развитию», «Операционное ядро» — готовые комбинации для конкретных ролей</div>
+      </div>
+      <div class="wf-section">
+        <div class="wf-label">AI-команда (Tier 4)</div>
+        <div class="wf-content">Отдельный акцент: полная платформа = «нанять AI-команду». Сравнение с ФОТ. Самый высокий чек → самый заметный блок</div>
+      </div>
+    </div>
+
+    <div class="wf-section">
+      <div class="wf-label">Как это работает (3 шага)</div>
+      <div class="wf-content">1. Выбираете продукт или пакет → 2. Подключаетесь за 1 день → 3. AI работает, вы видите результат. Без обучения, без внедрения месяцами</div>
+    </div>
+
+    <div class="wf-row">
+      <div class="wf-section">
+        <div class="wf-label">FAQ</div>
+        <div class="wf-content">«Можно взять один продукт?» / «Как добавить второй?» / «Есть ли пробный период?» / «Что если нам не подойдёт?»</div>
+      </div>
+      <div class="wf-section">
+        <div class="wf-label">CTA Footer</div>
+        <div class="wf-content">«Начать с бесплатного демо» или «Выбрать первый продукт». Минимальный барьер — одна кнопка, один продукт, один шаг</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="insight-box" style="margin-top:24px">
+    <div class="insight-icon">🔑</div>
+    <div class="insight-text">
+      <strong>Ключевое решение для обсуждения:</strong> Конфигуратор бандла — интерактивный или статичный? Интерактивный даёт вовлечённость и персонализацию, но требует разработки. Статичный (3 готовых пакета) — проще и быстрее в запуске. Рекомендую старт со статичными пакетами + форма «собрать кастомный».
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  @wasrusgen1 · Bundle Strategy · Май 2026 · Для внутреннего обсуждения
+</footer>
+
+</body>
+</html>
